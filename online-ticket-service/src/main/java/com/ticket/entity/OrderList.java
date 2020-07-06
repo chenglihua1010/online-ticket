@@ -3,7 +3,7 @@ package com.ticket.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Order_list implements Serializable{
+public class OrderList implements Serializable{
         //主键 id
         private Integer id;
         //订单号

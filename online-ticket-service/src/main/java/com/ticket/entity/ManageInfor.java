@@ -2,7 +2,7 @@ package com.ticket.entity;
 
 import java.io.Serializable;
 
-public class Manage_infor implements Serializable{
+public class ManageInfor implements Serializable{
         //主键 id
         private Integer id;
         //管理员账号

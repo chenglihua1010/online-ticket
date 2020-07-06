@@ -3,7 +3,7 @@ package com.ticket.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Train_infor implements Serializable{
+public class TrainInfor implements Serializable{
         //主键 id
         private Integer id;
         //列车编号

@@ -2,7 +2,7 @@ package com.ticket.entity;
 
 import java.io.Serializable;
 
-public class User_infor implements Serializable{
+public class UserInfor implements Serializable{
         //主键 id
         private Integer id;
         //账号(手机号作为账号)
