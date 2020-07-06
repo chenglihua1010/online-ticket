@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wwclr.consumer.mapper.BusUserMapper">
+  <resultMap id="BaseResultMap" type="com.wwclr.consumer.pojo.BusUser">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="phone" jdbcType="INTEGER" property="phone" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="job" jdbcType="INTEGER" property="job" />
+    <result column="memberCode" jdbcType="INTEGER" property="memberCode" />
+    <result column="role" jdbcType="INTEGER" property="role" />
+    <result column="crateTime" jdbcType="TIMESTAMP" property="crateTime" />
+    <result column="lastModify" jdbcType="TIMESTAMP" property="lastModify" />
+    <result column="logicalDeleted" jdbcType="BIT" property="logicalDeleted" />
+  </resultMap>
+</mapper>

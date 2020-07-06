@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+    <!--<script th:src="@{/static/js/1.js}"></script>-->
+</head>
+<body>
+thymeleaf模板引擎
+
+<h1 th:text="${name}"></h1>
+<div>
+    <input th:id="${student.name}"  th:name="${student.name}" th:value="${student.name}"/>
+    <input th:value="${student.userId}"/>
+    <input th:value="${student.age}"/>
+    <input th:value="${#dates.format(student.birthday,'yyyy-MM-dd')}"/>
+</div>
+
+<br/>
+<br/>
+<!--简洁写法-->
+<div th:object="${student}">
+    <input th:id="*{name}"  th:name="*{name}" th:value="*{name}"/>
+    <input th:value="*{userId}"/>
+    <input th:value="*{age}"/>
+    <input th:value="*{#dates.format(birthday,'yyyy-MM-dd')}"/>
+</div>
+
+<br/>
+<br/>
+<!--text和utext区别在于后者会将变量中的css读取-->
+<span th:text="${student.des}"></span>
+<br/>
+<span th:utext="${student.des}"></span>
+
+
+<!--from表单请求-->
+<br/>
+<form th:action="@{/th/postform}" th:object="${student}" method="post" th:method="post">
+<input th:field="*{name}"/>
+    <input type="submit"/>
+</form>
+    <br/>
+
+    <!--if/else用法-->
+    <div th:if="${student.age eq 18}">十八岁</div>
+    <div th:if="${student.age} gt 18">老了</div>
+    <div th:if="${student.age} lt 18">年轻人</div>
+    <div th:if="${student.age} ge 18">大于等于十八岁</div>
+    <div th:if="${student.age} le 18">小于等于十八岁</div>
+
+<br/>
+
+    <!--select用法-->
+    <select>
+        <option>选择框</option>
+        <option th:selected="${student.name eq 'wang5'}">wang5</option>
+        <option th:selected="${student.name eq 'wang6'}">wang6</option>
+        <option th:selected="${student.name eq 'wang7'}">wang7</option>
+    </select>
+
+
+    <!--table用法-->  <!--foreach循环用法-->
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>生日</th>
+        </tr>
+<tr th:each="person:${studentList}">
+    <td th:text="${person.name}"></td>
+    <td th:text="${person.age}"></td>
+    <td th:text="${#dates.format(person.birthday,'yyyy-MM-dd')}"/>
+</tr>
+    </table>
+
+    <br/>
+    <!--switch用法-->
+    <div th:switch="${student.name}">
+        <p th:case="'wang5'">管理员5</p>
+        <p th:case="'wang6'">管理员6</p>
+        <p th:case="'wang7'">管理员7</p>
+        <p th:case="#{roles.manager}">普通管理员</p>
+        <p th:case="#{roles.supermanager}">超级管理员</p>
+        <p th:case="*">其他用户</p>
+
+    </div>
+
+
+</body>
+</html>

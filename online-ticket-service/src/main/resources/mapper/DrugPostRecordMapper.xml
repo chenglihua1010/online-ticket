@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wwclr.consumer.mapper.DrugPostRecordMapper">
+  <resultMap id="BaseResultMap" type="com.wwclr.consumer.pojo.DrugPostRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="postCode" jdbcType="VARCHAR" property="postCode" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="ifTop" jdbcType="BIT" property="ifTop" />
+    <result column="ifEssence" jdbcType="BIT" property="ifEssence" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="getStarNumber" jdbcType="INTEGER" property="getStarNumber" />
+    <result column="getBrowseNumber" jdbcType="INTEGER" property="getBrowseNumber" />
+    <result column="crateTime" jdbcType="TIMESTAMP" property="crateTime" />
+    <result column="lastModify" jdbcType="TIMESTAMP" property="lastModify" />
+    <result column="logicalDeleted" jdbcType="BIT" property="logicalDeleted" />
+  </resultMap>
+</mapper>

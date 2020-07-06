@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wwclr.consumer.mapper.BusMembersMapper">
+  <resultMap id="BaseResultMap" type="com.wwclr.consumer.pojo.BusMembers">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="memberCode" jdbcType="VARCHAR" property="memberCode" />
+    <result column="userId" jdbcType="VARCHAR" property="userId" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <result column="memberType" jdbcType="INTEGER" property="memberType" />
+    <result column="effectTime" jdbcType="TIMESTAMP" property="effectTime" />
+    <result column="failureTime" jdbcType="TIMESTAMP" property="failureTime" />
+    <result column="crateTime" jdbcType="TIMESTAMP" property="crateTime" />
+    <result column="lastModify" jdbcType="TIMESTAMP" property="lastModify" />
+    <result column="logicalDeleted" jdbcType="BIT" property="logicalDeleted" />
+  </resultMap>
+
+</mapper>

@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Home</title>
+  <!--meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="" />
+  <script>
+    addEventListener("load", function () {
+      setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+      window.scrollTo(0, 1);
+    }
+  </script>
+  <!--//meta tags ends here-->
+  <!--booststrap-->
+  <link href="../../static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+  <!--//booststrap end-->
+  <!-- font-awesome icons -->
+  <link href="../../static/css/fontawesome-all.min.css" rel="stylesheet" type="text/css" media="all">
+  <!-- //font-awesome icons -->
+  <link href="../../static/css/blast.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="../../static/css/style10.css" />
+  <!--stylesheets-->
+  <link href="../../static/css/style.css" rel='stylesheet' type='text/css' media="all">
+  <!--//stylesheets-->
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Merriweather:300,400,700,900" rel="stylesheet">
+</head>
+<body>
+<!--<h1 th:text="${name}"></h1>-->
+
+<div class="blast-box">
+  <div class="blast-icon"><span class="fas fa-tint"></span></div>
+  <div class="blast-frame">
+    <p>change colors</p>
+    <div class="blast-colors">
+      <div class="blast-color">#86bc42</div>
+      <div class="blast-color">#8373ce</div>
+      <div class="blast-color">#14d4f4</div>
+      <div class="blast-color">#72284b</div>
+    </div>
+    <p class="blast-custom-colors">Custom colors</p>
+    <input type="color" name="blastCustomColor" value="#cf2626">
+  </div>
+</div>
+<div class="header-outs" id="header">
+  <div class="header-w3layouts">
+    <div class="container">
+      <div class="row headder-contact">
+        <!--<div class="col-lg-6 col-md-7 col-sm-9 info-contact-agile">-->
+          <div class="col-lg-12 col-md-12 col-sm-12 info-contact-agile">
+          <ul>
+
+            <li th:if="${user}">
+              <span class="fas fa-user-circle" style="font-size: 20px"></span>
+                <p style="font-size: 20px">您好，</p><p th:text="${user.userName}" style="font-size: 20px"></p>
+              <input type="hidden" th:value="${user.userName}" id="nameInput">
+            </li>
+
+
+            <li  th:unless="${user}">
+                <p><a href="#" data-toggle="modal" data-target="#loginModalLive" style="font-size: 20px">请登录</a></p>
+            </li>
+
+
+            <li th:if="${busMemberBean}">
+              <a th:switch="${busMemberBean.memberType}">
+                <p th:case="0" style="font-size: 20px">普通用户</p>
+                <p th:case="1" style="font-size: 20px">白银会员</p>
+                <p th:case="2" style="font-size: 20px">黄金会员</p>
+                <p th:case="3" style="font-size: 20px">钻石会员</p>
+              </a>
+            </li>
+
+
+            <li th:if="${user}">
+              <span class="fas fa-phone-volume" style="font-size: 20px"></span>
+              <p th:text="${user.mobilePhone}" style="font-size: 20px"></p>
+            </li>
+
+            <li th:if="${user}">
+              <span class="fas fa-envelope" style="font-size: 20px"></span>
+              <p><a href="mailto:888888@163.com" th:text="${user.mail}" style="font-size: 20px"></a></p>
+            </li>
+
+            <li th:if="${user}" style="float: right">
+              <p><a th:href="@{/th/index(userName=${user.userName})}"   style="font-size: 20px;">退出</a></p>
+            </li>
+          </ul>
+        </div>
+
+        <!--<div class="col-lg-6 col-md-5 col-sm-3 icons px-0">-->
+          <!--<ul>-->
+            <!--&lt;!&ndash;<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li><a href="#"><span class="fas fa-envelope"></span></a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li><a href="#"><span class="fas fa-rss"></span></a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li><a href="#"><span class="fab fa-twitter"></span></a></li>&ndash;&gt;-->
+            <!--&lt;!&ndash;<li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>&ndash;&gt;-->
+          <!--</ul>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="hedder-up">
+        <h1 ><a class="navbar-brand" data-blast="color">中医药信息展示平台</a></h1>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="headdser-nav-color" data-blast="bgColor">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav ">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">主页<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link scroll" >关于</a>
+            </li>
+            <li class="nav-item">
+              <a href="#blog" class="nav-link scroll">博客</a>
+            </li>
+            <li class="nav-item">
+              <a href="#team" class="nav-link scroll">名人</a>
+            </li>
+            <li class="nav-item">
+              <a href="#statistic" class="nav-link scroll">统计</a>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link scroll">注册</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--//navigation section -->
+    <div class="clearfix"> </div>
+  </div>
+  <!--banner -->
+  <!-- Slideshow 4 -->
+  <div class="slider">
+    <div class="callbacks_container">
+      <ul class="rslides" id="slider4">
+        <li>
+          <div class="slider-img one-img">
+            <div class="container">
+              <div class="slider-info text-left">
+                <!--<h4 >来自长白山</h4>-->
+                <h5>养生 保健 养颜</h5>
+                <p>适合中老年人，益气补血
+                </p>
+                <div class="outs_more-buttn" >
+                  <a href="#" data-toggle="modal" data-target="#more1ModalLive" data-blast="bgColor">更多</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="slider-img two-img">
+            <div class="container">
+              <div class="slider-info text-left">
+                <!--<h4>中药世家</h4>-->
+                <h5>当归 枸杞 龙葵</h5>
+                <p>多味中草药，调出好身体
+                </p>
+                <div class="outs_more-buttn">
+                  <a href="#" data-toggle="modal" data-target="#more2ModalLive" data-blast="bgColor">更多</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="slider-img three-img">
+            <div class="container">
+              <div class="slider-info text-left">
+                <!--<h4></h4>-->
+                <h5>儿茶 八角 丁香</h5>
+                <p>好药材，制好药
+                </p>
+                <div class="outs_more-buttn">
+                  <a href="#" data-toggle="modal" data-target="#more3ModalLive" data-blast="bgColor">更多</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- This is here just to demonstrate the callbacks -->
+    <!-- <ul class="events">
+      <li>Example 4 callback events</li>
+      </ul>-->
+    <div class="clearfix"></div>
+  </div>
+
+</div>
+<!-- //banner -->
+<!--about-->
+<section class="pt-md-5 pt-sm-4 pt-3">
+  <div class="container-fluid ">
+    <div class="main row ">
+      <!-- TENTH EXAMPLE -->
+
+      <div class="col-lg-4 view view-tenth" th:each="drugDetail:${busDrugDetailBeanList}">
+      <img th:src="${drugDetail.drugImgUrl}" alt="" class="img-fluid">
+      <div class="mask">
+      <h3 data-blast="bgColor" th:text="${drugDetail.drugName}"></h3>
+      <p th:text="${drugDetail.describe}"></p>
+        <div th:switch="${drugDetail.type}">
+          <a href="#" class="info" data-toggle="modal"  data-blast="bgColor" th:case="1">植物类</a>
+          <a href="#" class="info" data-toggle="modal"  data-blast="bgColor" th:case="2">动物类</a>
+          <a href="#" class="info" data-toggle="modal"  data-blast="bgColor" th:case="3">矿石类</a>
+          <a href="#" class="info" data-toggle="modal"  data-blast="bgColor" th:case="4">其他类型</a>
+        </div>
+        <!--<a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">更多</a>-->
+      </div>
+      </div>
+
+      <!--<div class="col-lg-4 view view-tenth">-->
+        <!--<img src="../../static/images/ab1.jpg" alt="" class="img-fluid">-->
+        <!--<div class="mask">-->
+          <!--<h3 data-blast="bgColor">Success</h3>-->
+          <!--<p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>-->
+          <!--<a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+
+      <!--<div class="col-lg-4 view view-tenth">-->
+        <!--<img src="../../static/images/ab2.jpg" alt="" class="img-fluid">-->
+        <!--<div class="mask">-->
+          <!--<h3 data-blast="bgColor">Hard Work</h3>-->
+          <!--<p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>-->
+          <!--<a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+      <!---->
+      <!--<div class="col-lg-4 view view-tenth">-->
+        <!--<img src="../../static/images/ab3.jpg" alt="" class="img-fluid">-->
+        <!--<div class="mask">-->
+          <!--<h3 data-blast="bgColor">Admission</h3>-->
+          <!--<p>Vivamus sed poritor felis.ntesque habitant morbi senectus et netus</p>-->
+          <!--<a href="#" class="info" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">Read More</a>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+    <!--Horizontal Tab-->
+    <div id="horizontalTab">
+      <ul class="resp-tabs-list justify-content-center">
+        <li data-blast="bgColor">起源</li>
+        <li data-blast="bgColor">现状</li>
+        <li data-blast="bgColor">未来</li>
+        <li data-blast="bgColor">目标</li>
+      </ul>
+      <div class="resp-tabs-container">
+        <div class="tab1" >
+          <div class="row mt-lg-4 mt-3">
+            <div class="col-md-7 latest-list">
+              <div class="about-jewel-agile-left">
+                <h4 class="mb-3" data-blast="color"> </h4>
+                <p>
+                  中药起源很早，可以追溯到原始社会，有数千年的悠久历史。中医药是我国人民在长期的生产劳动，生活实践与医疗实践中不断地进行积累总结的结果。
+                  <br>
+                  中国劳动人民几千年来在与疾病作斗争的过程中，通过实践，不断认识，逐渐积累了丰富的医药知识。由于太古时期文学未兴，这些知识只能依靠师承口授，后来有了文字，便逐渐记录下来，出现了医药书籍。这些书籍起到了总结前人经验并便于流传和推广的作用。中国医药学已有数千年的历史，是中国人民长期同疾病作斗争的极为丰富的经验总结，对于中华民族的繁荣昌盛有着巨大的贡献。由于药物中草类占大多数，所以记载药物的书籍便称为"本草"。据考证，秦汉之际，本草流行已较多，但可惜这些本草都已亡佚，无可查考。现知的最早本草著作称为《神衣本草经》，著者不详，根据其中记载的地名，可能是东汉医家修订前人著作而成。
+                </p>
+                <!--<h5 data-blast="color"> Who we are</h5>-->
+              </div>
+            </div>
+            <br>
+            <div class="col-md-5 about-txt-img">
+              <img src="../../static/images/ab1111.jpg" class="img-thumbnail" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="tab2">
+          <div class="row mt-lg-4 mt-3">
+            <div class="col-md-5 about-txt-img">
+              <img src="../../static/images/ab333.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="col-md-7 latest-list">
+              <div class="about-jewel-agile-left">
+                <h4 class="mb-3" data-blast="color"> </h4>
+                <p>中医药也叫汉族医药，它是中华民族的宝贵财富，为中华民族的繁衍昌盛作出了巨大贡献。传统医学的治疗理念正逐渐被世界所接受，传统医药受到国际社会越来越多的关注，世界范围内对中医药的需求日益增长，这为中医药的发展提供了广阔的空间。
+               <br>
+                <br>
+                2016年12月6日，国务院新闻办发表《中国的中医药》白皮书。这是中国政府首次就中医药发展发表白皮书。白皮书系统介绍了中医药的发展脉络及其特点，充分介绍了中国发展中医药的国家政策和主要措施，展示了中医药的科学价值和文化特点。</p>
+                <!--<h5 data-blast="color">What We do</h5>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab3">
+          <div class="row mt-lg-4 mt-3">
+            <div class="col-md-7 latest-list">
+              <div class="about-jewel-agile-left">
+                <h4 class="mb-3" data-blast="color"> </h4>
+                <p>在大力发展地域经济的今天，一些经济欠发达地区，特别是那些贫困地区，在当地其他资源匮乏的情况下，都把目光聚焦于中药产业，药农＋基地＋公司的模式屡见不鲜，中药地位日渐提升，说明中药正在显现自身的潜力
+               <br>
+                  中药现代化是中医药适时而存的必然趋势，也是满足人们对中药产品高效、速效、长效“三效”；剂量小、毒性小、副作用小“三小”；便于储存、携带、服用“三便”消费需求的必由之路，目前，组织细胞培养，药用动植物基因工程，中药DNA分子鉴定，药用植物分子标记育种等生物技术被应用于中药的开发和研究，势必加速中医药事业的发展
+                </p>
+                <!--<h5 data-blast="color">What Our Vision</h5>-->
+              </div>
+            </div>
+            <div class="col-md-5 about-txt-img">
+              <img src="../../static/images/ab222.jpg" class="img-thumbnail" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="tab4">
+          <div class="row mt-lg-4 mt-3">
+            <div class="col-md-5 about-txt-img">
+              <img src="../../static/images/ab44.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="col-md-7 latest-list">
+              <div class="about-jewel-agile-left">
+                <h4 class="mb-3" data-blast="color"> </h4>
+                <p>《中国的中医药》白皮书显示，目前中药产业逐渐成为中国国民经济与社会发展中具有独特优势和广阔市场前景的战略性产业，以药材生产为基础、工业为主体、商业为纽带，中国现代中药产业体系基本建立。截至2015年底，中国已有中医类医院3966所，中医类别执业(助理)医师45.2万人；2015年，全国中医类医疗卫生机构总诊疗人次达9.1亿人次。中医药已传播到183个国家和地区。这些数据说明，中国中医药产业要实施国际化标准是有很强基础实力的
+                <br>
+                  2016年国务院还印发《中医药发展战略规划纲要(2016-2030年)》，把中医药发展上升为“国家战略”，对新时期推进中医药事业发展作出系统部署，其中就包括中医药标准的相关部署。此外，2016年底出台了《中医药法》，于2017年7月1日起施行。
+                </p>
+                <!--<h5 data-blast="color">What Our Mission</h5>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--//about-->
+<!--service-->
+
+<!--<section class="service py-lg-4 py-md-3 py-sm-3 py-3" id="service">-->
+  <!--<div class="container py-lg-5 py-md-5 py-sm-4 py-3">-->
+    <!--<h3 class="title clr text-center mb-lg-5 mb-md-4  mb-sm-4 mb-3">services</h3>-->
+    <!--<div class="row">-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fas fa-book banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fas fa-pencil-alt banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fas fa-bookmark banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fas fa-address-book banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fas fa-graduation-cap banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 w3layouts-service-list text-center mt-md-4 mt-sm-3 mt-3">-->
+        <!--<div class="white-shadow">-->
+          <!--<div class="text-wls-ser-bake">-->
+            <!--<span class="fab fa-cloudscale banner-icon" data-blast="color"></span>-->
+          <!--</div>-->
+          <!--<div class="ser-inner-info">-->
+            <!--<h4 class="my-3">Lorem ipsum</h4>-->
+            <!--<p>delectus reiciendis maiores alias consequatur aut.maiores alias</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</section>-->
+
+<!--//service-->
+<!--blog -->
+<section class="blog py-lg-4 py-md-3 py-sm-3 py-3" id="blog">
+  <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+    <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">博客</h3>
+    <div class="row">
+
+      <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex" th:each="record:${drugPostRecordBeanList}">
+        <div class="clients-color">
+          <img th:src="${record.imageUrl}" class="img-fluid" alt="">
+          <div class="blog-txt-info">
+            <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color" th:text="${record.title}"></a></h4>
+            <div class="news-date my-3">
+              <ul>
+                <li><a  th:text="${record.userName}"></a></li>
+                <li class="mr-3"><span class="far fa-calendar-check"></span><a  th:text="${#dates.format(record.createTime,'yyyy-MM-dd')}"></a></li>
+                <li> <span class="fas fa-thumbs-up"></span><a  th:text="${record.getBrowseNumber}"></a></li>
+                <!--<span class="far fa-comments"></span>-->
+              </ul>
+            </div>
+            <!--<p>复阿胶浆药物组:阿胶、桂圆、枸杞、枣、甘草、红糖、葡萄糖酸亚铁、参、熟黄、党参、山楂等临床治疗复阿胶浆具四功效:(1)骨髓造血系统保护作用升高白细胞白细胞减少症肿瘤细胞侵入骨髓、细胞类毒药物、放射线等能直接作用于骨髓抑制骨髓粒细胞引起复阿胶浆能预防、抗、减低细胞毒素骨髓造血系统损伤、保护造血干细胞裂与增白细胞明显增加放疗、化疗、药物、职业素及其原引起白细胞减少症显著疗效(2)促进造血系统功能显著补血作用复阿胶浆促进造血功能显著补血作用(3)增强免疫功能免疫功能低血虚症病见症状并易发呼吸消化道染、易冒、便血、尿血、牙龈血、流鼻血等复阿胶浆使机体内巨噬细胞吞噬功能提高倍增加体内免疫球蛋白数量使机体自身清除外侵病毒、细胞能力增强提高免疫力减少述疾病发(4)增强体力迅速消除疲劳复阿胶浆骨髓造血机能促进作用随着血色素提高全身各细胞供氧量增加疲劳耐受性增强 复阿胶浆具四功效服用复阿胶浆治疗气血两虚晕目眩悸失眠食欲振及白细胞减少症贫血</p>-->
+            <p th:text="${record.shortDescribe}"></p>
+
+            <div class="outs_more-buttn" >
+
+              <!--<a th:onclick="|javascript:findAllPostRecord()|"  data-blast="bgColor">More</a>-->
+              <!--<a th:href="@{/record/postRecordDetail(id=${record.id})}"  data-blast="bgColor">More</a>-->
+              <!--<a th:href="@{/record/allPostRecord}"  data-blast="bgColor">More</a>-->
+
+              <div th:if="${user}">
+              <a th:href="@{/record/allPostRecord(userName=${user.userName})}">More</a>
+            </div>
+
+              <div th:unless="${user}">
+                <a th:href="@{/record/allPostRecord(userName='null')}">More</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab3.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">阿胶可以入药吗？针对哪些病，有什么功效吗</a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">2019/3/3</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<p>复阿胶浆药物组:阿胶、桂圆、枸杞、枣、甘草、红糖、葡萄糖酸亚铁、参、熟黄、党参、山楂等临床治疗复阿胶浆具四功效:(1)骨髓造血系统保护作用升高白细胞白细胞减少症肿瘤细胞侵入骨髓、细胞类毒药物、放射线等能直接作用于骨髓抑制骨髓粒细胞引起复阿胶浆能预防、抗、减低细胞毒素骨髓造血系统损伤、保护造血干细胞裂与增白细胞明显增加放疗、化疗、药物、职业素及其原引起白细胞减少症显著疗效(2)促进造血系统功能显著补血作用复阿胶浆促进造血功能显著补血作用(3)增强免疫功能免疫功能低血虚症病见症状并易发呼吸消化道染、易冒、便血、尿血、牙龈血、流鼻血等复阿胶浆使机体内巨噬细胞吞噬功能提高倍增加体内免疫球蛋白数量使机体自身清除外侵病毒、细胞能力增强提高免疫力减少述疾病发(4)增强体力迅速消除疲劳复阿胶浆骨髓造血机能促进作用随着血色素提高全身各细胞供氧量增加疲劳耐受性增强 复阿胶浆具四功效服用复阿胶浆治疗气血两虚晕目眩悸失眠食欲振及白细胞减少症贫血</p>&ndash;&gt;-->
+            <!--<p>复阿胶浆药物组:阿胶、桂圆、枸杞、枣、甘草、红糖、葡萄糖酸亚铁、参、熟黄、党参、山楂等临床治疗复阿胶浆具四功效:(1)骨髓造血系统保护作用....</p>-->
+
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="col-lg-4 col-md-6 col-sm-6  blog-grid-flex">-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab1.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<p>首先需要说明，无论中药还是西药都是用来治病救人的，本质上没有什么差别，它们之间也没有绝对的优劣之分。西药更注重药到病除，而重要则更注重整体的恢复，中药多采用口服的方式，通过改善人体的内环境提高人体抵抗疾病的能力，顺其自然的治好疾病。而西药大多采取注射等直接将药物送达患处的方式，强行改变了人体内的内环境，容易导致很多的副作用。在副作用方面谁的副作用更小一些是有目共睹的。在大病上，相对于西药来说，中药的价钱要相对低很多，例如白血病好了，用西药及化疗治白血病,不仅使病人倍受折磨,而且医疗费用高昂,使得大多数患者及一般家庭经济能力难以承受。而中药还可对化疗的并发症进行调解和治疗。从小病入眼也是如此，相对于西药来说，中药的毒副作用更小一些，就拿感冒来说好了，现在广告上的感冒药感叹号即是如此，它的主要成分氨酚烷胺，服用过后可能会引起服用者嗜睡，头晕，恶心等症状的发生，而中药成分的感冒药则无此担忧，即使是忙于工作和学习的人也可以放心服用，不用担心服用过后的困顿影响到正常的工作和学习。 但是现在，中药和西药的分界已不明显，很多中药里添加了西药的成分，而很多西药为了降低副作用也相应的添加了中药进去。</p>&ndash;&gt;-->
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+      <!---->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab2.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>-->
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3">-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab3.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" >12/4/2019</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" >5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>-->
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3" >-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab1.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>-->
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3">-->
+        <!--<div class="clients-color">-->
+          <!--<img src="../../static/images/ab2.jpg" class="img-fluid" alt="">-->
+          <!--<div class="blog-txt-info">-->
+            <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>-->
+            <!--<div class="news-date my-3">-->
+              <!--<ul>-->
+                <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>-->
+                <!--<li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+            <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>-->
+            <!--<div class="outs_more-buttn" >-->
+              <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+    </div>
+  </div>
+</section>
+<!--//blog -->
+<!--Subscribe-->
+<section class="py-md-5 py-sm-4 py-3" id="statistic">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 col-md-12 subscrib-w3layouts text-center">
+        <!--<h2 data-blast="color">统计数据</h2>-->
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">统计数据</h3>
+      </div>
+
+      <!--<div class="col-lg-6 col-md-6 subscrib-w3layouts text-center">-->
+        <!--<h2 data-blast="color">统计数据</h2>-->
+      <!--</div>-->
+      <!--<div class="col-lg-6 col-md-6">-->
+        <!--<div class="newsletter">-->
+          <!--<form action="#" method="post" class="d-flex">-->
+            <!--<input type="email" class="form-control" placeholder="Your Email" required="">-->
+            <!--<button class="btn1">-->
+              <!--<span class="far fa-envelope"></span>-->
+            <!--</button>-->
+          <!--</form>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  </div>
+  </div>
+</section>
+<!--//Subscribe-->
+<!--stats-->
+<section class="stats py-lg-4 py-md-3 py-sm-3 py-3" id="stats">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+    <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">了解中医 </h3>
+    <div class="jst-must-info text-center">
+      <div class="row stats-info">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-1">
+          <div class="stats-grid" data-blast="bgColor">
+            <div class="counter">5000</div>
+            <div class="stat-info">
+              <h5 class="pt-2">年</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-2">
+          <div class=" stats-grid" data-blast="bgColor">
+            <div class="counter">8000</div>
+            <div class="stat-info">
+              <h5 class="pt-2"> 味</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-3">
+          <div class=" stats-grid" data-blast="bgColor">
+            <div class="counter">21</div>
+            <div class="stat-info">
+              <h5 class="pt-2"> 类</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 stats-grid-4">
+          <div class=" stats-grid" data-blast="bgColor">
+            <div class="counter">10</div>
+            <div class="stat-info">
+              <h5 class="pt-2"> 派</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--//stats-->
+<!--Team-->
+<section class="team py-lg-4 py-md-3 py-sm-3 py-3" id="team">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+    <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">中药鼻祖</h3>
+    <div class="row ">
+
+
+      <!--<div class="col-lg-3 col-md-6 col-sm-6 profile">-->
+        <!--<div class="team-shadow">-->
+          <!--<div class="img-box">-->
+            <!--<img src="../../static/images/t1.jpg" alt="">-->
+            <!--<div class="list-social-icons">-->
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">-->
+            <!--<h4 class="text-white mb-2">黄帝</h4>-->
+            <!--<span class="wls-client-title text-black">针灸之祖</span>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="col-lg-3 col-md-6 col-sm-6 profile">
+        <div class="team-shadow">
+          <div class="img-box">
+            <img src="../../static/images/bianque.jpg" alt="">
+            <div class="list-social-icons">
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            </div>
+          </div>
+          <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
+            <h4 class="text-white mb-2">扁鹊</h4>
+            <span class="wls-client-title text-black">脉学之祖</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 col-sm-6 profile">
+        <div class="team-shadow">
+          <div class="img-box">
+            <div class="team-list-img">
+              <img src="../../static/images/huatuo.jpg" alt="">
+            </div>
+            <div class="list-social-icons">
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            </div>
+          </div>
+          <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
+            <h4 class="text-white mb-2">华佗</h4>
+            <span class="wls-client-title text-black">外科之祖</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 profile">
+        <div class="team-shadow">
+          <div class="img-box">
+            <div class="team-list-img">
+              <img src="../../static/images/zhangzhongjing.jpg" alt="">
+            </div>
+            <div class="list-social-icons">
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f" ></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            </div>
+          </div>
+          <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
+            <h4 class="text-white mb-2">张仲景</h4>
+            <span class="wls-client-title text-black">医圣</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-3 col-md-6 col-sm-6 profile">
+        <div class="team-shadow">
+          <div class="img-box">
+            <div class="team-list-img">
+              <img src="../../static/images/sunsimiao.jpg" alt="">
+            </div>
+            <div class="list-social-icons">
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f" ></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            </div>
+          </div>
+          <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
+            <h4 class="text-white mb-2">孙思邈</h4>
+            <span class="wls-client-title text-black">药王</span>
+          </div>
+        </div>
+      </div>
+
+      <!--<div class="col-lg-3 col-md-6 col-sm-6 profile">-->
+        <!--<div class="team-shadow">-->
+          <!--<div class="img-box">-->
+            <!--<div class="team-list-img">-->
+              <!--<img src="../../static/images/t4.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="list-social-icons">-->
+              <!--<ul>-->
+                <!--<li><a href="#"><span class="fab fa-facebook-f" ></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+                <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+                <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">-->
+            <!--<h4 class="text-white mb-2">李时珍</h4>-->
+            <!--<span class="wls-client-title text-black">药圣</span>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    </div>
+  </div>
+</section>
+<!--//Team-->
+<!--contact -->
+<section class="contact py-lg-4 py-md-3 py-sm-3 py-3" id="contact">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+    <h3 class="title clr text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">注册</h3>
+    <div class="row">
+      <div class="col-md-5 address-grid">
+        <div class="addres-office-hour text-center" >
+          <ul>
+            <li class="mb-2">
+              <h6 data-blast="color">地址</h6>
+            </li>
+            <li>
+              <p>浙江省杭州市浙江中医药大学</p>
+            </li>
+          </ul>
+          <ul>
+            <li class="mt-lg-4 mt-3">
+              <h6 data-blast="color">电话</h6>
+            </li>
+            <li class="mt-2">
+              <p>15868859893</p>
+            </li>
+            <li class="mt-lg-4 mt-3">
+              <h6 data-blast="color">邮箱</h6>
+            </li>
+            <li class="mt-2">
+              <p><a href="mailto:info@example.com">15868859893@163.com</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-7 contact-form">
+        <form th:action="@{/th/registerPage}"  id="registerform"  th:method="post">
+          <div class="row text-center contact-wls-detail">
+          <div class="col-md-6 form-group contact-forms">
+            <input type="text" class="form-control" name="userName" placeholder="用户名" required="">
+          </div>
+          <div class="col-md-6 form-group contact-forms">
+            <input type="email" class="form-control" name="mail" placeholder="邮箱" required="">
+          </div>
+        </div>
+
+          <div class="row text-center contact-wls-detail">
+            <div class="col-md-6 form-group contact-forms">
+              <input type="text" id="phone" name="mobilePhone" placeholder="手机号" onblur="checkPhone()">
+            </div>
+            <div class="col-md-6 form-group contact-forms">
+              <select name="job">
+                <option value="0">职业</option>
+                <option value="1">程序猿</option>
+                <option value="2">攻城狮</option>
+                <option value="3">其它</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div class="form-group contact-forms">
+            <input type="password" class="form-control" name="passWord" placeholder="密码" required="">
+          </div>
+          <!--<div class="form-group contact-forms">-->
+            <!--<textarea class="form-control" rows="3" placeholder="Your Message" required=""></textarea>-->
+          <!--</div>-->
+          <div class="sent-butnn text-center">
+            <!--<button type="button" class="btn btn-block" th:onclick="|javascript:register()|"  data-blast="bgColor">注册</button>-->
+            <button type="button" class="btn btn-block" onclick="registerAndCheck()"  data-blast="bgColor">注册</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--//contact -->
+<!--footer-->
+<section class="footer py-lg-4 py-md-3 py-sm-3 py-3">
+  <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+    <div class="row ">
+      <div class="dance-agile-info col-lg-3 col-md-6 col-sm-6">
+        <h4 class="pb-lg-3 pb-3" data-blast="color">热门博客</h4>
+
+
+        <!--<div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex" th:each="record:${drugPostRecordBeanList}">-->
+          <!--<div class="clients-color">-->
+            <!--<img th:src="${record.imageUrl}" class="img-fluid" alt="">-->
+            <!--<div class="blog-txt-info">-->
+              <!--<h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color" th:text="${record.title}"></a></h4>-->
+              <!--<div class="news-date my-3">-->
+                <!--<ul>-->
+                  <!--<li><a  th:text="${record.userName}"></a></li>-->
+                  <!--<li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" th:text="${#dates.format(record.createTime,'yyyy-MM-dd')}"></a></li>-->
+                  <!--<li> <span class="fas fa-thumbs-up"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" th:text="${record.getBrowseNumber}"></a></li>-->
+                  <!--&lt;!&ndash;<span class="far fa-comments"></span>&ndash;&gt;-->
+                <!--</ul>-->
+              <!--</div>-->
+              <!--&lt;!&ndash;<p>复阿胶浆药物组:阿胶、桂圆、枸杞、枣、甘草、红糖、葡萄糖酸亚铁、参、熟黄、党参、山楂等临床治疗复阿胶浆具四功效:(1)骨髓造血系统保护作用升高白细胞白细胞减少症肿瘤细胞侵入骨髓、细胞类毒药物、放射线等能直接作用于骨髓抑制骨髓粒细胞引起复阿胶浆能预防、抗、减低细胞毒素骨髓造血系统损伤、保护造血干细胞裂与增白细胞明显增加放疗、化疗、药物、职业素及其原引起白细胞减少症显著疗效(2)促进造血系统功能显著补血作用复阿胶浆促进造血功能显著补血作用(3)增强免疫功能免疫功能低血虚症病见症状并易发呼吸消化道染、易冒、便血、尿血、牙龈血、流鼻血等复阿胶浆使机体内巨噬细胞吞噬功能提高倍增加体内免疫球蛋白数量使机体自身清除外侵病毒、细胞能力增强提高免疫力减少述疾病发(4)增强体力迅速消除疲劳复阿胶浆骨髓造血机能促进作用随着血色素提高全身各细胞供氧量增加疲劳耐受性增强 复阿胶浆具四功效服用复阿胶浆治疗气血两虚晕目眩悸失眠食欲振及白细胞减少症贫血</p>&ndash;&gt;-->
+              <!--<p th:text="${record.shortDescribe}"></p>-->
+
+              <!--<div class="outs_more-buttn" >-->
+                <!--<a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="footer-grid row mb-3" th:each="record:${drugPostRecordBeanList}">
+          <div class="col-lg-5 col-md-6 col-sm-6 col-5">
+            <img th:src="${record.imageUrl}" alt=" " class="img-fluid">
+          </div>
+          <div class="col-lg-7 col-md-6 col-sm-6 col-7 bottom-para px-0">
+            <h6><a href="#" data-toggle="modal" data-target="#exampleModalLivexxxxx" th:text="${record.title}"></a></h6>
+            <div class="news-bloger">
+              <ul>
+                <li><a  th:text="${record.userName}"></a></li>
+                <br>
+                <li class="mr-1"><a href="#about" class="scroll" data-blast="color" th:text="${#dates.format(record.createTime,'yyyy-MM-dd')}"></a></li>
+                <li><a href="#"  data-blast="color" th:text="${record.getBrowseNumber}"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
+        <!--<div class="footer-grid row mb-3">-->
+          <!--<div class="col-lg-5 col-md-6 col-sm-6 col-5">-->
+            <!--<img src="../../static/images/bb1.jpg" alt=" " class="img-fluid">-->
+          <!--</div>-->
+          <!--<div class="col-lg-7 col-md-6 col-sm-6 col-7 bottom-para px-0">-->
+            <!--<h6><a href="#" data-toggle="modal" data-target="#exampleModalLive">ultricies nec,pellen eu,pretium quis,</a></h6>-->
+            <!--<div class="news-bloger">-->
+              <!--<ul>-->
+                <!--<li class="mr-1"><a href="#about" class="scroll" data-blast="color">12/4/2019</a></li>-->
+                <!--<li><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">3 Tags</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!---->
+        <!--<div class="footer-grid row mb-3">-->
+          <!--<div class="col-lg-5 col-md-6 col-sm-6 col-5">-->
+            <!--<img src="../../static/images/bb2.jpg" alt=" " class="img-fluid">-->
+          <!--</div>-->
+          <!--<div class="col-lg-7 col-md-6 col-sm-6 col-7 bottom-para px-0">-->
+            <!--<h6><a href="#" data-toggle="modal" data-target="#exampleModalLive">ultricies nec,pellen eu,pretium quis,</a></h6>-->
+            <!--<div class="news-bloger">-->
+              <!--<ul>-->
+                <!--<li class="mr-1"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">12/4/2019</a></li>-->
+                <!--<li><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">3 Tags</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!---->
+        <!---->
+        <!--<div class="footer-grid row">-->
+          <!--<div class="col-lg-5 col-md-6 col-sm-6 col-5">-->
+            <!--<img src="../../static/images/bb3.jpg" alt=" " class="img-fluid">-->
+          <!--</div>-->
+          <!--<div class="col-lg-7 col-md-6 col-sm-6 col-7 bottom-para px-0">-->
+            <!--<h6><a href="#" data-toggle="modal" data-target="#exampleModalLive">ultricies nec,pellen eu,pretium quis,</a></h6>-->
+            <!--<div class="news-bloger">-->
+              <!--<ul>-->
+                <!--<li class="mr-1"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">12/4/2019</a></li>-->
+                <!--<li><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">3 Tags</a></li>-->
+              <!--</ul>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+
+
+      <div class="dance-agile-info col-lg-3 col-md-6 col-sm-6">
+        <h4 class="pb-lg-4 pb-md-3 pb-3 text-uppercase" data-blast="color">关于我们</h4>
+        <div class="footer-office-hour">
+          <ul>
+            <li>
+              <p>我们只是中医药的爱好者，如果你也是，可以加入我们哦</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="dance-agile-info col-lg-3 col-md-6 col-sm-6">
+        <h4 class="pb-lg-4 pb-md-3 pb-3 text-uppercase" data-blast="color">联系我们</h4>
+        <div class="footer-office-hour">
+          <ul>
+            <li>
+              <p>如果您对我们网站有任何好的建议</p>
+            </li>
+            <li class="my-1">
+              <p><a href="mailto:info@example.com" data-blast="color">电话:</a>15868859893</p>
+            </li>
+            <li class="mb-lg-4 mb-md-3 mb-3"><span>24小时在线</span></li>
+            <li>
+              <p>如果您有好的素材需要投稿</p>
+            </li>
+            <li class="my-1">
+              <p><a href="mailto:info@example.com" data-blast="color">邮箱:</a>15868859893@163.com</p>
+            </li>
+            <li><span>三天内回复</span></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="dance-agile-info col-lg-3 col-md-6 col-sm-6">
+        <h4 class="pb-lg-3 pb-3" data-blast="color">照片墙</h4>
+        <div class="footer-post d-flex mb-2">
+          <div class="agileinfo_footer_grid1 mr-2">
+            <a href="#blog" class=" scroll">
+              <img src="../../static/images/lianzi.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+          <div class="agileinfo_footer_grid1 mr-2">
+            <a href="#blog" class="scroll">
+              <img src="../../static/images/jiake.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+          <div class="agileinfo_footer_grid1">
+            <a href="#blog" class="scroll">
+              <img src="../../static/images/liuhuang.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+        </div>
+        <div class="footer-post d-flex mb-2">
+          <div class="agileinfo_footer_grid1 mr-2">
+            <a href="#blog" class="scroll">
+              <img src="../../static/images/ajiao.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+          <div class="agileinfo_footer_grid1 mr-2">
+            <a href="#blog" class=" scroll">
+              <img src="../../static/images/zhongandxi.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+          <div class="agileinfo_footer_grid1">
+            <a href="#blog" class=" scroll">
+              <img src="../../static/images/100zhong2.jpg" alt=" " class="img-fluid">
+            </a>
+          </div>
+        </div>
+
+        <!--<div class="footer-post d-flex">-->
+          <!--<div class="agileinfo_footer_grid1 mr-2">-->
+            <!--<a href="#blog" class="scroll">-->
+              <!--<img src="../../static/images/f2.jpg" alt=" " class="img-fluid">-->
+            <!--</a>-->
+          <!--</div>-->
+          <!--<div class="agileinfo_footer_grid1 mr-2">-->
+            <!--<a href="#blog" class=" scroll">-->
+              <!--<img src="../../static/images/f3.jpg" alt=" " class="img-fluid">-->
+            <!--</a>-->
+          <!--</div>-->
+          <!--<div class="agileinfo_footer_grid1">-->
+            <!--<a href="#blog" class=" scroll">-->
+              <!--<img src="../../static/images/f1.jpg" alt=" " class="img-fluid">-->
+            <!--</a>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="nav-footer py-sm-4 py-3">
+  <div class="container-fluid">
+    <div class="buttom-nav ">
+      <nav class="border-line py-2">
+        <ul class="nav justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">首页<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link scroll">关于</a>
+          </li>
+          <!--<li class="nav-item">-->
+            <!--<a href="#service" class="nav-link scroll">Services</a>-->
+          <!--</li>-->
+          <li class="nav-item">
+            <a href="#blog" class="nav-link scroll">博客</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link scroll">注册</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<footer class="py-3">
+  <div class="container">
+    <div class="copy-agile-right text-center">
+      <div class="list-social-icons text-center py-lg-4 py-md-3 py-3">
+        <ul>
+          <!--<li><a href="#"><span class="fab fa-facebook-f"></span></a></li>-->
+          <!--<li><a href="#"><span class="fas fa-envelope"></span></a></li>-->
+          <!--<li><a href="#"><span class="fas fa-rss"></span></a></li>-->
+          <!--<li><a href="#"><span class="fab fa-vk"></span></a></li>-->
+        </ul>
+      </div>
+      <p>
+        <!--Copyright &copy; 2018.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>-->
+        Copyright &copy; 2019.Design By ChengXiaoJuan
+      </p>
+    </div>
+  </div>
+</footer>
+<!--//footer-->
+
+<!--model-->
+<div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLiveLabel" data-blast="color">ClassWork</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="../../static/images/b2.jpg" alt="" class="img-fluid">
+        <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
+          eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellu
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--人参model-->
+<div id="more1ModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="more1ModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="more1ModalLiveLabel" data-blast="color">人参</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="../../static/images/b4444.jpg" alt="" class="img-fluid">
+        <p>人参为多年生草本植物，喜阴凉，叶片无气孔和栅栏组织，无法保留水分，温度高于32度叶片会灼伤，郁闭度0.7-0.8。通常3年开花，5-6年结果，花期5-6月，果期6-9月。生长于北纬33度-48度之间的海拔数百米的以红松为主的针阔混交林或落叶阔叶林下，产于中国东北、朝鲜、韩国、日本、俄罗斯东部。人参的别称为黄参、地精、神草、百草之王，是闻名遐迩的"东北三宝"之一。
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--当归枸杞龙葵model-->
+<div id="more2ModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="more2ModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="more2ModalLiveLabel" data-blast="color">当归枸杞龙葵</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="../../static/images/b22.jpg" alt="" class="img-fluid">
+        <p>
+          当归：其根可入药，是最常用的中药之一。具有补血和血，调经止痛，润燥滑肠、抗癌、抗老防老、免疫之功效
+          枸杞：枸杞子:养肝，滋肾，润肺。枸杞叶:补虚益精，清热明目。
+          龙葵：浆果和叶子均可食用，但叶子含有大量生物碱，须经煮熟后方可解毒。全株入药，可散瘀消肿，清热解毒。
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--儿茶八角丁香model-->
+<div id="more3ModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="more3ModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="more3ModalLiveLabel" data-blast="color">儿茶八角丁香</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="../../static/images/b333.jpg" alt="" class="img-fluid">
+        <p>
+          儿茶：收湿生肌敛疮。用于溃疡不敛，湿疹，口疮，跌扑伤痛，外伤出血。
+          八角：果皮、种子、叶都含芳香油，是制造化妆品、甜香酒、啤酒和食品工业的重要原料。
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--登陆模态框-->
+<div id="loginModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLiveLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="loginModalLiveLabel" data-blast="color" style="font-family: 'Microsoft YaHei UI'">请登录</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form th:action="@{/th/loginForIndex}"  id="loginform"  th:method="post">
+
+        <div class="modal-body">
+          <!--<img src="../../static/images/b2.jpg" alt="" class="img-fluid">-->
+          <!--<p>请你登陆咯兄弟</p>-->
+          <h4 style="font-family: 'Microsoft YaHei UI'">用户名：</h4>
+          <!--<input name="*{userName}" th:field="*{userName}"/>-->
+          <!--<h2>密码：</h2>-->
+          <!--<input name="*{passWord}" th:field="*{passWord}"/>-->
+          <input name="userName"/>
+          <h4 style="font-family: 'Microsoft YaHei UI'">密码：</h4>
+          <input name="passWord" type="password"/>
+          <a id="errorText" style="display: none;color: red">账号或密码不正确</a>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <!--<button type="submit" class="btn btn-primary">登陆</button>-->
+          <button type="button" th:onclick="|javascript:login()|"  class="btn btn-primary">登陆</button>
+
+        </div>
+
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function checkPhone(){
+    var phone = document.getElementById('phone').value;
+    if(!(/^1[34578]\d{9}$/.test(phone))){
+      alert("手机号码有误，请重填");
+      return false;
+    }
+  }
+
+</script>
+
+<script  type="text/javascript">
+  function login() {
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: "/th/login" ,
+      data: $('#loginform').serialize(),
+      success: function (data) {
+//        alert("成功"+data);
+//        var jsonText = JSON.stringify(data);
+//        alert(jsonText);
+
+//        result=eval("("+data+")");
+//        alert(result);
+        $("#loginform").submit();
+      },
+      error : function() {
+//        var jsonText = JSON.stringify(data);
+//        alert(jsonText);
+//        alert( $('#errortext').att);
+//        $('#errortext').style.display="block";
+        $("#errorText").css("display","block");
+      }
+    });
+  }
+</script>
+
+
+<script  type="text/javascript">
+  function registerAndCheck() {
+    var phone = document.getElementById('phone').value;
+    if(!(/^1[34578]\d{9}$/.test(phone))){
+      alert("手机号码有误，请重填");
+      return false;
+    }else{
+      $("#registerform").submit();
+    }
+  }
+</script>
+
+
+<script  type="text/javascript">
+  function register() {
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: "/th/register" ,
+      data: $('#registerform').serialize(),
+      success: function (data) {
+        alert("成功"+data);
+        var jsonText = JSON.stringify(data);
+        alert(jsonText);
+        $("#loginform").submit();
+      },
+      error : function() {
+        alert("失败"+data);
+      }
+    });
+  }
+</script>
+
+<script  type="text/javascript">
+  function findAllPostRecord() {
+    $.ajax({
+      type: "POST",
+      dataType: "json",
+      url: "/record/allPostRecord" ,
+      data: $('#nameInput').serialize(),
+      success: function (data) {
+        alert("成功"+data);
+      },
+      error : function() {
+        alert("失败"+data);
+      }
+    });
+  }
+</script>
+
+
+<!--//model-->
+<!--js working-->
+<script src="../../static/js/bootstrap/jquery-2.2.3.min.js"></script>
+<!--//js working-->
+<!--blast colors change-->
+<script src="../../static/js/bootstrap/blast.min.js"></script>
+<!--//blast colors change-->
+<!--responsiveslides banner-->
+<script src="../../static/js/bootstrap/responsiveslides.min.js"></script>
+<script>
+  // You can also use "$(window).load(function() {"
+  $(function () {
+    // Slideshow 4
+    $("#slider4").responsiveSlides({
+      auto: true,
+      pager:false,
+      nav:true ,
+      speed: 900,
+      namespace: "callbacks",
+      before: function () {
+        $('.events').append("<li>before event fired.</li>");
+      },
+      after: function () {
+        $('.events').append("<li>after event fired.</li>");
+      }
+    });
+
+  });
+</script>
+<!--// responsiveslides banner-->
+<!--responsive tabs-->
+<script src="../../static/js/bootstrap/easy-responsive-tabs.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#horizontalTab').easyResponsiveTabs({
+      type: 'default', //Types: default, vertical, accordion
+      width: 'auto', //auto or any width like 600px
+      fit: true,   // 100% fit in a container
+      closed: 'accordion', // Start closed if in accordion view
+      activate: function(event) { // Callback function if tab is switched
+        var $tab = $(this);
+        var $info = $('#tabInfo');
+        var $name = $('span', $info);
+        $name.text($tab.text());
+        $info.show();
+      }
+    });
+  });
+
+</script>
+<!--// responsive tabs-->
+<!--About OnScroll-Number-Increase-JavaScript -->
+<script src="../../static/js/bootstrap/jquery.waypoints.min.js"></script>
+<script src="../../static/js/bootstrap/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //OnScroll-Number-Increase-JavaScript -->
+<!-- start-smoth-scrolling -->
+<script src="../../static/js/bootstrap/move-top.js"></script>
+<script src="../../static/js/bootstrap/easing.js"></script>
+<script>
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({
+        scrollTop: $(this.hash).offset().top
+      }, 900);
+    });
+  });
+</script>
+<!-- start-smoth-scrolling -->
+<!-- here stars scrolling icon -->
+<script>
+  $(document).ready(function () {
+
+    var defaults = {
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear'
+    };
+
+
+    $().UItoTop({
+      easingType: 'easeOutQuart'
+    });
+
+  });
+</script>
+<!-- //here ends scrolling icon -->
+<!--bootstrap working-->
+<script src="../../static/js/bootstrap/bootstrap.min.js"></script>
+<!-- //bootstrap working-->
+</body>
+</html>

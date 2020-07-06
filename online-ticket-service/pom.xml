@@ -15,5 +15,20 @@
     <artifactId>online-ticket-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>base</groupId>
+            <artifactId>online-ticket-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
