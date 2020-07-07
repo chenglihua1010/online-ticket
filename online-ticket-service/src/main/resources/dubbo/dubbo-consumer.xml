@@ -9,10 +9,10 @@
 
     <dubbo:application name="${dubbo.application.name}"/>
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"/>
-    <dubbo:reference id="dubboService" interface="com.wwclr.api.service.DubboService"/>
-    <dubbo:reference id="busUserInterface" interface="com.wwclr.api.service.BusUserInterface"/>
-    <dubbo:reference id="drugPostRecordInterface" interface="com.wwclr.api.service.DrugPostRecordInterface"/>
-    <dubbo:reference id="busDrugDetailInterface" interface="com.wwclr.api.service.BusDrugDetailInterface"/>
-    <dubbo:reference id="busMembersInterface" interface="com.wwclr.api.service.BusMembersInterface"/>
-    <dubbo:reference id="drugPostRecordCommentImpl" interface="com.wwclr.api.service.DrugPostRecordCommentInterface"/>
+    <!--<dubbo:reference id="dubboService" interface="com.wwclr.api.service.DubboService"/>-->
+    <!--<dubbo:reference id="busUserInterface" interface="com.wwclr.api.service.BusUserInterface"/>-->
+    <!--<dubbo:reference id="drugPostRecordInterface" interface="com.wwclr.api.service.DrugPostRecordInterface"/>-->
+    <!--<dubbo:reference id="busDrugDetailInterface" interface="com.wwclr.api.service.BusDrugDetailInterface"/>-->
+    <!--<dubbo:reference id="busMembersInterface" interface="com.wwclr.api.service.BusMembersInterface"/>-->
+    <!--<dubbo:reference id="drugPostRecordCommentImpl" interface="com.wwclr.api.service.DrugPostRecordCommentInterface"/>-->
 </beans>

@@ -6,8 +6,8 @@ import org.springframework.context.annotation.ImportResource;
 
 @ImportResource("classpath:spring-mybatis.xml")      //导入xml配置
 @SpringBootApplication
-public class ConsumerApplication {
+public class OnlineTicketApplication {
     public static void main(String[] args){
-        SpringApplication.run(ConsumerApplication.class,args);
+        SpringApplication.run(OnlineTicketApplication.class,args);
     }
 }

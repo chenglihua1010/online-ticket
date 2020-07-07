@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wwclr.consumer.mapper.BusDrugDetailMapper">
+    <resultMap id="BaseResultMap" type="com.wwclr.consumer.pojo.BusDrugDetail">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="manage_accoutId" jdbcType="VARCHAR" property="manage_accoutId" />
+        <result column="manage_pawwword" jdbcType="VARCHAR" property="manage_pawwword" />
+        <result column="manage_type" jdbcType="VARCHAR" property="manage_type" />
+    </resultMap>
+
+</mapper>
