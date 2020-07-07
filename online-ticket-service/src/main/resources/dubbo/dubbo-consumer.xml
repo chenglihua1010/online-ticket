@@ -9,7 +9,11 @@
 
     <dubbo:application name="${dubbo.application.name}"/>
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"/>
-    <!--<dubbo:reference id="dubboService" interface="com.wwclr.api.service.DubboService"/>-->
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
+
+    <dubbo:reference id="dubboService" interface="com.ticketManage.api.service.DubboService"/>
+
+
     <!--<dubbo:reference id="busUserInterface" interface="com.wwclr.api.service.BusUserInterface"/>-->
     <!--<dubbo:reference id="drugPostRecordInterface" interface="com.wwclr.api.service.DrugPostRecordInterface"/>-->
     <!--<dubbo:reference id="busDrugDetailInterface" interface="com.wwclr.api.service.BusDrugDetailInterface"/>-->

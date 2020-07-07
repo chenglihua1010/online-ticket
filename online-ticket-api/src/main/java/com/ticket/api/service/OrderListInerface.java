@@ -1,4 +1,4 @@
-package com.ticket.service;
+package com.ticket.api.service;
 
 public interface OrderListInerface {
 }
