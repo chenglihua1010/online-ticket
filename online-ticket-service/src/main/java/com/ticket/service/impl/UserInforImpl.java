@@ -1,7 +1,8 @@
 package com.ticket.service.impl;
 
+import com.ticket.api.service.UserInforInterface;
 import com.ticket.dao.impl.UserInforDaoImpl;
-import com.ticket.service.UserInforInterface;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
