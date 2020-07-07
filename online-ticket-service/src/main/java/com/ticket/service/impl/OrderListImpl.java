@@ -1,7 +1,8 @@
 package com.ticket.service.impl;
 
+import com.ticket.api.service.OrderListInerface;
 import com.ticket.dao.impl.OrderListDaoImpl;
-import com.ticket.service.OrderListInerface;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,8 +1,9 @@
 package com.ticket.service.impl;
 
 
+import com.ticket.api.service.TrainInforInterface;
 import com.ticket.dao.impl.TrainInforDaoImpl;
-import com.ticket.service.TrainInforInterface;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
