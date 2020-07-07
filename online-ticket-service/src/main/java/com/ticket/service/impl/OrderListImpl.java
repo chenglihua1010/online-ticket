@@ -7,13 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Transactional
+
 @Service("orderListImpl")
 public class OrderListImpl implements OrderListInerface {
-        private OrderListDaoImpl orderListDaoImpl;
 
-        @Resource(name = "orderListDaoImpl")
-        public void setOrderListDaoImpl(OrderListDaoImpl orderListDaoImpl) {
-                this.orderListDaoImpl = orderListDaoImpl;
-        }
+
 }

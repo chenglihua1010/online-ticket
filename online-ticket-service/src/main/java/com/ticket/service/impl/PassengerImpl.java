@@ -7,12 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Transactional
+
 @Service("passengerImpl")
 public class PassengerImpl implements PassengerInterface{
-        private PassengerDaoImpl passengerDaoImpl;
-        @Resource(name = "passengerDaoImpl")
-        public void setPassengerDaoImpl(PassengerDaoImpl passengerDaoImpl) {
-                this.passengerDaoImpl = passengerDaoImpl;
-        }
+
 }

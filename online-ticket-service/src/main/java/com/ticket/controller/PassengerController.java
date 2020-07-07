@@ -9,10 +9,5 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/passenger")
 public class PassengerController {
-        private PassengerImpl passengerImpl;
 
-        @Resource(name = "passengerImpl")
-        public void setPassengerImpl(PassengerImpl passengerImpl) {
-                this.passengerImpl = passengerImpl;
-        }
 }

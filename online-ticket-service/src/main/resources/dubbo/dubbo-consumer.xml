@@ -11,8 +11,11 @@
     <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}"/>
     <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
 
+    <!--想被实现的接口（隔壁项目的api service），通过id可以引用，实现接口controller->隔壁api service->隔壁serviceImpl-->
     <dubbo:reference id="dubboService" interface="com.ticketManage.api.service.DubboService"/>
 
+    <dubbo:service interface="com.ticket.api.service.DubboService1" ref="dubboService1"/>
+    <bean id="dubboService1" class="com.ticket.service.impl.DubboServiceImpl"/>
 
     <!--<dubbo:reference id="busUserInterface" interface="com.wwclr.api.service.BusUserInterface"/>-->
     <!--<dubbo:reference id="drugPostRecordInterface" interface="com.wwclr.api.service.DrugPostRecordInterface"/>-->

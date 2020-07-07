@@ -7,16 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Transactional
+
 @Service("userInforImpl")
 public class UserInforImpl implements UserInforInterface {
-        private UserInforDaoImpl userInforDaoImpl;
 
-        @Resource(name = "userInforDaoImpl")
-        public void setUserInforDaoImpl(UserInforDaoImpl userInforDaoImpl) {
-                this.userInforDaoImpl = userInforDaoImpl;
-        }
-        public void addUser(){
-                userInforDaoImpl.addUser();
-        }
 }

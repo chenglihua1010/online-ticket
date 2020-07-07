@@ -10,13 +10,5 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/mangeInfor")
 public class ManageInforController {
-        private ManageInforImpl manageInforImpl;
-        @Resource(name = "manageInforImpl")
-        public void setManageInforImpl(ManageInforImpl manageInforImpl) {
-                this.manageInforImpl = manageInforImpl;
-        }
-
-
-
 
 }

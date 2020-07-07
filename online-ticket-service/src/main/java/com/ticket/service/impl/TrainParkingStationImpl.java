@@ -7,13 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Transactional
+
 @Service("trainParkingStationImpl")
 public class TrainParkingStationImpl implements TrainParkingStationInterface{
 
-        private TrainParkingStationDaoImpl trainParkingStationDaoImpl;
-        @Resource(name = "trainParkingStationDaoImpl")
-        public void setTrainParkingStationDaoImpl(TrainParkingStationDaoImpl trainParkingStationDaoImpl) {
-                this.trainParkingStationDaoImpl = trainParkingStationDaoImpl;
-        }
+
 }

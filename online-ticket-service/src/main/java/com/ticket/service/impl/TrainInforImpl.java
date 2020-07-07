@@ -8,13 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
-@Transactional
+
 @Service("trainInforImpl")
 public class TrainInforImpl implements TrainInforInterface {
-        private TrainInforDaoImpl trainInforDaoImpl;
 
-        @Resource(name = "trainInforDaoImpl")
-        public void setTrainInforDaoImpl(TrainInforDaoImpl trainInforDaoImpl) {
-                this.trainInforDaoImpl = trainInforDaoImpl;
-        }
 }

@@ -9,10 +9,5 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/trainParkingStation")
 public class TrainParkingStationController {
-        private TrainParkingStationImpl trainParkingStationImpl;
 
-        @Resource(name = "trainParkingStationImpl")
-        public void setTrainParkingStationImpl(TrainParkingStationImpl trainParkingStationImpl) {
-                this.trainParkingStationImpl = trainParkingStationImpl;
-        }
 }

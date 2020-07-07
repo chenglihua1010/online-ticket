@@ -12,17 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/userInfor")
 public class UserInforController {
-        private UserInforImpl userInforImpl;
-        @Resource(name = "userInforImpl")
-        public void setUserInforImpl(UserInforImpl userInforImpl) {
-                this.userInforImpl = userInforImpl;
-        }
 
-        @RequestMapping("/addUser")
-        public ModelAndView addUser(HttpServletRequest request){
-                ModelAndView modelAndView=new ModelAndView();
-                userInforImpl.addUser();
-                return modelAndView;
-        }
+
 
 }

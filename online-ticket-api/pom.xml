@@ -22,11 +22,6 @@
     <version>1.0-SNAPSHOT</version>
 
 <dependencies>
-    <!--<dependency>-->
-        <!--<groupId>base</groupId>-->
-        <!--<artifactId>online-ticket-manage-api</artifactId>-->
-        <!--<version>1.0-SNAPSHOT</version>-->
-    <!--</dependency>-->
 </dependencies>
 
 </project>
