@@ -1,17 +1,25 @@
 package com.ticket.entity;
 
-import java.io.Serializable;
+import org.springframework.data.annotation.AccessType;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+@AccessType(AccessType.Type.PROPERTY)
+@Table(name = "seat")
 public class Seat implements Serializable{
         //主键 id
         private Integer id;
         //车厢编号
-        private String carriage_no;
+        private String carriageNo;
         //座位类型 1-硬座 2-软卧 3-硬卧 4-一等座 5-二等座 6-商务座
-        private Integer seat_type;
+        private Integer seatType;
         //座位数量
-        private String seat_count;
-
+        private String seatCount;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
         public Integer getId() {
                 return id;
         }
@@ -19,28 +27,28 @@ public class Seat implements Serializable{
         public void setId(Integer id) {
                 this.id = id;
         }
-
-        public String getCarriage_no() {
-                return carriage_no;
+        @Column(name = "carriage_no")
+        public String getCarriageNo() {
+                return carriageNo;
         }
 
-        public void setCarriage_no(String carriage_no) {
-                this.carriage_no = carriage_no;
+        public void setCarriageNo(String carriageNo) {
+                this.carriageNo = carriageNo;
+        }
+        @Column(name = "seat_type")
+        public Integer getSeatType() {
+                return seatType;
         }
 
-        public Integer getSeat_type() {
-                return seat_type;
+        public void setSeatType(Integer seatType) {
+                this.seatType = seatType;
+        }
+        @Column(name = "seat_count")
+        public String getSeatCount() {
+                return seatCount;
         }
 
-        public void setSeat_type(Integer seat_type) {
-                this.seat_type = seat_type;
-        }
-
-        public String getSeat_count() {
-                return seat_count;
-        }
-
-        public void setSeat_count(String seat_count) {
-                this.seat_count = seat_count;
+        public void setSeatCount(String seatCount) {
+                this.seatCount = seatCount;
         }
 }

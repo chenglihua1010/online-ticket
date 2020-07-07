@@ -1,34 +1,42 @@
 package com.ticket.entity;
 
+import org.springframework.data.annotation.AccessType;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
+@Entity
+@AccessType(AccessType.Type.PROPERTY)
+@Table(name = "train_infor")
 public class TrainInfor implements Serializable{
         //主键 id
         private Integer id;
         //列车编号
-        private String train_no;
+        private String traiNo;
         //列车车次
-        private String train_num;
+        private String trainNum;
         //列车类型 1-普快，2-特快 ，3-动车，4-高铁
-        private Integer train_type;
+        private Integer trainType;
         //车厢
-        private Integer train_carriages;
+        private Integer trainCarriages;
         //始发站
-        private String train_start_station;
+        private String trainStartStation;
         //终点站
-        private String train_end_station;
+        private String trainEndStation;
         //出发时间
-        private Date train_start_time;
+        private Date trainStartTime;
         //到达时间
-        private Date train_end_time;
+        private Date trainEndTime;
         //当日到达/次日到达
-        private String train_arrive_day;
+        private String trainArriveDay;
         //列车运行时间
-        private String train_running_time;
+        private String trainRunningTime;
         //列车运行状态 正常/晚点
-        private String train_running_type;
-
+        private String trainRunningType;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
         public Integer getId() {
                 return id;
         }
@@ -37,91 +45,92 @@ public class TrainInfor implements Serializable{
                 this.id = id;
         }
 
-        public String getTrain_no() {
-                return train_no;
+        @Column(name = "train_no")
+        public String getTraiNo() {
+                return traiNo;
         }
 
-        public void setTrain_no(String train_no) {
-                this.train_no = train_no;
+        public void setTraiNo(String traiNo) {
+                this.traiNo = traiNo;
+        }
+        @Column(name = "train_num")
+        public String getTrainNum() {
+                return trainNum;
         }
 
-        public String getTrain_num() {
-                return train_num;
+        public void setTrainNum(String trainNum) {
+                this.trainNum = trainNum;
+        }
+        @Column(name = "train_type")
+        public Integer getTrainType() {
+                return trainType;
         }
 
-        public void setTrain_num(String train_num) {
-                this.train_num = train_num;
+        public void setTrainType(Integer trainType) {
+                this.trainType = trainType;
+        }
+        @Column(name = "train_carriages")
+        public Integer getTrainCarriages() {
+                return trainCarriages;
         }
 
-        public Integer getTrain_type() {
-                return train_type;
+        public void setTrainCarriages(Integer trainCarriages) {
+                this.trainCarriages = trainCarriages;
+        }
+        @Column(name = "train_start_station")
+        public String getTrainStartStation() {
+                return trainStartStation;
         }
 
-        public void setTrain_type(Integer train_type) {
-                this.train_type = train_type;
+        public void setTrainStartStation(String trainStartStation) {
+                this.trainStartStation = trainStartStation;
+        }
+        @Column(name = "train_end_station")
+        public String getTrainEndStation() {
+                return trainEndStation;
         }
 
-        public Integer getTrain_carriages() {
-                return train_carriages;
+        public void setTrainEndStation(String trainEndStation) {
+                this.trainEndStation = trainEndStation;
+        }
+        @Column(name = "train_start_time")
+        public Date getTrainStartTime() {
+                return trainStartTime;
         }
 
-        public void setTrain_carriages(Integer train_carriages) {
-                this.train_carriages = train_carriages;
+        public void setTrainStartTime(Date trainStartTime) {
+                this.trainStartTime = trainStartTime;
+        }
+        @Column(name = "train_end_time")
+        public Date getTrainEndTime() {
+                return trainEndTime;
         }
 
-        public String getTrain_start_station() {
-                return train_start_station;
+        public void setTrainEndTime(Date trainEndTime) {
+                this.trainEndTime = trainEndTime;
+        }
+        @Column(name = "train_arrive_day")
+        public String getTrainArriveDay() {
+                return trainArriveDay;
         }
 
-        public void setTrain_start_station(String train_start_station) {
-                this.train_start_station = train_start_station;
+        public void setTrainArriveDay(String trainArriveDay) {
+                this.trainArriveDay = trainArriveDay;
+        }
+        @Column(name = "train_running_time")
+        public String getTrainRunningTime() {
+                return trainRunningTime;
         }
 
-        public String getTrain_end_station() {
-                return train_end_station;
+        public void setTrainRunningTime(String trainRunningTime) {
+                this.trainRunningTime = trainRunningTime;
+        }
+        @Column(name = "train_running_type")
+        public String getTrainRunningType() {
+                return trainRunningType;
         }
 
-        public void setTrain_end_station(String train_end_station) {
-                this.train_end_station = train_end_station;
-        }
-
-        public Date getTrain_start_time() {
-                return train_start_time;
-        }
-
-        public void setTrain_start_time(Date train_start_time) {
-                this.train_start_time = train_start_time;
-        }
-
-        public Date getTrain_end_time() {
-                return train_end_time;
-        }
-
-        public void setTrain_end_time(Date train_end_time) {
-                this.train_end_time = train_end_time;
-        }
-
-        public String getTrain_arrive_day() {
-                return train_arrive_day;
-        }
-
-        public void setTrain_arrive_day(String train_arrive_day) {
-                this.train_arrive_day = train_arrive_day;
-        }
-
-        public String getTrain_running_type() {
-                return train_running_type;
-        }
-
-        public void setTrain_running_type(String train_running_type) {
-                this.train_running_type = train_running_type;
-        }
-
-        public String getTrain_running_time() {
-                return train_running_time;
-        }
-
-        public void setTrain_running_time(String train_running_time) {
-                this.train_running_time = train_running_time;
+        public void setTrainRunningType(String trainRunningType) {
+                this.trainRunningType = trainRunningType;
         }
 }

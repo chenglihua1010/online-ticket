@@ -1,23 +1,31 @@
 package com.ticket.entity;
 
-import java.io.Serializable;
+import org.springframework.data.annotation.AccessType;
+import org.springframework.data.annotation.Id;
 
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+@AccessType(AccessType.Type.PROPERTY)
+@Table(name = "passenger")
 public class Passenger implements Serializable{
         //主键 id
         private Integer id;
         //用户账号
-        private String user_phone_num;
+        private String userPhoneNum;
         //乘客账号
-        private String passenger_phone_num;
+        private String passengerPhoneNum;
         //乘客真实姓名
-        private String passenger_real_name;
+        private String passengerRealName;
         //乘客身份证号
-        private String passenger_id_num;
+        private String passengerIdNum;
         //0-成人，1-学生，3-儿童
-        private Integer passenger_type;
+        private Integer passengerType;
         //乘客地址
-        private String passenger_address;
-
+        private String passengerAddress;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "id")
         public Integer getId() {
                 return id;
         }
@@ -25,54 +33,52 @@ public class Passenger implements Serializable{
         public void setId(Integer id) {
                 this.id = id;
         }
-
-        public String getPassenger_phone_num() {
-                return passenger_phone_num;
+        @Column(name = "user_phone_num")
+        public String getUserPhoneNum() {
+                return userPhoneNum;
         }
 
-        public void setPassenger_phone_num(String passenger_phone_num) {
-                this.passenger_phone_num = passenger_phone_num;
+        public void setUserPhoneNum(String userPhoneNum) {
+                this.userPhoneNum = userPhoneNum;
+        }
+        @Column(name = "passenger_phone_num")
+        public String getPassengerPhoneNum() {
+                return passengerPhoneNum;
         }
 
-
-
-        public String getUser_phone_num() {
-                return user_phone_num;
+        public void setPassengerPhoneNum(String passengerPhoneNum) {
+                this.passengerPhoneNum = passengerPhoneNum;
+        }
+        @Column(name = "passenger_real_name")
+        public String getPassengerRealName() {
+                return passengerRealName;
         }
 
-        public void setUser_phone_num(String user_phone_num) {
-                this.user_phone_num = user_phone_num;
+        public void setPassengerRealName(String passengerRealName) {
+                this.passengerRealName = passengerRealName;
+        }
+        @Column(name = "passenger_id_num")
+        public String getPassengerIdNum() {
+                return passengerIdNum;
         }
 
-        public String getPassenger_real_name() {
-                return passenger_real_name;
+        public void setPassengerIdNum(String passengerIdNum) {
+                this.passengerIdNum = passengerIdNum;
+        }
+        @Column(name = "passenger_type")
+        public Integer getPassengerType() {
+                return passengerType;
         }
 
-        public void setPassenger_real_name(String passenger_real_name) {
-                this.passenger_real_name = passenger_real_name;
+        public void setPassengerType(Integer passengerType) {
+                this.passengerType = passengerType;
+        }
+        @Column(name = "passenger_address")
+        public String getPassengerAddress() {
+                return passengerAddress;
         }
 
-        public String getPassenger_id_num() {
-                return passenger_id_num;
-        }
-
-        public void setPassenger_id_num(String passenger_id_num) {
-                this.passenger_id_num = passenger_id_num;
-        }
-
-        public Integer getPassenger_type() {
-                return passenger_type;
-        }
-
-        public void setPassenger_type(Integer passenger_type) {
-                this.passenger_type = passenger_type;
-        }
-
-        public String getPassenger_address() {
-                return passenger_address;
-        }
-
-        public void setPassenger_address(String passenger_address) {
-                this.passenger_address = passenger_address;
+        public void setPassengerAddress(String passengerAddress) {
+                this.passengerAddress = passengerAddress;
         }
 }
