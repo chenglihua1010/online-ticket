@@ -5,10 +5,19 @@
         <!--
           WARNING - @mbg.generated
         -->
+        <!--关联数据库，对应字段-->
         <result column="id" jdbcType="INTEGER" property="id" />
-        <result column="manage_accoutId" jdbcType="VARCHAR" property="manage_accoutId" />
+        <result column="manage_accountId" jdbcType="VARCHAR" property="manage_accountId" />
         <result column="manage_pawwword" jdbcType="VARCHAR" property="manage_pawwword" />
         <result column="manage_type" jdbcType="VARCHAR" property="manage_type" />
     </resultMap>
+
+    <!--<select id="findAllManageTicket" resultMap="com.ticket.entity.ManageInfor">-->
+    <select id="findAllManageTicket" resultMap="BaseResultMap">--
+            <![CDATA[
+SELECT * FROM manage_infor
+ ]]>
+    </select>
+
 
 </mapper>

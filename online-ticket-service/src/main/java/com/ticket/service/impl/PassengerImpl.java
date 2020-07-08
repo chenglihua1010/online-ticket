@@ -1,15 +1,15 @@
 package com.ticket.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.ticket.api.service.PassengerInterface;
-import com.ticket.dao.impl.PassengerDaoImpl;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
 
 
-@Service("passengerImpl")
+
+
+
+
+
+@Service
 public class PassengerImpl implements PassengerInterface {
 
 }

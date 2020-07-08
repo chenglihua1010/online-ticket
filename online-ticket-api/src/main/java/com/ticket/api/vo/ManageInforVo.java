@@ -2,6 +2,8 @@ package com.ticket.api.vo;
 
 import java.io.Serializable;
 
+
+//接收？？
 public class ManageInforVo implements Serializable{
         //主键 id
         private Integer id;
