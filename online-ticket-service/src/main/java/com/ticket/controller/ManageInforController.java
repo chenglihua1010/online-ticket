@@ -3,6 +3,7 @@ package com.ticket.controller;
 import com.ticket.api.vo.ManageInforVo;
 
 
+import com.ticket.entity.ManageInfor;
 import com.ticket.service.impl.ManageInforImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,20 @@ public class ManageInforController {
                 List<ManageInforVo> manageInforList=manageInforImpl.findAllManageTicket();
                 System.out.println(manageInforList.size());
                 return manageInforList;
+        }
+        @RequestMapping("/addManage")
+        public void addManage(ManageInforVo manageInforVo){
+                manageInforVo.setManage_accountId("qwe");
+                manageInforVo.setManage_type("1");
+                manageInforVo.setManage_password("qwe");
+                manageInforImpl.addManage(manageInforVo);
+        }
+
+        @RequestMapping("/findByAccountId")
+        public ManageInforVo findByAccountId(String manage_accountId){
+                ManageInforVo manageInforVo=manageInforImpl.findByAccountId(manage_accountId);
+                System.out.println(manageInforVo.toString());
+                return manageInforVo;
         }
 
 }
