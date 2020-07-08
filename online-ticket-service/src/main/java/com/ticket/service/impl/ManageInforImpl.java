@@ -26,4 +26,18 @@ public class ManageInforImpl extends BaseService implements ManageInforInterface
                 List<ManageInforVo> manageInforVoList=transferObjectIgnoreCaseList(manageInforList,ManageInforVo.class);
                 return manageInforVoList;
         }
+
+        @Override
+        public void addManage(ManageInforVo manageInforVo) {
+
+                ManageInfor manageInfor=transferObjectIgnoreCase(manageInforVo,ManageInfor.class);
+                manageInforMapper.addManage(manageInfor);
+        }
+
+        @Override
+        public ManageInforVo findByAccountId(String manage_accountId) {
+                ManageInfor manageInfor=manageInforMapper.findByAccountId(manage_accountId);
+                ManageInforVo manageInforVo=transferObjectIgnoreCase(manageInfor,ManageInforVo.class);
+                return manageInforVo;
+        }
 }
