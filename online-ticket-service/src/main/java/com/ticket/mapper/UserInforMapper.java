@@ -6,5 +6,5 @@ import org.apache.ibatis.annotations.Param;
 
 
 public interface  UserInforMapper extends MyMapper<UserInfor> {
-        public void addUser(@Param("userInfor") UserInfor userInfor);
+        public void addUser(@Param("userInfor")UserInfor userInfor);
 }

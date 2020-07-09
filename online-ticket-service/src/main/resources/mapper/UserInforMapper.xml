@@ -36,8 +36,8 @@ SELECT * FROM manage_infor WHERE manage_accountId=#{manage_accountId}
     <insert id="addUser" parameterType="com.ticket.entity.UserInfor">--
         <![CDATA[
 INSERT INTO user_infor(user_phone_num,user_password,user_email,user_type,user_real_name,user_id_number,user_address,user_gender)
-    VALUES (#{userInfor.userPhoneNum},#{{userInfor.userPassword},#{{userInfor.userEmail},
-    #{{userInfor.userType},#{{userInfor.userRealName},#{{userInfor.userIdNumber},#{{userInfor.userAddress},#{{userInfor.userGender})
+    VALUES (#{userInfor.userPhoneNum},#{userInfor.userPassword},#{userInfor.userEmail},
+    #{userInfor.userType},#{userInfor.userRealName},#{userInfor.userIdNumber},#{userInfor.userAddress},#{userInfor.userGender})
  ]]>
     </insert>
 
