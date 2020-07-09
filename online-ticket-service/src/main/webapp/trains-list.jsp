@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
 <head>
-<title>Sitemap</title>
+<title>Train List</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -17,7 +23,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- /metatags -->
+<!-- /metatags --> 
 <!-- online fonts -->
 <link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -178,107 +184,307 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Sitemap</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Trains List</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
-
-	<!-- Sitemap-page -->
-	    <div class="icons w3layouts-content">
-		<div class="container">
-			<h3 class="w3-head">Sitemap</h3>
-	   <!-- sitemap -->
-			<div class="sitemap">
-					<div class="col-md-6 sitemap-grid">
-						<h4>Online mobile Rechange and Bill payment</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Airtel</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Aircel</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tata Docomo</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>BSNL</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tata Docomo</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Reliance GSM</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Reliance CDMA</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Telenor</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>MTS</a></li>
-							<li><a href="index.html#parentVerticalTab1.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Jio</a></li>
-						</ul>
-						<h4>Online DataCard Recharge</h4>
-						<ul>
-							<li><a href="career.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tata Photon</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>MTS MBrowse</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Airtel</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Aircel</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>BSNL</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>MTNL Delhi</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Vodafone</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Idea</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>MTNL Mumbai</a></li>
-							<li><a href="index.html#parentVerticalTab3.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tata Photon Whiz</a></li>
-						</ul>                        
-		                <h4>Online DTH(TV) Recharge</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Airtel Digital TV Recharges</a></li>
-							<li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Dish TV Recharges</a></li>
-				            <li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Tata Sky Recharges</a></li>
-                            <li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Reliance Digital TV Recharges</a></li>
-                            <li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Sun Direct Recharges</a></li>
-                            <li><a href="index.html#parentVerticalTab2.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Videocon D2H Recharges</a></li>
-						</ul>
-						<h4>Electricity</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-1</a></li>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-2</a></li>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-3</a></li>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-4</a></li>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-5</a></li>
-							<li><a href="index.html#parentVerticalTab4.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Electricity-6</a></li>
-						</ul>
+	<!-- Trains-list -->
+	<div class="agile-trains-list w3layouts-content">
+     <div class="container">
+	<!--bus-single --> 
+            <div class="w3agile single-bus">
+			         <h3 class="w3-head">Trains list</h3>
+			 <!-- train-routes -->
+					<div class="bus-tp">
+						<div class="bus-tp-inner">
+							<h3>Trains from City1 to City2</h3>
+							<div class="clearfix"></div>
+						</div>
 					</div>
-					<div class="col-md-6 sitemap-grid">
-						<h4>Landline Bill Payments</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab5.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Act</a></li>
-							<li><a href="index.html#parentVerticalTab5.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Airtel</a></li>	<li><a href="index.html#parentVerticalTab5.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>BSNL</a></li>
-							<li><a href="index.html#parentVerticalTab5.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Reliance</a></li>
-
-						</ul>
-						<h4>Broadband Bill Payments</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab6.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Act</a></li>
-							<li><a href="index.html#parentVerticalTab6.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Airtel</a></li>	<li><a href="index.html#parentVerticalTab6.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>BSNL</a></li>
-						</ul>
-						<h4>Gas</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab7.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Gas-1</a></li>
-							<li><a href="index.html#parentVerticalTab7.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Gas-2</a></li>
-							<li><a href="index.html#parentVerticalTab7.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Gas-3</a></li>
-							<li><a href="index.html#parentVerticalTab7.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Gas-4</a></li>
-							<li><a href="index.html#parentVerticalTab7.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Gas-5</a></li>
-						</ul>
-						<h4>Metro</h4>
-						<ul>
-							<li><a href="index.html#parentVerticalTab9.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Metro</a></li>
-						</ul>
-						<h4>Pages</h4>
-						<ul>
-							<li><a href="about.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>About</a></li>
-							<li><a href="support.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Support</a></li>
-							<li><a href="terms.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Terms & Conditions</a></li>
-							<li><a href="faq.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Faq</a></li>
-							<li><a href="feedback.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Feedback</a></li>
-							<li><a href="contact.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact</a></li>
-							<li><a href="shortcodes.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Shortcodes</a></li>
-							<li><a href="icons.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Icons Page</a></li>
-                        </ul>
-					</div>
-					<div class="clearfix"></div>
-			</div>
-			<!-- /sitemap -->
+				<!-- /train-routes -->
+				<!-- bus-midd -->
+<div class="w3agile bus-midd">
+  	     <div class="table-responsive">
+		   <table class="table table-bordered agileinfo"> 
+	           <thead>
+ 			       <tr> 
+					   <th>Train no.</th>  
+					   <th>Train Name</th> 
+					   <th>Depart. time</th> 
+					   <th>Arrive time</th> 
+					   <th>Days of Run</th> 
+					   <th>Fare</th>
+				   </tr> 
+			  </thead>
+		   <tbody>
+		     <tr>
+			    <td class="t-one">15798</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">45212</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">358314</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+				<td class="seat"> <span title="not available"></span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">58974</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">86547</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+			  </tr>
+               <tr>
+			    <td class="t-one">15798</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">45212</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+				<td class="seat"> <span title="not available"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">358314</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">58974</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">86547</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+			  </tr>
+               <tr>
+			    <td class="t-one">15798</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">45212</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">358314</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">58974</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">86547</td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
+				<td class="price us">Price here
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+				</td> 
+			  </tr>
+			 </tbody> 
+		</table>
 		</div>
 	</div>
-    <!--//Sitemap-page-->
+</div>
+         <div class="modal fade" id="myModalbook" role="dialog">
+			<div class="modal-dialog">
+			<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+					      
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+					<h4 class="modal-title">
+                    Railway Reservation Form</h4>
+                        <form class="w3layouts-train-form" action="pay.jsp" method="post">
+					<div class="table-responsive">
+		   <table class="table table-bordered agileinfo"> 
+	           <thead>
+ 			       <tr> 
+					   <th>S.No.</th>  
+					   <th>Name in Block Letters(not more than 15 chars)</th> 
+					   <th>Sex M/F</th> 
+					   <th>Age</th> 
+					   <th>Berth(choice if any)</th> 
+				   </tr> 
+			  </thead>
+		   <tbody>
+		     <tr>
+			    <td class="t-one">1</td> 
+			    <td class="wthree"><input type="text" placeholder="" required="required" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" required="required" /></td> 
+				<td class="wthree"><input type="text" placeholder="" required="required" /> </td> 
+				<td class="wthree"><input type="text" placeholder="" required="required" /></td> 
 
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">2</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td> 
+
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">3</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td>  
+
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">4</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td> 
+
+				
+			 </tr>
+			  <tr>
+			    <td class="t-one">5</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td> 
+
+			  </tr>
+               <tr>
+			    <td class="t-one">6</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td> 
+
+				
+			 </tr>
+			 <tr>
+			    <td class="t-one">7</td> 
+			    <td class="wthree"><input type="text" placeholder="" /></td>
+ 				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"> <input type="text" placeholder="" /></td> 
+				<td class="wthree"><input type="text" placeholder="" /></td> 
+	
+				
+			 </tr>
+			 </tbody> 
+		</table>
+		</div>
+                            <input type="submit" class="submit" value="Make payment"/>
+                            </form>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+</div>
+<!-- //Trains-list -->
 
 <!-- subscribe -->
 	<div class="w3-subscribe agileits-w3layouts"> 
@@ -313,16 +519,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

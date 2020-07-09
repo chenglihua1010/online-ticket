@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
 <head>
-<title>Faq</title>
+<title>Feedback</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -17,7 +23,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //metatags -->
+<!-- /metatags -->
 <!-- online fonts -->
 <link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -41,7 +47,7 @@
 			</div>    
 				<div class="clearfix"></div>
     <!--Login modal-->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
             aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -62,7 +68,7 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="Login">
-                                        <form  class="form-horizontal" action="#" method="get">
+                                        <form class="form-horizontal" action="#" method="get">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
                                                 Email</label>
@@ -89,7 +95,7 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="Registration">
-                                        <form  class="form-horizontal" action="#" method="get">
+                                        <form class="form-horizontal" action="#" method="get">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
                                                 Name</label>
@@ -178,99 +184,35 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Faq</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Feedback</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
-	<!-- FAQ-help-page -->
-	<div class="help about w3layouts-content">
-		<div class="container"> 
-            <h3 class="w3-head">How can we help you</h3>
-			<div class="faq-w3agile"> 
-				<h5>Top 10 Frequently asked questions(FAQ)</h5> 
-				<ul class="faq">
-					<li class="item1"><a href="#" title="click here">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor vehicula ipsum nec ?</a>
-						<ul>
-							<li class="subitem1"><p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item2"><a href="#" title="click here">The standard Lorem Ipsum passage Etiam faucibus viverra libero vel efficitur. Ut semper nisl ut laoreet ultrices ?</a>
-						<ul>
-							<li class="subitem1"><p> Tincidunt ut laoreet dolore At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item3"><a href="#" title="click here">Consectetuer adipiscing elit Etiam faucibus viverra libero vel efficitur. Ut semper nisl ut laoreet ultrices?</a>
-						<ul>
-							<li class="subitem1"><p>Dincidunt ut laoreet dolore At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item4"><a href="#" title="click here">Sed diam nonummy nibh euismod Etiam faucibus viverra libero vel efficitur. Ut semper nisl ut laoreet ultrices?</a>
-						<ul>
-							<li class="subitem1"><p>At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li> 
-					<li class="item5"><a href="#" title="click here">Euismod tincidunt laoreet Etiam faucibus viverra libero vel efficitur ?</a>
-						<ul>
-							<li class="subitem1"><p>At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item6"><a href="#" title="click here">Voluptas sit aspernatur aut Ut semper nisl ut laoreet ultrices ?</a>
-						<ul>
-							<li class="subitem1"><p>At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item7"><a href="#" title="click here">Donec ut quam ligula feugiat Ut semper nisl ut laoreet ultrices ?</a>
-						<ul>
-							<li class="subitem1"><p>At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item8"><a href="#" title="click here">The standard Lorem Ipsum Ut semper nisl ut laoreet ultrices passage ?</a>
-						<ul>
-							<li class="subitem1"><p>Lorem ipsum dolor sit amet At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item9"><a href="#" title="click here">Consectetuer adipiscing Ut semper nisl ut laoreet ultrices elit ?</a>
-						<ul>
-							<li class="subitem1"><p>Lorem ipsum dolor sit amet At vero eos et Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li>
-					<li class="item10"><a href="#" title="click here">Sed diam nonummy Ut semper nisl ut laoreet ultrices nibh euismod ?</a>
-						<ul>
-							<li class="subitem1"><p>Consectetuer adipiscing elit, sed diam nonummy nibh euismod  consectetuer adipiscing elit, sed diam nonummy nibh euismod accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p></li>										
-						</ul>
-					</li> 
-				</ul>
-				<!-- script for tabs -->
-				<script type="text/javascript">
-					$(function() {
-					
-						var menu_ul = $('.faq > li > ul'),
-							   menu_a  = $('.faq > li > a');
-						
-						menu_ul.hide();
-					
-						menu_a.click(function(e) {
-							e.preventDefault();
-							if(!$(this).hasClass('active')) {
-								menu_a.removeClass('active');
-								menu_ul.filter(':visible').slideUp('normal');
-								$(this).addClass('active').next().stop(true,true).slideDown('normal');
-							} else {
-								$(this).removeClass('active');
-								$(this).next().stop(true,true).slideUp('normal');
-							}
-						});
-					
-					});
-				</script>
-				<!-- script for tabs --> 
-			</div>  
-		</div>
+	<!-- Feedback -->
+	<div class="w3ls-feedback w3layouts-content">
+		<div class="container">
+			<h3 class="w3-head">Feedback</h3>
+			<div class="feed-back">
+				<h3>Tell us what you think of us</h3>
+				<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+				
+				<div class="feed-back-form">
+					<form action="#" method="get">
+					<span>User Details</span>
+							<input type="text" placeholder="First Name" name="firstname" required="required" />
+							<input type="text" placeholder="Last Name" name="lastname" required="required" />
+							<input type="email" placeholder="Email" name="email" required="required" />
+							<input type="tel" placeholder="Phone No" name="phoneno" required="required" />
+							<span>Is there anything you would like to tell us?</span>
+							<textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+							<input type="submit" value="Send Feedback">
+						</form>
+				</div>
+			</div>
+		</div>	
 	</div>
-<!-- //FAQ-help-page -->
-
-
-
+	<!-- // Feedback -->
+	
 <!-- subscribe -->
 	<div class="w3-subscribe agileits-w3layouts"> 
 		<div class="container">
@@ -304,16 +246,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
@@ -190,14 +196,14 @@
     <div class="now-showing-movies">
 		<h3 class="m-head">Now Showing</h3>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/m1.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Baahubali 2: The Conclusion</a>
+					<a class="m-movie-link" href="select-show.jsp">Baahubali 2: The Conclusion</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -208,14 +214,14 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (U/A)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (U/A)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -226,14 +232,14 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (U)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (U)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -244,14 +250,14 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (3D) (U)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (3D) (U)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -262,14 +268,14 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Insidious: Chapter 3 (A)</a>
+					<a class="m-movie-link" href="select-show.jsp">Insidious: Chapter 3 (A)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -280,14 +286,14 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (3D) (U/A)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (3D) (U/A)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
-						<a href="select-show.html">book now</a>
+						<a href="select-show.jsp">book now</a>
 					</div>
 					<div class="m-r-like">
 						<i class="fa fa-thumbs-up"></i>
@@ -302,10 +308,10 @@
 	<div class="now-showing-movies">
 		<h3 class="m-head">Next Change & Coming Soon</h3>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -318,10 +324,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -334,10 +340,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -350,10 +356,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (U)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (U)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -366,10 +372,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name (U/A)</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name (U/A)</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -382,10 +388,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -398,7 +404,7 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
 					<a class="m-movie-link" href="select-show">Movie Name</a>
@@ -414,10 +420,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -430,10 +436,10 @@
 			</a>
 		</div>
 		<div class="col-md-4 movie-preview">
-			<a href="select-show.html" class="mask">
+			<a href="select-show.jsp" class="mask">
 				<img src="images/movie-poster.jpg" class="img-responsive zoom-img" alt="" />
 				<div class="m-movie-title">
-					<a class="m-movie-link" href="select-show.html">Movie Name</a>
+					<a class="m-movie-link" href="select-show.jsp">Movie Name</a>
 					<div class="clearfix"></div>
 					<div class="m-r-date">
 						<p><i class="fa fa-calendar-o"></i>Date here</p>
@@ -485,16 +491,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

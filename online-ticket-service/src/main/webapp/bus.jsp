@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
 <head>
-<title>Contact</title>
+<title>Bus</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -23,7 +29,6 @@
 <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <!-- /online fonts -->
-
 </head>
 <!-- /head -->
 <!-- body -->
@@ -166,7 +171,7 @@
         </div>
     <!--//Login modal-->
     </div>
-</header>	
+</header>
 <!-- //header -->
 	
 <!-- innerbanner -->	
@@ -178,45 +183,69 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Contact</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Bus</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
-	<!-- Contact-page -->
-	<!--contact-->
-	 <div class="contact-section w3layouts-content">
-	    <div class="container">
-            <h3 class="w3-head">Contact Us</h3>
-				<div class="contact-main">
-					<div class="col-md-6 map">
-						<p class="loc">Our Location</p>
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86654334463!2d-74.25818682528057!3d40.70531100753592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1493028309728" style="border:0" allowfullscreen></iframe>
+	<!-- Bus -->
+	<div class="agile-bus w3layouts-content">
+     <div class="container">
+	<div class="col-md-5 bann-info1">
+		<i class="train-icon fa fa-bus"></i>
+	</div>
+         <div class="col-md-5 bann-info">
+		<h3>Search for Bus Tickets</h3>
+        <div class="book-a-ticket">
+							<div class=" bann-info">
+								<form action="bus-list.jsp" method="post">
+									<div class="ban-top">
+										<div class="bnr-left">
+											<label class="inputLabel">From:</label>
+											<input class="city" type="text" placeholder="Enter a city or local area" required="required" />
+										</div>
+										
+										<div class="bnr-left">
+											<label class="inputLabel">To:</label>
+											<input class="city" type="text" placeholder="Enter a city or local area" required="required" />
+										</div>
+											<div class="clearfix"></div>
+									</div>
+									 <div class="ban-bottom">
+											<div class="bnr-right">
+												<label class="inputLabel">Date of Journey:</label>
+				<input class="date" id="datepicker" type="text" placeholder="dd-mm-yyyy"  required="required" />
+											</div>
+											<div class="bnr-right">
+												<label class="inputLabel">Date of Return<span class="opt">&nbsp;(Optional):</span></label>
+				<input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" />
+											</div>
+												<div class="clearfix"></div>
+												<!-- start-date-piker -->
+												<link rel="stylesheet" href="css/jquery-ui.css">
+												<script src="js/jquery-ui.js"></script>
+													<script>
+														$(function() {
+														$( "#datepicker,#datepicker1" ).datepicker();
+														});
+													</script>
+											<!-- /End-date-piker -->
+										</div>
+									<div class="search">
+									     <input type="submit" class="submit" value="Search">
+									
+									</div>
+								</form>
+							</div>
 					</div>
-					<div class="col-md-6 contact-in">
-						<p class="sed-para"> Contact Information</p>
-                        <p class="para1">For Queries and details, Get in touch with us: <a href="support.html">Help</a></p>
-						<div class="more-address"> 
-								<address>
-								  <strong>Address</strong><br>
-								  ipsum road, 5th cross,<br>
-								   City, State,<br>	
-                                    689861300<br>
-                                    Country<br>
-								  <abbr title="Phone">P:</abbr> +899 54565 324, +568 66 548 9321		
-								  </address>
-								<address>
-								  <strong>Email</strong><br>
-								  <a href="mailto:icsathlone@gmail.com">onlinerecharge@example.com</a>
-							   </address>
-						  </div>
-					</div>
-						<div class="clearfix"> </div>
-			      </div>
 
-	   </div>
-     </div>
-<!--//contact-->
-<!-- //Contact-page -->
+	</div>
+        
+
+	
+	<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //Bus -->
 
 <!-- subscribe -->
 	<div class="w3-subscribe agileits-w3layouts"> 
@@ -251,16 +280,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>
@@ -335,6 +365,15 @@
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
+<!-- start-date-piker -->
+<link rel="stylesheet" href="css/jquery-ui.css">
+<script src="js/jquery-ui.js"></script>
+    <script>
+        $(function() {
+        $( "#datepicker,#datepicker1" ).datepicker();
+        });
+    </script>
+<!-- /End-date-piker -->
 <!-- here stars scrolling icon -->
 			<script type="text/javascript">
 				$(document).ready(function() {
@@ -364,6 +403,7 @@
 			</script>
 			<!-- start-smoth-scrolling -->
 		<!-- //here ends scrolling icon -->
+
 </body>
 <!-- /body -->
 </html>

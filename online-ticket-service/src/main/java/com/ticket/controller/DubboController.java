@@ -50,4 +50,9 @@ DubboService dubboService;
         return  modelAndView;
     }
 
+    @RequestMapping("/testWeb")
+    public String testWeb(){
+        return "about";
+    }
+
 }

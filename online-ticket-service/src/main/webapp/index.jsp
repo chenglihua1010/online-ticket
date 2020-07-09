@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -192,7 +192,7 @@
 			          	 <div class="banner2">
 			           		<div class="caption">
 					          	<h3><span>50% off</span> on train Tickets</h3>
-                                <p><a href="train.html">Book now</a></p>
+                                <p><a href="train.jsp">Book now</a></p>
 			          		</div>
 			          	</div>
 			         </li>
@@ -200,7 +200,7 @@
 			          	 <div class="banner3">
 			           		<div class="caption">
 					          	<h3><span>Flat Rs.200 Cash back</span>  on Movie Tickets</h3>
-					          	<p><a href="movies.html">Book now</a></p>
+					          	<p><a href="movies.jsp">Book now</a></p>
 			          		</div>
 			          	</div>
 			         </li>	
@@ -208,7 +208,7 @@
 			          	 <div class="banner4">
 			           		<div class="caption">
 					          	<h3><span>Upto Rs.125 Discount </span> & Flat 100% Money Back</h3>
-					          	<p><a href="bus.html">Book now</a></p>
+					          	<p><a href="bus.jsp">Book now</a></p>
 			          		</div>
 			          	</div>
 			         </li>	
@@ -251,7 +251,7 @@
 			     <div class="tab-grids">
                     <div id="tab1" class="tab-grid">  
 		                      <div class="login-form">	
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>							
 							<li>
                                 <h4>Enter your mobile number</h4>
@@ -316,7 +316,7 @@
                                         <input type="text" placeholder="Enter amount" name="amount" required="required"  />	
                                     </div>
                                     <div class="mobile-rchge">
-                                        <a href="plans.html">VIEW ALL PLANS</a>
+                                        <a href="plans.jsp">VIEW ALL PLANS</a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -332,7 +332,7 @@
                     </div>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>							
 							<li>
                                 <h4>Enter your mobile number</h4>
@@ -437,7 +437,7 @@
 							
 		                      <div class="login-form">
                                   <i class="icon fa fa-television inner-icon" aria-hidden="true"></i>
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
                             
 						<ol>	
                             <li>
@@ -484,7 +484,7 @@
                     <i class="icon fa fa-credit-card inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>							
 							<li>
                                   <h4>Enter your Datacard number</h4>
@@ -534,7 +534,7 @@
                             <i class="icon fa fa-lightbulb-o inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -572,7 +572,7 @@
 							<i class="icon fa fa-phone inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -616,7 +616,7 @@
 							<i class="icon fa fa-connectdevelop inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -661,7 +661,7 @@
 							<i class="icon fa fa-flask inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -697,7 +697,7 @@
 							<i class="icon fa fa-tint inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -733,7 +733,7 @@
 							<i class="icon fa fa-subway inner-icon" aria-hidden="true"></i>
                     <div id="tab2" class="tab-grid">
 		                      <div class="login-form">
-						<form action="pay.html" method="post" id="signup">
+						<form action="pay.jsp" method="post" id="signup">
 						<ol>	
                             <li>
                                 <div class="agileits-select">
@@ -859,7 +859,7 @@
 					Maecenas placerat eget mi vitae euismod. Duis aliquam efficitur mi, 
 					et eleifend velit.</p>
 				<div class="agile_more">
-					<a href="support.html" class="type-4">
+					<a href="support.jsp" class="type-4">
 						<span> Support </span>
 						<span> Support  </span>
 						<span> Support  </span>
@@ -942,16 +942,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="#mobileappagileits" class="scroll">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

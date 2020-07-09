@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
@@ -199,7 +205,7 @@
                 <div>
                     <ul class="w3ls-plan">
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 15</span> 
                                 </div>
@@ -211,7 +217,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 25</span> 
                                 </div>
@@ -223,7 +229,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 55</span> 
                                 </div>
@@ -235,7 +241,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 65</span> 
                                 </div>
@@ -247,7 +253,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 150</span> 
                                 </div>
@@ -259,7 +265,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 195</span> 
                                 </div>
@@ -271,7 +277,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 500</span> 
                                 </div>
@@ -283,7 +289,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 555</span> 
                                 </div>
@@ -300,7 +306,7 @@
                     <ul class="w3ls-plan">
                         
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 10</span> 
                                 </div>
@@ -312,7 +318,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 20</span> 
                                 </div>
@@ -324,7 +330,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 30</span> 
                                 </div>
@@ -336,7 +342,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 50</span> 
                                 </div>
@@ -348,7 +354,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 60</span> 
                                 </div>
@@ -360,7 +366,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 70</span> 
                                 </div>
@@ -372,7 +378,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 80</span> 
                                 </div>
@@ -384,7 +390,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 100</span> 
                                 </div>
@@ -400,7 +406,7 @@
                 <div>
                     <ul class="w3ls-plan">
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 11</span> 
                                 </div>
@@ -412,7 +418,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 18</span> 
                                 </div>
@@ -424,7 +430,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 39</span> 
                                 </div>
@@ -436,7 +442,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 51</span> 
                                 </div>
@@ -448,7 +454,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 54</span> 
                                 </div>
@@ -460,7 +466,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 67</span> 
                                 </div>
@@ -472,7 +478,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 89</span> 
                                 </div>
@@ -484,7 +490,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 97</span> 
                                 </div>
@@ -500,7 +506,7 @@
                 <div>
                     <ul class="w3ls-plan">
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 7</span> 
                                 </div>
@@ -512,7 +518,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 8</span> 
                                 </div>
@@ -524,7 +530,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 9</span> 
                                 </div>
@@ -536,7 +542,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 14</span> 
                                 </div>
@@ -548,7 +554,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 18</span> 
                                 </div>
@@ -560,7 +566,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 31</span> 
                                 </div>
@@ -572,7 +578,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 37</span> 
                                 </div>
@@ -584,7 +590,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 49</span> 
                                 </div>
@@ -600,7 +606,7 @@
                 <div>
                     <ul class="w3ls-plan">
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 11</span> 
                                 </div>
@@ -612,7 +618,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 18</span> 
                                 </div>
@@ -624,7 +630,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 39</span> 
                                 </div>
@@ -636,7 +642,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 51</span> 
                                 </div>
@@ -648,7 +654,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 54</span> 
                                 </div>
@@ -660,7 +666,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 67</span> 
                                 </div>
@@ -672,7 +678,7 @@
                             </a>
                         </li>
                          <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 89</span> 
                                 </div>
@@ -684,7 +690,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="pay.html">
+                            <a href="pay.jsp">
                                 <div class="agile-price">
                                    <span>Rs. 97</span> 
                                 </div>
@@ -756,16 +762,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

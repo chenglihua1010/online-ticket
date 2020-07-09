@@ -1,9 +1,16 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>">
 <!DOCTYPE html>
 <!-- html -->
-<html>
+<html lang="en">
 <!-- head -->
 <head>
-<title>Support</title>
+<title>About</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -17,7 +24,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- /metatags -->
+<!-- //metatags -->
 <!-- online fonts -->
 <link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -178,67 +185,42 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Support</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>About</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
 
-	<!-- Support-page -->
-	    <div class="support w3layouts-content">
+	<!-- About-page -->
+	   <div class="terms w3ls-about w3layouts-content">
 		<div class="container">
-			<h3 class="w3-head">Support Page</h3>
-            <div class="col-md-8 w3ls-supportform">
-	       <form action="#" method="get" name="sentMessage" id="contactForm" novalidate>
-                <select required>
-                      <option value="Payment">Payment</option>
-                      <option value="Recharge">Recharge</option>
-                      <option value="Booking">Booking</option>
-                      <option value="Account">Account</option>
-                      <option value="Others">Others</option>
-                    </select>
-					<div class="control-group form-group">
-						<div class="controls">
-							<input type="text" class="form-control" placeholder="Enter your Name" id="name" required data-validation-required-message="Please enter your name.">
-						</div>
-					</div>
-					<div class="control-group form-group">
-						<div class="controls">
-							<input type="email" class="form-control" placeholder="Enter your Email ID" id="email" required data-validation-required-message="Please enter your email address.">
-						</div>
-					</div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <input type="tel" class="form-control" name="phone" placeholder="Enter mobile Number" id="phone" required="" data-validation-required-message="Please enter your phone number." aria-invalid="false">
-							<p class="help-block"></p>
-						</div>
-                    </div>
-						<div class="control-group form-group">
-							<div class="controls">
-								<textarea rows="10" cols="100" class="form-control" placeholder="Please write here" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
-							</div>
-						</div>
-						<div id="success"></div>
-						<!-- For success/fail messages -->
-						<button type="submit" class="submit btn btn-primary">Create Ticket</button>
-					<div class="clearfix"></div>	
-					</form>
-                </div>
-            <div class="col-md-4 agileits-support">
-                <ul>
-                    <li><strong>Call to:</strong> +040 55 468, +005 256 54 </li>
-                    <li><strong>Mail to:</strong> <a href="mailto:icsathlone@gmail.com">onlinerecharge@example.com</a></li>
-                    <li><a class="w3-faq" href="faq.html">Faq</a></li>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-<!-- js files for contact from validation -->
-		<script src="js/jqBootstrapValidation.js"></script>
-		<script src="js/contact_me.js"></script>
-	<!-- //js files for contact from validation -->
+			<h3 class="w3-head">About Us</h3>
+	<h6>What is Online Recharge?</h6>
+					<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+						<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. </p>
+						<p> Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance</p>
+            <h6>Why Use Online Recharge?</h6>
+					<ol start="1">
+						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.it has a more-or-less normal distribution of letters, as opposed  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+						<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores</li>
+						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.it has a more-or-less normal distribution of letters, as opposed  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</li>
+					</ol>
+            <h6>We Promise:</h6>
+					<ol start="1">
+						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+						<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </li>
+						<li>Lorem Ipsum is simply dummy text of the printing.</li>
+						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+						<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </li>
+						<li>Lorem Ipsum is simply dummy text of the printing.</li>
+						<li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+						<li>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </li>
+						<li>Lorem Ipsum is simply dummy text of the printing.</li>
+					</ol>
+
 
 	</div>
 </div>
-    <!--//Support-page-->
+    <!--//About-page-->
 
 
 <!-- subscribe -->
@@ -274,16 +256,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>

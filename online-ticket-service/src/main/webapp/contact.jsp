@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
 <head>
-<title>Bus List</title>
+<title>Contact</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -166,7 +172,7 @@
         </div>
     <!--//Login modal-->
     </div>
-</header>
+</header>	
 <!-- //header -->
 	
 <!-- innerbanner -->	
@@ -178,294 +184,45 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Buses List</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Contact</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
-	<!-- Buses-list -->
-	<div class="agile-bus-list w3layouts-content">
-     <div class="container">
-	<!--bus-single --> 
-			         <h3 class="w3-head">Buses list</h3>
-			 <!-- bus-routes -->
-					<div class="bus-tp">
-						<div class="bus-tp-inner">
-							<h3>Busses from City1 to City2</h3>
-							<div class="clearfix"></div>
-						</div>
+	<!-- Contact-page -->
+	<!--contact-->
+	 <div class="contact-section w3layouts-content">
+	    <div class="container">
+            <h3 class="w3-head">Contact Us</h3>
+				<div class="contact-main">
+					<div class="col-md-6 map">
+						<p class="loc">Our Location</p>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387145.86654334463!2d-74.25818682528057!3d40.70531100753592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1493028309728" style="border:0" allowfullscreen></iframe>
 					</div>
-				<!-- /bus-routes -->
-				<div class="w3agile bus-midd">
-  	     <div class="table-responsive">
-		   <table class="table table-bordered agileinfo"> 
+					<div class="col-md-6 contact-in">
+						<p class="sed-para"> Contact Information</p>
+                        <p class="para1">For Queries and details, Get in touch with us: <a href="support.jsp">Help</a></p>
+						<div class="more-address"> 
+								<address>
+								  <strong>Address</strong><br>
+								  ipsum road, 5th cross,<br>
+								   City, State,<br>	
+                                    689861300<br>
+                                    Country<br>
+								  <abbr title="Phone">P:</abbr> +899 54565 324, +568 66 548 9321		
+								  </address>
+								<address>
+								  <strong>Email</strong><br>
+								  <a href="mailto:icsathlone@gmail.com">onlinerecharge@example.com</a>
+							   </address>
+						  </div>
+					</div>
+						<div class="clearfix"> </div>
+			      </div>
 
-		   <tbody>
-		     <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 1 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-				      <a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus  2 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 3 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i> 08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 4 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 5 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 PM - 07:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-               <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 1 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-				      <a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus  2 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 3 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i> 08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 4 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 5 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 PM - 07:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-               <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 1 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-				      <a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus  2 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 3 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i> 08:10 PM - 06:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 4 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 PM - 09:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="wthree"><i class="fa fa-bus" aria-hidden="true"></i> Bus 5 Travels</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 PM - 07:10 AM</td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Select Seats</a>
-				</td> 
-				
-			 </tr>
-			 </tbody> 
-		</table>
-		</div>
-	</div>
-</div>
-</div>
-         <div class="modal fade" id="myModalbook" role="dialog">
-			<div class="modal-dialog">
-			<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-					      
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-                        <h4 class="modal-title">
-                    Select your seat now</h4>
-					<div class="main-booking">
-						 <div id="seat-map">
-								<div class="front-indicator"><h3>Front</h3></div>
-							</div>
-							<div class="booking-details">
-										<div id="legend"></div>
-										<h3> Selected Seats (<span id="counter">0</span>):</h3>
-										<ul id="selected-seats" class="scrollbar scrollbar1"></ul>
-										
-										Total: <b>$<span id="total">0</span></b>
-										
-										<a href="pay.html"><button class="checkout-button">Pay Now</button></a>
-							</div>
-							<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-		</div>
 	   </div>
-		<script>
-				var firstSeatLabel = 1;
-			
-				$(document).ready(function() {
-					var $cart = $('#selected-seats'),
-						$counter = $('#counter'),
-						$total = $('#total'),
-						sc = $('#seat-map').seatCharts({
-						map: [
-							'ff_ff',
-							'ff_ff',
-							'ee_ee',
-							'ee_ee',
-							'ee___',
-							'ee_ee',
-							'ee_ee',
-							'ee_ee',
-							'eeeee',
-						],
-						seats: {
-							f: {
-								price   : 100,
-								classes : 'first-class', //your custom CSS class
-								category: 'First Class'
-							},
-							e: {
-								price   : 40,
-								classes : 'economy-class', //your custom CSS class
-								category: 'Economy Class'
-							}					
-						
-						},
-						naming : {
-							top : false,
-							getLabel : function (character, row, column) {
-								return firstSeatLabel++;
-							},
-						},
-						legend : {
-							node : $('#legend'),
-							items : [
-								[ 'f', 'available',   'First Class' ],
-								[ 'e', 'available',   'Economy Class'],
-								[ 'f', 'unavailable', 'Already Booked']
-							]					
-						},
-						click: function () {
-							if (this.status() == 'available') {
-								//let's create a new <li> which we'll add to the cart items
-								$('<li>'+this.data().category+' : Seat no '+this.settings.label+': <b>$'+this.data().price+'</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
-									.attr('id', 'cart-item-'+this.settings.id)
-									.data('seatId', this.settings.id)
-									.appendTo($cart);
-								
-								/*
-								 * Lets update the counter and total
-								 *
-								 * .find function will not find the current seat, because it will change its stauts only after return
-								 * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
-								 */
-								$counter.text(sc.find('selected').length+1);
-								$total.text(recalculateTotal(sc)+this.data().price);
-								
-								return 'selected';
-							} else if (this.status() == 'selected') {
-								//update the counter
-								$counter.text(sc.find('selected').length-1);
-								//and total
-								$total.text(recalculateTotal(sc)-this.data().price);
-							
-								//remove the item from our cart
-								$('#cart-item-'+this.settings.id).remove();
-							
-								//seat has been vacated
-								return 'available';
-							} else if (this.status() == 'unavailable') {
-								//seat has been already booked
-								return 'unavailable';
-							} else {
-								return this.style();
-							}
-						}
-					});
-
-					//this will handle "[cancel]" link clicks
-					$('#selected-seats').on('click', '.cancel-cart-item', function () {
-						//let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
-						sc.get($(this).parents('li:first').data('seatId')).click();
-					});
-
-					//let's pretend some seats have already been booked
-					sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
-			
-			});
-
-			function recalculateTotal(sc) {
-				var total = 0;
-			
-				//basically find every selected seat and sum its price
-				sc.find('selected').each(function () {
-					total += this.data().price;
-				});
-				
-				return total;
-			}
-		</script>
-<!-- //Buses-list -->
-
-
-
+     </div>
+<!--//contact-->
+<!-- //Contact-page -->
 
 <!-- subscribe -->
 	<div class="w3-subscribe agileits-w3layouts"> 
@@ -500,16 +257,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>
@@ -584,10 +342,6 @@
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
-<!-- Seat select -->
-<script src="js/jquery.seat-charts.js"></script>
-<link rel="stylesheet" type="text/css" href="css/jquery.seat-charts.css">
-<!-- //Seat select -->
 <!-- here stars scrolling icon -->
 			<script type="text/javascript">
 				$(document).ready(function() {

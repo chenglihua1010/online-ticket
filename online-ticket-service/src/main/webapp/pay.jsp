@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>"><!DOCTYPE html>
 <!-- html -->
 <html>
 <!-- head -->
 <head>
-<title>Train List</title>
+<title>Pay</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -17,7 +23,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- /metatags --> 
+<!-- /metatags -->
 <!-- online fonts -->
 <link href="http://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
@@ -178,307 +184,171 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Trains List</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Pay</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
-	<!-- Trains-list -->
-	<div class="agile-trains-list w3layouts-content">
-     <div class="container">
-	<!--bus-single --> 
-            <div class="w3agile single-bus">
-			         <h3 class="w3-head">Trains list</h3>
-			 <!-- train-routes -->
-					<div class="bus-tp">
-						<div class="bus-tp-inner">
-							<h3>Trains from City1 to City2</h3>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-				<!-- /train-routes -->
-				<!-- bus-midd -->
-<div class="w3agile bus-midd">
-  	     <div class="table-responsive">
-		   <table class="table table-bordered agileinfo"> 
-	           <thead>
- 			       <tr> 
-					   <th>Train no.</th>  
-					   <th>Train Name</th> 
-					   <th>Depart. time</th> 
-					   <th>Arrive time</th> 
-					   <th>Days of Run</th> 
-					   <th>Fare</th>
-				   </tr> 
-			  </thead>
-		   <tbody>
-		     <tr>
-			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">45212</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">358314</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
-				<td class="seat"> <span title="not available"></span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">58974</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">86547</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-			  </tr>
-               <tr>
-			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">45212</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
-				<td class="seat"> <span title="not available"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">358314</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">58974</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">86547</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-			  </tr>
-               <tr>
-			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">45212</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">358314</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">58974</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">86547</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-			  </tr>
-			 </tbody> 
-		</table>
-		</div>
-	</div>
-</div>
-         <div class="modal fade" id="myModalbook" role="dialog">
-			<div class="modal-dialog">
-			<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-					      
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-					</div>
-					<div class="modal-body">
-					<h4 class="modal-title">
-                    Railway Reservation Form</h4>
-                        <form class="w3layouts-train-form" action="pay.html" method="post">
-					<div class="table-responsive">
-		   <table class="table table-bordered agileinfo"> 
-	           <thead>
- 			       <tr> 
-					   <th>S.No.</th>  
-					   <th>Name in Block Letters(not more than 15 chars)</th> 
-					   <th>Sex M/F</th> 
-					   <th>Age</th> 
-					   <th>Berth(choice if any)</th> 
-				   </tr> 
-			  </thead>
-		   <tbody>
-		     <tr>
-			    <td class="t-one">1</td> 
-			    <td class="wthree"><input type="text" placeholder="" required="required" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" required="required" /></td> 
-				<td class="wthree"><input type="text" placeholder="" required="required" /> </td> 
-				<td class="wthree"><input type="text" placeholder="" required="required" /></td> 
+	<!-- Pay -->
+	<div class="agile-pay w3layouts-content">
+    <div class="container">
+			<h3 class="w3-head">Payment</h3>
+	<!--Horizontal Tab-->
+        <div id="parentHorizontalTab">
+            <ul class="resp-tabs-list hor_1">
+                <li>Credit/Debit</li>
+                <li>Netbanking</li>
+                <li>Paypal Account</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+                <div>
+                    <form action="#" method="post" class="creditly-card-form agileinfo_form">
+									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
+										<div class="credit-card-wrapper">
+											<div class="first-row form-group">
+												<div class="controls">
+													<label class="control-label">Name on Card</label>
+													<input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+												</div>
+												<div class="w3_agileits_card_number_grids">
+													<div class="w3_agileits_card_number_grid_left">
+														<div class="controls">
+															<label class="control-label">Card Number</label>
+															<input class="number credit-card-number form-control" type="text" name="number"
+																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
+																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+														</div>
+													</div>
+													<div class="w3_agileits_card_number_grid_right">
+														<div class="controls">
+															<label class="control-label">CVV</label>
+															<input class="security-code form-control"Â·
+																		  inputmode="numeric"
+																		  type="text" name="security-code"
+																		  placeholder="&#149;&#149;&#149;">
+														</div>
+													</div>
+													<div class="clear"> </div>
+												</div>
+												<div class="controls">
+													<label class="control-label">Expiration Date</label>
+													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+												</div>
+											</div>
+											<button class="submit"><span>Make a payment <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
+										</div>
+									</section>
+								</form>
+<!-- credit-card -->
+		<script type="text/javascript" src="js/creditly.js"></script>
+                    <link rel="stylesheet" href="css/creditly.css" type="text/css" media="all" />
 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">2</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
+		<script type="text/javascript">
+			$(function() {
+			  var creditly = Creditly.initialize(
+				  '.creditly-wrapper .expiration-month-and-year',
+				  '.creditly-wrapper .credit-card-number',
+				  '.creditly-wrapper .security-code',
+				  '.creditly-wrapper .card-type');
 
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">3</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td>  
+			  $(".creditly-card-form .submit").click(function(e) {
+				e.preventDefault();
+				var output = creditly.validate();
+				if (output) {
+				  // Your validated credit card output
+				  console.log(output);
+				}
+			  });
+			});
+		</script>
+	<!-- //credit-card -->
 
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">4</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
-
-				
-			 </tr>
-			  <tr>
-			    <td class="t-one">5</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
-
-			  </tr>
-               <tr>
-			    <td class="t-one">6</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
-
-				
-			 </tr>
-			 <tr>
-			    <td class="t-one">7</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
-	
-				
-			 </tr>
-			 </tbody> 
-		</table>
-		</div>
-                            <input type="submit" class="submit" value="Make payment"/>
+                </div>
+                <div>
+                    <div class="vertical_post">
+									<form>
+										<h5>Select From Popular Banks</h5>
+										<div class="swit-radio">								
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio" checked=""><i></i>Syndicate Bank</label> </div></div>
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Bank of Baroda</label> </div></div>
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Canara Bank</label> </div></div>	
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>ICICI Bank</label> </div></div>	
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>State Bank Of India</label> </div></div>		
+											<div class="clearfix"></div>
+										</div>
+										<h5>Or SELECT OTHER BANK</h5>
+										<div class="section_room_pay">
+                                            <select class="year"><option value="">=== Other Banks ===</option><option value="ALB-NA">Allahabad Bank NetBanking</option><option value="ADB-NA">Andhra Bank</option><option value="BBK-NA">Bank of Bahrain and Kuwait NetBanking</option><option value="BBC-NA">Bank of Baroda Corporate NetBanking</option><option value="BBR-NA">Bank of Baroda Retail NetBanking</option><option value="BOI-NA">Bank of India NetBanking</option><option value="BOM-NA">Bank of Maharashtra NetBanking</option><option value="CSB-NA">Catholic Syrian Bank NetBanking</option><option value="CBI-NA">Central Bank of India</option><option value="CUB-NA">City Union Bank NetBanking</option><option value="CRP-NA">Corporation Bank</option><option value="DBK-NA">Deutsche Bank NetBanking</option><option value="DCB-NA">Development Credit Bank</option><option value="DC2-NA">Development Credit Bank - Corporate</option><option value="DLB-NA">Dhanlaxmi Bank NetBanking</option><option value="FBK-NA">Federal Bank NetBanking</option><option value="IDS-NA">Indusind Bank NetBanking</option><option value="IOB-NA">Indian Overseas Bank</option><option value="ING-NA">ING Vysya Bank (now Kotak)</option><option value="JKB-NA">Jammu and Kashmir NetBanking</option><option value="JSB-NA">Janata Sahakari Bank Limited</option><option value="KBL-NA">Karnataka Bank NetBanking</option><option value="KVB-NA">Karur Vysya Bank NetBanking</option><option value="LVR-NA">Lakshmi Vilas Bank NetBanking</option><option value="OBC-NA">Oriental Bank of Commerce NetBanking</option><option value="CPN-NA">PNB Corporate NetBanking</option><option value="PNB-NA">PNB NetBanking</option><option value="RSD-DIRECT">Rajasthan State Co-operative Bank-Debit Card</option><option value="RBS-NA">RBS (The Royal Bank of Scotland)</option><option value="SWB-NA">Saraswat Bank NetBanking</option><option value="SBJ-NA">SB Bikaner and Jaipur NetBanking</option><option value="SBH-NA">SB Hyderabad NetBanking</option><option value="SBM-NA">SB Mysore NetBanking</option><option value="SBT-NA">SB Travancore NetBanking</option><option value="SVC-NA">Shamrao Vitthal Co-operative Bank</option><option value="SIB-NA">South Indian Bank NetBanking</option><option value="SBP-NA">State Bank of Patiala NetBanking</option><option value="SYD-NA">Syndicate Bank NetBanking</option><option value="TNC-NA">Tamil Nadu State Co-operative Bank NetBanking</option><option value="UCO-NA">UCO Bank NetBanking</option><option value="UBI-NA">Union Bank NetBanking</option><option value="UNI-NA">United Bank of India NetBanking</option><option value="VJB-NA">Vijaya Bank NetBanking</option></select>
+										</div>
+										<input type="submit" value="PAY NOW">
+									</form>
+								</div>
+                </div>
+                <div>
+                    <div id="tab4" class="tab-grid" style="display: block;">
+							<div class="row">
+                        <div class="col-md-6">
+                            <img class="pp-img" src="images/paypal.png" alt="Image Alternative text" title="Image Title">
+                            <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p><a class="btn btn-primary">Checkout via Paypal</a>	
+                        </div>
+                        <div class="col-md-6">
+                            <form class="cc-form">
+                                <div class="clearfix">
+                                    <div class="form-group form-group-cc-number">
+                                        <label>Card Number</label>
+                                        <input class="form-control" placeholder="xxxx xxxx xxxx xxxx" type="text"><span class="cc-card-icon"></span>
+                                    </div>
+                                    <div class="form-group form-group-cc-cvc">
+                                        <label>CVV</label>
+                                        <input class="form-control" placeholder="xxxx" type="text">
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <div class="form-group form-group-cc-name">
+                                        <label>Card Holder Name</label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                    <div class="form-group form-group-cc-date">
+                                        <label>Valid Thru</label>
+                                        <input class="form-control" placeholder="mm/yy" type="text">
+                                    </div>
+                                </div>
+                                <div class="checkbox checkbox-small">
+                                    <label>
+                                        <input class="i-check" type="checkbox" checked="">Add to My Cards</label>
+                                </div>
+                                <input class="btn btn-primary submit" type="submit" class="submit" value="Proceed Payment">
                             </form>
-					</div>
-				</div>
-			</div>
-		</div>
-</div>
-</div>
-<!-- //Trains-list -->
+                        </div>
+                    </div>
+                        
+						</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+ </div>
+	
+	<!--Plug-in Initialisation-->
+	<script type="text/javascript">
+    $(document).ready(function() {
+        //Horizontal Tab
+        $('#parentHorizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true, // 100% fit in a container
+            tabidentify: 'hor_1', // The tab groups identifier
+            activate: function(event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#nested-tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+    });
+</script>
+	<!-- // Pay -->
 
 <!-- subscribe -->
 	<div class="w3-subscribe agileits-w3layouts"> 
@@ -513,16 +383,17 @@
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>Company</h4>
 				<ul class="w3ls-nav-bottom">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="support.html">Support</a></li>
-					<li><a href="sitemap.html">Sitemap</a></li>
-					<li><a href="terms.html">Terms & Conditions</a></li>
-					<li><a href="faq.html">Faq</a></li>	
+					<li><a href="about.jsp">About Us</a></li>
+					<li><a href="support.jsp">Support</a></li>
+					<li><a href="sitemap.jsp">Sitemap</a></li>
+					<li><a href="terms.jsp">Terms & Conditions</a></li>
+					<li><a href="faq.jsp">Faq</a></li>
 					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
-					<li><a href="feedback.html">Feedback</a></li>	
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="feedback.jsp">Feedback</a></li>
+					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
-					<li><a href="icons.html">Icons Page</a></li>
+					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
+					<li><a href="icons.jsp">Icons Page</a></li>
 					
 				</ul>	
 			</div>
@@ -597,6 +468,10 @@
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
+<!-- easy-responsive-tabs -->    
+<link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css " />
+<script src="js/easyResponsiveTabs.js"></script>
+<!-- //easy-responsive-tabs --> 
 <!-- here stars scrolling icon -->
 			<script type="text/javascript">
 				$(document).ready(function() {
