@@ -27,9 +27,9 @@ public class ManageInforController {
         }
         @RequestMapping("/addManage")
         public void addManage(ManageInforVo manageInforVo){
-                manageInforVo.setManage_accountId("qwe");
-                manageInforVo.setManage_type("1");
-                manageInforVo.setManage_password("qwe");
+                manageInforVo.setManage_accountId("ewq");
+                manageInforVo.setManage_type("null");
+                manageInforVo.setManage_password("ewq");
                 manageInforImpl.addManage(manageInforVo);
         }
 

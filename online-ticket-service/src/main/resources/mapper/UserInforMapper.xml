@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.mapper.UserInforMapper">
+    <!---->
+    <!--对应mapper,对应实体类（Entity）,对应数据库字段（colum），sql语句-->
+    <resultMap id="BaseResultMap" type="com.ticket.entity.UserInfor">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <!--关联数据库，对应字段-->
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userPhoneNum" jdbcType="VARCHAR" property="user_phone_num" />
+        <result column="userPassword" jdbcType="VARCHAR" property="manage_password" />
+        <result column="userEmail" jdbcType="VARCHAR" property="user_email" />
+        <result column="userType" jdbcType="VARCHAR" property="user_type" />
+        <result column="userRealName" jdbcType="VARCHAR" property="user_real_name" />
+        <result column="userIdNumber" jdbcType="VARCHAR" property="user_id_number" />
+        <result column="userAddress" jdbcType="VARCHAR" property="user_address" />
+        <result column="userGender" jdbcType="VARCHAR" property="user_gender" />
+    </resultMap>
+
+    <!--方法：sql语句，id：方法名（关联mapper中的方法） 返回类型：resultMap,resultType ???;参数类型：param???-->
+    <!--<select id="findAllManageTicket" resultType="com.ticket.entity.ManageInfor">&#45;&#45; -->
+
+    <select id="findAllManageTicket" resultMap="BaseResultMap">--
+        <![CDATA[
+SELECT * FROM manage_infor
+ ]]>
+    </select>
+    <select id="findByAccountId" resultMap="BaseResultMap">--
+        <![CDATA[
+SELECT * FROM manage_infor WHERE manage_accountId=#{manage_accountId}
+ ]]>
+    </select>
+
+    <insert id="addUser" parameterType="com.ticket.entity.UserInfor">--
+        <![CDATA[
+INSERT INTO user_infor(user_phone_num,user_password,user_email,user_type,user_real_name,user_id_number,user_address,user_gender)
+    VALUES (#{userInfor.userPhoneNum},#{{userInfor.userPassword},#{{userInfor.userEmail},
+    #{{userInfor.userType},#{{userInfor.userRealName},#{{userInfor.userIdNumber},#{{userInfor.userAddress},#{{userInfor.userGender})
+ ]]>
+    </insert>
+
+    <update id="updateByAccountId" >--
+        <![CDATA[
+UPDATE manage_infor SET manage_password = #{manage_password},manage_type=#{manage_type} WHERE manage_accountId=#{manage_accountId}
+ ]]>
+    </update>
+
+    <delete id="deletById">
+        DELETE FROM manage_infor WHERE id=#{id}
+    </delete>
+
+
+
+</mapper>

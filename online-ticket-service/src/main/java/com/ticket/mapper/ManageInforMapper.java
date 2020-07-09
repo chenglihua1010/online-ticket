@@ -11,4 +11,6 @@ public interface ManageInforMapper extends MyMapper<ManageInfor> {
 
         public void addManage(ManageInfor manageInfor);
         public ManageInfor findByAccountId(String manage_accountId);
+
+
 }
