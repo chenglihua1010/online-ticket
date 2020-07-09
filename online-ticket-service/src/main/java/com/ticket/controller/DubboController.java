@@ -44,6 +44,8 @@ DubboService dubboService;
             modelAndView.setViewName("index");
             modelAndView.addObject("www","www");
             LOGGER.info("DubboController  index  bean={}", JSONObject.toJSON(modelAndView));
+            LOGGER.info("DubboController  index  bean={}", JSONObject.toJSON("ssssss"));
+
         }catch (Exception e){
             e.printStackTrace();
         }
