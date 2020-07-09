@@ -100,11 +100,11 @@
         </dependency>
 
         <!--热部署jar-->
-        <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-devtools</artifactId>
-        <optional>true</optional>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-devtools</artifactId>-->
+        <!--<optional>true</optional>-->
+        <!--</dependency>-->
 
         <!--读取静态资源文件jar-->
         <dependency>
@@ -232,6 +232,12 @@
                 <filtering>true</filtering>
                 <includes>
                     <include>**/**</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.*</include>
                 </includes>
             </resource>
         </resources>

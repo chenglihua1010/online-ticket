@@ -27,9 +27,11 @@ public class DubboController {
 DubboService dubboService;
 
     @RequestMapping("/sayHello")
-    public void sayHello() {
+    @ResponseBody
+    public String sayHello() {
         System.out.println("dubbo开始调用");
         dubboService.sayHello("consumer 请求服务");
+        return "ceshi";
     }
 
 

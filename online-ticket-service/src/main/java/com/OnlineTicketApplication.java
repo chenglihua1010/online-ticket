@@ -8,7 +8,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @ImportResource("classpath:spring-mybatis.xml")      //导入xml配置
 @MapperScan(basePackages = "com.ticket.mapper")
-@ComponentScan(basePackages ={"com.ticket"} )
+@ComponentScan(basePackages ={"com.ticket.api"} )
 @SpringBootApplication
 public class OnlineTicketApplication {
     public static void main(String[] args){
