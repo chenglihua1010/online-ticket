@@ -17,6 +17,8 @@
     <dubbo:service interface="com.ticket.api.service.DubboService1" ref="dubboService1"/>
     <bean id="dubboService1" class="com.ticket.service.impl.DubboServiceImpl"/>
 
+    <bean id="redisService" class="com.ticket.service.impl.RedisService"/>
+
     <!--<dubbo:reference id="busUserInterface" interface="com.wwclr.api.service.BusUserInterface"/>-->
     <!--<dubbo:reference id="drugPostRecordInterface" interface="com.wwclr.api.service.DrugPostRecordInterface"/>-->
     <!--<dubbo:reference id="busDrugDetailInterface" interface="com.wwclr.api.service.BusDrugDetailInterface"/>-->
