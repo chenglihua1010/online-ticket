@@ -73,17 +73,20 @@ DubboService dubboService;
         UserInfor userInfor=new UserInfor();
         userInfor.setUser_address("xxxxx");
         userInfor.setUser_real_name("wangwuclr");
-        userInfor.setUserIdNumber("11");
-        redisService.setNameValue(userInfor.getUserIdNumber().toString(),JSONObject.toJSONString(userInfor));
+        userInfor.setUser_id_number("11");
+        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
 
-        String userString=redisService.findName(userInfor.getUserIdNumber().toString());
+        String userString=redisService.findName(userInfor.getUser_id_number().toString());
 
         UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
 
+        LOGGER.info("DubboController testRedis value={}",JSONObject.toJSONString(userInfor1));
+
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
 
-
-        return userInfor;
+        return userInfor1;
     }
 
 }

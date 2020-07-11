@@ -22,4 +22,13 @@ public class UserInforImpl extends BaseService implements UserInforInterface {
                 UserInfor userInfor=transferObjectIgnoreCase(userInforVo,UserInfor.class);
                 userInforMapper.addUser(userInfor);
         }
+
+        @Override
+        public UserInforVo findByUser_phone_numAndUser_password(String user_phone_num, String user_password) {
+                UserInfor userInfor=userInforMapper.findByUser_phone_numAndUser_password(user_phone_num,user_password);
+                UserInforVo userInforVo=transferObjectIgnoreCase(userInfor,UserInforVo.class);
+                return userInforVo;
+        }
+
+
 }

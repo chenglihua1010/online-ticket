@@ -1,4 +1,5 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <html lang="en">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -39,11 +40,11 @@
 	<div class="container">
 		<!--logo-->
 			<div class="logo">
-				<h1><a href="index.html">Online Recharge</a></h1>
+				<h1><a href="index.html">西杭</a></h1>
 			</div>
 		<!--//logo-->
 		  <div class="w3layouts-login">
-				<a data-toggle="modal" data-target="#myModal" href="loginOrRegister.jsp"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
+				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录 | 注册</a>
 			</div>    
 				<div class="clearfix"></div>
     <!--Login modal-->
@@ -55,32 +56,32 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             &times;</button>
                         <h4 class="modal-title" id="myModalLabel">
-                            Online Recharge</h4>
+                            西杭</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-8 extra-w3layouts" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-                                    <li><a href="#Registration" data-toggle="tab">Register</a></li>
+                                    <li class="active"><a href="#Login" data-toggle="tab">登录</a></li>
+                                    <li><a href="#Registration" data-toggle="tab">注册</a></li>
                                 </ul>
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="Login">
-                                        <form  class="form-horizontal" action="#" method="get">
+                                        <form  class="form-horizontal" action="/userInfor/findByUser_phone_numAndUser_password" method="post">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
+                                                手机号</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email1" placeholder="Email" required="required" />
+                                                <input type="text" class="form-control" id="email1" placeholder="Mobile" required="required" name="user_phone_num"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1" class="col-sm-2 control-label">
-                                                Password</label>
+                                                密码</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required="required" />
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required="required" name="user_password"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -88,51 +89,51 @@
                                             </div>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="submit btn btn-primary btn-sm">
-                                                    Submit</button>
-                                                <a href="javascript:;" class="agileits-forgot">Forgot your password?</a>
+                                                    登录</button>
+                                                <a href="javascript:;" class="agileits-forgot">忘记密码？</a>
                                             </div>
                                         </div>
                                         </form>
                                     </div>
                                     <div class="tab-pane" id="Registration">
-                                        <form  class="form-horizontal" action="#" method="get">
+                                        <form  class="form-horizontal" action="/userInfor/addUser" method="post">
                                         <div class="form-group">
                                             <label for="email" class="col-sm-2 control-label">
-                                                Name</label>
+                                                姓名</label>
                                             <div class="col-sm-10">
                                                 <div class="row">
-                                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                                        <select class="form-control">
-                                                            <option>Mr.</option>
-                                                            <option>Ms.</option>
-                                                            <option>Mrs.</option>
-                                                        </select>
-                                                    </div>
+                                                    <%--<div class="col-md-3 col-sm-3 col-xs-3">--%>
+                                                        <%--<select class="form-control">--%>
+                                                            <%--<option>Mr.</option>--%>
+                                                            <%--<option>Ms.</option>--%>
+                                                            <%--<option>Mrs.</option>--%>
+                                                        <%--</select>--%>
+                                                    <%--</div>--%>
                                                     <div class="col-md-9 col-sm-9 col-xs-9">
-                                                        <input type="text" class="form-control" placeholder="Name" required="required" />
+                                                        <input type="text" class="form-control" placeholder="Name" required="required" name="user_real_name"/>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
+                                            <label for="email" class="col-sm-2 control-label" >
+                                                邮箱</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" />
+                                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" name="user_email"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="mobile" class="col-sm-2 control-label">
-                                                Mobile</label>
+                                                手机号</label>
                                             <div class="col-sm-10">
-                                                <input type="tel" class="form-control" id="mobile" placeholder="Mobile" required="required" />
+                                                <input type="tel" class="form-control" id="mobile" placeholder="Mobile" required="required" name="user_phone_num"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="password" class="col-sm-2 control-label">
-                                                Password</label>
+                                                密码</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password" placeholder="Password" required="required" />
+                                                <input type="password" class="form-control" id="password" placeholder="Password" required="required" name="user_password"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -140,9 +141,9 @@
                                             </div>
                                             <div class="col-sm-10">
                                                 <button type="submit" class="submit btn btn-primary btn-sm">
-                                                    Save & Continue</button>
+                                                   注册</button>
                                                 <button type="reset" class="submit btn btn-default btn-sm">
-                                                    Cancel</button>
+                                                    重置</button>
                                             </div>
                                         </div>
                                         </form>

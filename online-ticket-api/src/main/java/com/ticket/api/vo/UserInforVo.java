@@ -14,24 +14,28 @@ private Integer id;
         //0-成人，1-学生，3-儿童
         private Integer user_type;
         //身份证号
-//        private String user_id_number;
+        private String user_id_number;
         //0-女，1-男
         private Integer user_gender;
         //用户地址
         private String user_address;
 
-        private String userIdNumber;
+//        private String userIdNumber;
 
-        public String getUserIdNumber() {
-                return userIdNumber;
-        }
-
-        public void setUserIdNumber(String userIdNumber) {
-                this.userIdNumber = userIdNumber;
-        }
+//        public String getUserIdNumber() {
+//                return userIdNumber;
+//        }
+//
+//        public void setUserIdNumber(String userIdNumber) {
+//                this.userIdNumber = userIdNumber;
+//        }
 
         public Integer getId() {
                 return id;
+        }
+
+        public void setId(Integer id) {
+                this.id = id;
         }
 
         public String getUser_phone_num() {
@@ -89,12 +93,12 @@ private Integer id;
         public void setUser_real_name(String user_real_name) {
                 this.user_real_name = user_real_name;
         }
-//
-//        public String getUser_id_number() {
-//                return user_id_number;
-//        }
-//
-//        public void setUser_id_number(String user_id_number) {
-//                this.user_id_number = user_id_number;
-//        }
+
+        public String getUser_id_number() {
+                return user_id_number;
+        }
+
+        public void setUser_id_number(String user_id_number) {
+                this.user_id_number = user_id_number;
+        }
 }

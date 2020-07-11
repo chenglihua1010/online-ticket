@@ -22,10 +22,10 @@ public class UserInfor implements Serializable{
         //0-成人，1-学生，3-儿童
         private Integer user_type;
         //身份证号
-//        private String user_id_number;
+        private String user_id_number;
 
         //测试不同名，数据传输
-        private String userIdNumber;
+//        private String userIdNumber;
         //0-女，1-男
         private Integer user_gender;
         //用户地址
@@ -95,19 +95,15 @@ public class UserInfor implements Serializable{
                 this.user_real_name = user_real_name;
         }
 
-//        public String getUser_id_number() {
-//                return user_id_number;
-//        }
-//
-//        public void setUser_id_number(String user_id_number) {
-//                this.user_id_number = user_id_number;
-//        }
-
-        public String getUserIdNumber() {
-                return userIdNumber;
+        public String getUser_id_number() {
+                return user_id_number;
         }
 
-        public void setUserIdNumber(String userIdNumber) {
-                this.userIdNumber = userIdNumber;
+        public void setUser_id_number(String user_id_number) {
+                this.user_id_number = user_id_number;
+        }
+
+        public void setId(Integer id) {
+                this.id = id;
         }
 }

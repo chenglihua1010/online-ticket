@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td><label>身份证号：</label></td>
-            <td><input type="text" name="userIdNumber"></td>
+            <td><input type="text" name="user_id_number"></td>
         </tr>
 
         <tr>
