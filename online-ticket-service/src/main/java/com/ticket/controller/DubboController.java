@@ -68,21 +68,22 @@ DubboService dubboService;
 
     @RequestMapping("/testRedis")
     @ResponseBody
-    public String testRedis(){
-        redisService.setNameValue("myname","wangwu");
+    public UserInfor testRedis(){
 
         UserInfor userInfor=new UserInfor();
-        userInfor.setUserAddress("xxxxx");
-        userInfor.setUserRealName("wangwuclr");
-        userInfor.setId(11);
-        redisService.setNameValue(userInfor.getId().toString(),JSONObject.toJSONString(userInfor));
+        userInfor.setUser_address("xxxxx");
+        userInfor.setUser_real_name("wangwuclr");
+        userInfor.setUserIdNumber("11");
+        redisService.setNameValue(userInfor.getUserIdNumber().toString(),JSONObject.toJSONString(userInfor));
 
-        String userString=redisService.findName(userInfor.getId().toString());
+        String userString=redisService.findName(userInfor.getUserIdNumber().toString());
 
         UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
 
 
-        return userInfor1.getUserRealName();
+
+
+        return userInfor;
     }
 
 }
