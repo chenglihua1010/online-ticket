@@ -18,12 +18,20 @@ public class UserInforController {
         UserInforImpl userInforImpl;
         @RequestMapping("/addUser")
         public ModelAndView addUser(HttpServletRequest request){
-                ModelAndView modelAndView=new ModelAndView();
-                String userPhoneNum=request.getParameter("userPhoneNum");
-                String userPassword=request.getParameter("userPassword");
+                ModelAndView modelAndView=new ModelAndView("index");
+                String user_phone_num=request.getParameter("user_phone_num");
+                String user_password=request.getParameter("user_password");
+                String userIdNumber=request.getParameter("userIdNumber");
+//                String user_id_number=request.getParameter("user_id_number");
+
+
+
                 UserInforVo userInforVo=new UserInforVo();
-                userInforVo.setUserPassword(userPassword);
-                userInforVo.setUserPhoneNum(userPhoneNum);
+                userInforVo.setUser_phone_num(user_phone_num);
+                userInforVo.setUser_password(user_password);
+                userInforVo.setUserIdNumber(userIdNumber);
+//                userInforVo.setUser_id_number(userIdNumber);
+
                 userInforImpl.addUser(userInforVo);
                 return modelAndView;
         }

@@ -43,7 +43,7 @@
 			</div>
 		<!--//logo-->
 		  <div class="w3layouts-login">
-				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
+				<a data-toggle="modal" data-target="#myModal" href="loginOrRegister.jsp"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
 			</div>    
 				<div class="clearfix"></div>
     <!--Login modal-->
