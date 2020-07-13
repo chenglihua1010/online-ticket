@@ -37,11 +37,17 @@ public class TrainInforController {
                 return trainInforVoList;
         }
 
-        //接收只有一个属性的数组？(resultMap与resultType)
+        //接收指定字段(resultMap与resultType)
+//        @RequestMapping("/findAllTrain_num")
+//        @ResponseBody
+//        public List<Map<String,Object>> findAllTrain_num(){
+//                List<Map<String,Object>> list =trainInforImpl.findAllTrain_num();
+//                return list;
+//        }
         @RequestMapping("/findAllTrain_num")
         @ResponseBody
-        public List<Map<String,Object>> findAllTrain_num(){
-                List<Map<String,Object>> list =trainInforImpl.findAllTrain_num();
+        public List<String> findAllTrain_num(){
+                List<String> list =trainInforImpl.findAllTrain_num();
                 return list;
         }
 }

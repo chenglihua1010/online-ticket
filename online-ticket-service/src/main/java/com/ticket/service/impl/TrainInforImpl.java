@@ -44,13 +44,22 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
                 return trainInforVoList;
         }
 
+//        /**
+//         * 查询所有列车车次信息
+//         * @return 车次
+//         */
+//        @Override
+//        public List<Map<String,Object>> findAllTrain_num() {
+//                List<Map<String,Object>> list=trainInforMapper.findAllTrain_num();
+//                return list;
+//        }
         /**
          * 查询所有列车车次信息
          * @return 车次
          */
         @Override
-        public List<Map<String,Object>> findAllTrain_num() {
-                List<Map<String,Object>> list=trainInforMapper.findAllTrain_num();
+        public List<String> findAllTrain_num() {
+                List<String> list=trainInforMapper.findAllTrain_num();
                 return list;
         }
 

@@ -24,5 +24,6 @@ public interface TrainInforInterface {
          * 查询所有列车车次
          * @return 列车车次
          */
-        public List<Map<String,Object>> findAllTrain_num();
+//        public List<Map<String,Object>> findAllTrain_num();
+        public List<String> findAllTrain_num();
 }

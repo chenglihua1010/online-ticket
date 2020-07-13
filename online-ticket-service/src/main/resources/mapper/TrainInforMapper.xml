@@ -44,7 +44,8 @@ SELECT * FROM train_infor WHERE train_num=#{train_num}
 <!--UPDATE train_infor SET  train_running_type = 1 WHERE train_no=#{train_no}-->
 <!--]]>-->
     <!--</update>-->
-    <select id="findAllTrain_num" resultType="map">
+    <!--<select id="findAllTrain_num" resultType="map">-->
+    <select id="findAllTrain_num" resultType="String">
         <![CDATA[
         SELECT train_num FROM train_infor
         ]]>
