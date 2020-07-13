@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.mapper.TrainInforMapper">
+    <!--对应数据库字段与Entity-->
+    <resultMap id="BaseResultMap" type="com.ticket.entity.TrainInfor">
+<!--注意类型对应-->
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="train_no" jdbcType="VARCHAR" property="train_no"/>
+        <result column="train_num" jdbcType="VARCHAR" property="train_num"/>
+        <result column="train_type" jdbcType="INTEGER" property="train_type"/>
+        <result column="train_carriages" jdbcType="INTEGER" property="train_carriages"/>
+        <result column="train_start_station" jdbcType="VARCHAR" property="train_start_station"/>
+        <result column="train_end_station" jdbcType="VARCHAR" property="train_end_station"/>
+        <result column="train_start_time" jdbcType="TIMESTAMP" property="train_start_time"/>
+        <result column="train_end_time" jdbcType="TIMESTAMP" property="train_end_time"/>
+        <result column="train_arrive_day" jdbcType="VARCHAR" property="train_arrive_day"/>
+        <result column="train_running_time" jdbcType="TIMESTAMP" property="train_running_time"/>
+        <result column="train_running_type" jdbcType="INTEGER" property="train_running_type"/>
+
+    </resultMap>
+
+    <!--sql语句，方法-->
+    <select id="findAllTrainInfor" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM train_infor
+        ]]>
+
+    </select>
+</mapper>

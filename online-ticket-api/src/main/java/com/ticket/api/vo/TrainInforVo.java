@@ -1,15 +1,11 @@
-package com.ticket.entity;
+package com.ticket.api.vo;
 
-import org.springframework.data.annotation.AccessType;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
-@Entity
-@AccessType(AccessType.Type.PROPERTY)
-@Table(name = "train_infor")
-public class TrainInfor implements Serializable{
+
+public class TrainInforVo implements Serializable{
         //主键 id
         private Integer id;
         //列车编号
@@ -34,9 +30,7 @@ public class TrainInfor implements Serializable{
         private Date train_running_time;
         //列车运行状态 正常/晚点
         private Integer train_running_type;
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Column(name = "id")
+
         public Integer getId() {
                 return id;
         }

@@ -44,7 +44,7 @@
 			</div>
 		<!--//logo-->
 		  <div class="w3layouts-login">
-				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录 | 注册</a>
+				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
 			</div>    
 				<div class="clearfix"></div>
     <!--Login modal-->
@@ -58,6 +58,7 @@
                         <h4 class="modal-title" id="myModalLabel">
                             西杭</h4>
                     </div>
+                    <%--登录注册--%>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-8 extra-w3layouts" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
@@ -74,14 +75,14 @@
                                             <label for="email" class="col-sm-2 control-label">
                                                 手机号</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="email1" placeholder="Mobile" required="required" name="user_phone_num"/>
+                                                <input type="text" class="form-control" id="email1" placeholder="手机号" required="required" name="user_phone_num"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1" class="col-sm-2 control-label">
                                                 密码</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required="required" name="user_password"/>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码" required="required" name="user_password"/>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -102,38 +103,80 @@
                                                 姓名</label>
                                             <div class="col-sm-10">
                                                 <div class="row">
-                                                    <%--<div class="col-md-3 col-sm-3 col-xs-3">--%>
+                                                    <div class="col-md-3 col-sm-3 col-xs-3">
                                                         <%--<select class="form-control">--%>
                                                             <%--<option>Mr.</option>--%>
                                                             <%--<option>Ms.</option>--%>
                                                             <%--<option>Mrs.</option>--%>
                                                         <%--</select>--%>
-                                                    <%--</div>--%>
+                                                    </div>
                                                     <div class="col-md-9 col-sm-9 col-xs-9">
-                                                        <input type="text" class="form-control" placeholder="Name" required="required" name="user_real_name"/>
+                                                        <%--<input type="text" class="form-control" placeholder="Name" required="required" name="user_real_name"/>--%>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label" >
-                                                邮箱</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" name="user_email"/>
+                                            <div class="form-group">
+                                                <label for="mobile" class="col-sm-2 control-label">
+                                                    手机号</label>
+                                                <div class="col-sm-10">
+                                                    <input type="tel" class="form-control" id="mobile" placeholder="请输入您的手机号" required="required" name="user_phone_num"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="mobile" class="col-sm-2 control-label">
-                                                手机号</label>
-                                            <div class="col-sm-10">
-                                                <input type="tel" class="form-control" id="mobile" placeholder="Mobile" required="required" name="user_phone_num"/>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label for="password" class="col-sm-2 control-label">
                                                 密码</label>
                                             <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password" placeholder="Password" required="required" name="user_password"/>
+                                                <input type="password" class="form-control" id="password" placeholder="请输入登录密码" required="required" name="user_password"/>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                                <label for="email" class="col-sm-2 control-label" >
+                                                    邮箱</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="email" placeholder="请正确填写邮箱地址" required="required" name="user_email"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <label class="col-sm-2 control-label">
+                                                真实姓名</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="请输入姓名" name="user_real_name"/>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                            <label class="col-sm-2 control-label">
+                                                身份证号</label>
+                                            <div class="col-sm-10">
+                                                <input type="" class="form-control" placeholder="请输入身份证号" required="required" name="user_id_number"/>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                            <label class="col-sm-2 control-label">
+                                                旅客类型</label>
+                                            <div class="col-sm-10">
+                                                <%--<input type="text" class="form-control" name="user_type"/>--%>
+                                                <select name="user_type">
+                                                    <option value="1" name="user_type">成人</option>
+                                                    <option value="2" name="user_type">学生</option>
+                                                    <option value="3" name="user_type">儿童</option>
+                                                </select>
+                                            </div>
+                                        </div><div class="form-group">
+                                            <label class="col-sm-2 control-label">
+                                                性别</label>
+                                            <div class="col-sm-10">
+                                                <%--<input type="text" class="form-control" name="user_gender"/>--%>
+                                                <select name="user_gender">
+                                                    <option value="1" name="user_gender">男</option>
+                                                    <option value="0" name="user_gender">女</option>
+                                                </select>
+                                            </div>
+                                        </div><div class="form-group">
+                                            <label class="col-sm-2 control-label">
+                                                地址</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" placeholder="请输入地址" name="user_address"/>
                                             </div>
                                         </div>
                                         <div class="row">

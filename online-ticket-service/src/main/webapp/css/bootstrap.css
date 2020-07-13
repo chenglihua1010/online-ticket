@@ -2927,6 +2927,7 @@ select[multiple].form-group-lg .form-control {
     width: 100%;
   }
   .form-inline .control-label {
+    color:red;
     margin-bottom: 0;
     vertical-align: middle;
   }
@@ -2971,6 +2972,7 @@ select[multiple].form-group-lg .form-control {
     padding-top: 7px;
     margin-bottom: 0;
     text-align: right;
+    font-size: 12px;
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {

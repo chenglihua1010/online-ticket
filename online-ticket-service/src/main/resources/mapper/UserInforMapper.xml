@@ -24,11 +24,6 @@
     <!--方法：sql语句，id：方法名（关联mapper中的方法） 返回类型：resultMap,resultType ???;参数类型：param???-->
     <!--<select id="findAllManageTicket" resultType="com.ticket.entity.ManageInfor">&#45;&#45; -->
 
-    <select id="findAllManageTicket" resultMap="BaseResultMap">--
-        <![CDATA[
-SELECT * FROM manage_infor
- ]]>
-    </select>
     <select id="findByUser_phone_numAndUser_password" resultMap="BaseResultMap">--
         <![CDATA[
 SELECT * FROM user_infor WHERE user_phone_num=#{user_phone_num} AND user_password=#{user_password}
@@ -43,15 +38,7 @@ INSERT INTO user_infor(user_phone_num,user_password,user_email,user_type,user_re
  ]]>
     </insert>
 
-    <update id="updateByAccountId" >--
-        <![CDATA[
-UPDATE manage_infor SET manage_password = #{manage_password},manage_type=#{manage_type} WHERE manage_accountId=#{manage_accountId}
- ]]>
-    </update>
 
-    <delete id="deletById">
-        DELETE FROM manage_infor WHERE id=#{id}
-    </delete>
 
 
 
