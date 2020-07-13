@@ -20,10 +20,36 @@
     </resultMap>
 
     <!--sql语句，方法-->
+
     <select id="findAllTrainInfor" resultMap="BaseResultMap">
         <![CDATA[
-        SELECT * FROM train_infor
+SELECT * FROM train_infor
+]]>
+    </select>
+
+    <select id="findByTrain_num" resultMap="BaseResultMap">
+        <![CDATA[
+SELECT * FROM train_infor WHERE train_num=#{train_num}
+]]>
+    </select>
+
+    <!--列车管理（runtype）——>manage-->
+    <!--<update id="updateTrain_running_typeTOStop">-->
+        <!--<![CDATA[-->
+<!--UPDATE train_infor SET  train_running_type = 2 WHERE train_no=#{train_no}-->
+<!--]]>-->
+    <!--</update>-->
+    <!--<update id="updateTrain_running_typeTOStart">-->
+        <!--<![CDATA[-->
+<!--UPDATE train_infor SET  train_running_type = 1 WHERE train_no=#{train_no}-->
+<!--]]>-->
+    <!--</update>-->
+    <select id="findAllTrain_num" resultType="map">
+        <![CDATA[
+        SELECT train_num FROM train_infor
         ]]>
 
     </select>
+
+
 </mapper>
