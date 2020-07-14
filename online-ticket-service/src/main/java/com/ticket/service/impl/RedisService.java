@@ -67,6 +67,11 @@ public class RedisService {
                 return redisTemplate.opsForList().range(key,start,end);
         }
 
+//        public List<Object> findEntityList(String key,int start,int end) {
+//                log.info("=====================按照范围查询redis中List类型=======================================");
+//                return redisTemplate.opsForList().range(key,start,end);
+//        }
+
         /**
          * @Description 插入多条数据
          * @param key

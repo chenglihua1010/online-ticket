@@ -9,6 +9,7 @@ import java.io.Serializable;
 @AccessType(AccessType.Type.PROPERTY)
 @Table(name = "passenger")
 public class Passenger implements Serializable{
+        private static final long serialVersionUID = 2332068275497753721L;
         //主键 id
         private Integer id;
         //用户账号

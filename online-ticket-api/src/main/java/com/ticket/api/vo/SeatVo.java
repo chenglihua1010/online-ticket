@@ -1,15 +1,6 @@
-package com.ticket.entity;
+package com.ticket.api.vo;
 
-import org.springframework.data.annotation.AccessType;
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.*;
-import java.io.Serializable;
-@Entity
-@AccessType(AccessType.Type.PROPERTY)
-@Table(name = "seat")
-public class Seat implements Serializable{
-        private static final long serialVersionUID = 2332047275497753721L;
+public class SeatVo {
         //主键 id
         private Integer id;
         //列车编号
@@ -27,6 +18,14 @@ public class Seat implements Serializable{
 
         public void setId(Integer id) {
                 this.id = id;
+        }
+
+        public String getTrain_no() {
+                return train_no;
+        }
+
+        public void setTrain_no(String train_no) {
+                this.train_no = train_no;
         }
 
         public String getCarriage_no() {
@@ -51,13 +50,5 @@ public class Seat implements Serializable{
 
         public void setSeat_count(Integer seat_count) {
                 this.seat_count = seat_count;
-        }
-
-        public String getTrian_no() {
-                return train_no;
-        }
-
-        public void setTrian_no(String train_no) {
-                this.train_no = train_no;
         }
 }

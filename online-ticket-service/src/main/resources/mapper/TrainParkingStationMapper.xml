@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.mapper.TrainParkingStationMapper">
+    <resultMap id="BaseResultMap" type="com.ticket.entity.TrainParkingStation">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="train_no" jdbcType="VARCHAR" property="train_no"/>
+        <result column="train_num" jdbcType="VARCHAR" property="train_num"/>
+        <result column="train_arrive_day" jdbcType="VARCHAR" property="train_arrive_day"/>
+        <result column="train_start_time" jdbcType="TIMESTAMP" property="train_start_time"/>
+        <result column="train_end_time" jdbcType="TIMESTAMP" property="train_end_time"/>
+        <result column="train_running_time" jdbcType="VARCHAR" property="train_running_time"/>
+        <result column="station_no" jdbcType="VARCHAR" property="station_no"/>
+        <result column="station_name" jdbcType="VARCHAR" property="station_name"/>
+    </resultMap>
+    <select id="selectStationByTrain_no" resultMap="BaseResultMap">
+        <![CDATA[
+          SELECT * FROM train_parking_station WHERE train_no=#{train_no}
+        ]]>
+    </select>
+</mapper>

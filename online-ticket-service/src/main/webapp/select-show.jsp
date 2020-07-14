@@ -379,7 +379,7 @@
 						},
 						click: function () { //Click event
 							if (this.status() == 'available') { //optional seat
-								$('<li>Row'+(this.settings.row+1)+' Seat'+this.settings.label+'</li>')
+								$('<li>Row'+(this.settings.row+1)+' SeatVo'+this.settings.label+'</li>')
 									.attr('id', 'cart-item-'+this.settings.id)
 									.data('seatId', this.settings.id)
 									.appendTo($cart);

@@ -10,6 +10,7 @@ import java.io.Serializable;
 @AccessType(AccessType.Type.PROPERTY)
 @Table(name = "manage_infor")
 public class ManageInfor implements Serializable {
+        private static final long serialVersionUID = 2332067279497753721L;
         //主键 id
         private Integer id;
         //管理员账号

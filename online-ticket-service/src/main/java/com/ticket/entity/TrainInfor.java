@@ -10,6 +10,7 @@ import java.util.Date;
 @AccessType(AccessType.Type.PROPERTY)
 @Table(name = "train_infor")
 public class TrainInfor implements Serializable{
+        private static final long serialVersionUID = 2362067275497753721L;
         //主键 id
         private Integer id;
         //列车编号

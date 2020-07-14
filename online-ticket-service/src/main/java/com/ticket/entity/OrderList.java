@@ -10,6 +10,7 @@ import java.util.Date;
 @AccessType(AccessType.Type.PROPERTY)
 @Table(name = "order_list")
 public class OrderList implements Serializable{
+        private static final long serialVersionUID = 2332067275297753721L;
         //主键 id
         private Integer id;
         //订单号
