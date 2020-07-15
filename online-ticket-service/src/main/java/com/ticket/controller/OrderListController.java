@@ -42,4 +42,17 @@ public class OrderListController {
                 return listVos;
         }
 
+        @RequestMapping("/selectPartOrderByUser_phone_num")
+        @ResponseBody
+        public List<OrderListVo> selectPartOrderByUser_phone_num(HttpServletRequest request){
+                String user_phone_num=request.getParameter("user_phone_num");
+                String order_status=request.getParameter("order_status");
+                Integer order_statusInt=Integer.parseInt(order_status);
+
+                List<OrderListVo> orderListVo=orderListImpl.selectPartOrderByUser_phone_num(user_phone_num,order_statusInt);
+                return orderListVo;
+        }
+
+
+
 }

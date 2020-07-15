@@ -37,4 +37,17 @@ public class OrderListImpl extends BaseService implements OrderListInerface {
                 List<OrderListVo> orderListVos=transferObjectIgnoreCaseList(orderLists,OrderListVo.class);
                 return orderListVos;
         }
+
+        /**
+         * 查询用户部分订单
+         * @param user_phone_num 用户账号
+         * @param order_status 订单状态
+         * @return 订单信息表
+         */
+        @Override
+        public List<OrderListVo> selectPartOrderByUser_phone_num(String user_phone_num, Integer order_status) {
+                List<OrderList> orderLists=orderListMapper.selectPartOrderByUser_phone_num(user_phone_num,order_status);
+                List<OrderListVo> listVos=transferObjectIgnoreCaseList(orderLists,OrderListVo.class);
+                return listVos;
+        }
 }

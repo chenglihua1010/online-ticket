@@ -35,4 +35,12 @@
         SELECT * FROM order_list WHERE user_phone_num=#{user_phone_num}
         ]]>
     </select>
+    <select id="selectPartOrderByUser_phone_num" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM order_list WHERE user_phone_num=#{user_phone_num}
+        ]]>
+        <if test ="order_status !=null">
+            AND order_status=#{order_status}
+        </if>
+    </select>
 </mapper>
