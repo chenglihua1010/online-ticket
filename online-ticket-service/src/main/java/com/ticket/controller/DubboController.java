@@ -3,8 +3,11 @@ package com.ticket.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
 import com.ticket.entity.UserInfor;
 import com.ticket.service.impl.RedisService;
+import com.ticket.service.impl.RedisUtils;
+import com.ticket.utils.RedisClient;
 import com.ticketManage.api.service.DubboService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +34,13 @@ DubboService dubboService;
 
     @Autowired
     RedisService redisService;
+
+
+    @Autowired
+    RedisClient redisClient;
+
+    @Autowired
+    RedisUtils redisUtils;
 
 
     @RequestMapping("/sayHello")
@@ -68,25 +78,41 @@ DubboService dubboService;
 
     @RequestMapping("/testRedis")
     @ResponseBody
-    public UserInfor testRedis(){
+    public List<UserInfor> testRedis(){
 
         UserInfor userInfor=new UserInfor();
         userInfor.setUser_address("xxxxx");
         userInfor.setUser_real_name("wangwuclr");
         userInfor.setUser_id_number("11");
-        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
 
-        String userString=redisService.findName(userInfor.getUser_id_number().toString());
+        UserInfor userInfor1=new UserInfor();
+        userInfor1.setUser_address("yyyy");
+        userInfor1.setUser_real_name("jflsjfks");
+        userInfor1.setUser_id_number("22222");
 
-        UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
+        List<UserInfor>  list= Lists.newArrayList();
+        list.add(userInfor);
+        list.add(userInfor1);
 
-        LOGGER.info("DubboController testRedis value={}",JSONObject.toJSONString(userInfor1));
+//        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
+//
+//        String userString=redisService.findName(userInfor.getUser_id_number().toString());
+//
+//        UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
+//
+//        LOGGER.info("DubboController testRedis value={}",JSONObject.toJSONString(userInfor1));
+//
+//        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+//        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
-        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
+        redisUtils.set("ceshi11","1233");
+        redisClient.set("ceshi","123");
 
-        return userInfor1;
+        redisUtils.set("list",list);
+        System.out.println(redisUtils.get("list"));
+        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
+        return userInforList;
     }
 
 }
