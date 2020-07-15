@@ -23,8 +23,8 @@ public class RedisService {
         @Autowired
         private StringRedisTemplate redisTemplate;
 
-        @Autowired
-        private RedisTemplate redisTemplateALL;
+//        @Autowired
+//        private RedisTemplate redisTemplateALL;
 
 
         /**
@@ -95,10 +95,10 @@ public class RedisService {
          * @param value
          * @return
          */
-        public long setObjectList(String key, List<Object> value) {
-                log.info("=========================redis List type insert ======================================");
-                return redisTemplateALL.opsForList().rightPushAll(key,value);
-        }
+//        public long setObjectList(String key, List<Object> value) {
+//                log.info("=========================redis List type insert ======================================");
+//                return redisTemplateALL.opsForList().rightPushAll(key,value);
+//        }
 
         /**
          * @Description 获取list最新记录（右侧）
