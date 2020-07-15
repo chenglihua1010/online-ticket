@@ -1,6 +1,6 @@
 package com.ticket.api.vo;
 
-public class Passenger {  //主键 id
+public class PassengerVo {  //主键 id
         private Integer id;
         //用户账号
         private String user_phone_num;
