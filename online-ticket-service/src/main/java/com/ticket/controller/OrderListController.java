@@ -4,6 +4,7 @@ import com.ticket.api.vo.OrderListVo;
 import com.ticket.entity.OrderList;
 import com.ticket.service.impl.OrderListImpl;
 import com.ticket.utils.RandomUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,8 +48,10 @@ public class OrderListController {
         public List<OrderListVo> selectPartOrderByUser_phone_num(HttpServletRequest request){
                 String user_phone_num=request.getParameter("user_phone_num");
                 String order_status=request.getParameter("order_status");
-                Integer order_statusInt=Integer.parseInt(order_status);
-
+//                if(StringUtils.isNotEmpty(order_status)) {
+//                        Integer order_statusInt = Integer.parseInt(order_status);
+//                }
+                Integer order_statusInt = Integer.parseInt(order_status);
                 List<OrderListVo> orderListVo=orderListImpl.selectPartOrderByUser_phone_num(user_phone_num,order_statusInt);
                 return orderListVo;
         }
