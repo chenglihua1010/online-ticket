@@ -77,7 +77,7 @@ public class RedisService {
 //        }
 
         /**
-         * @Description 插入多条数据
+         * @Description 插入多条数据--字符串
          * @param key
          * @param value
          * @return
@@ -90,7 +90,7 @@ public class RedisService {
 
 
         /**
-         * @Description 插入多条数据
+         * @Description 插入多条数据--对象
          * @param key
          * @param value
          * @return
