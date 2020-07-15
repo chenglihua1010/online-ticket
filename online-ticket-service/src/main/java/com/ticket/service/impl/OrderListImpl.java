@@ -8,6 +8,8 @@ import com.ticket.mapper.OrderListMapper;
 import com.ticket.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 
 @Service
 public class OrderListImpl extends BaseService implements OrderListInerface {
@@ -22,5 +24,17 @@ public class OrderListImpl extends BaseService implements OrderListInerface {
         public void addOrder(OrderListVo orderListVo) {
                 OrderList orderList=transferObjectIgnoreCase(orderListVo,OrderList.class);
                 orderListMapper.addOrder(orderList);
+        }
+
+        /**
+         * 根据用户账号查询订单
+         * @param user_phone_num 用户账号
+         * @return 订单信息表
+         */
+        @Override
+        public List<OrderListVo> selectOrderByUser_phone_num(String user_phone_num) {
+                List<OrderList> orderLists=orderListMapper.selectOrderByUser_phone_num(user_phone_num);
+                List<OrderListVo> orderListVos=transferObjectIgnoreCaseList(orderLists,OrderListVo.class);
+                return orderListVos;
         }
 }

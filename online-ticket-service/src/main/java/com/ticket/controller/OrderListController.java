@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -33,6 +32,14 @@ public class OrderListController {
                 orderListImpl.addOrder(orderListVo);
                 return orderListVo;
 
+        }
+
+        @RequestMapping("/selectOrderByuser_phone_num")
+        @ResponseBody
+        public List<OrderListVo> selectOrderByuser_phone_num(HttpServletRequest request){
+                String user_phone_num=request.getParameter("user_phone_num");
+                List<OrderListVo> listVos=orderListImpl.selectOrderByUser_phone_num(user_phone_num);
+                return listVos;
         }
 
 }
