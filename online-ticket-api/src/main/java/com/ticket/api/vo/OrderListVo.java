@@ -2,11 +2,11 @@ package com.ticket.api.vo;
 
 import java.util.Date;
 
-public class OrderList {
+public class OrderListVo {
         //主键 id
         private Integer id;
         //订单号
-        private Integer order_id;
+        private String order_id;
         //用户账号
         private String user_phone_num;
         //乘客手机号
@@ -28,11 +28,11 @@ public class OrderList {
         //座位号
         private String seat_no;
         //订单价格
-        private String order_money;
+        private Double order_money;
         //订单时间
         private Date order_create_time;
         //订单状态
-        private String order_status;
+        private Integer order_status;
         //搭乘时间
         private Date train_start_date;
 
@@ -44,11 +44,11 @@ public class OrderList {
                 this.id = id;
         }
 
-        public Integer getOrder_id() {
+        public String getOrder_id() {
                 return order_id;
         }
 
-        public void setOrder_id(Integer order_id) {
+        public void setOrder_id(String order_id) {
                 this.order_id = order_id;
         }
 
@@ -132,11 +132,11 @@ public class OrderList {
                 this.seat_no = seat_no;
         }
 
-        public String getOrder_money() {
+        public Double getOrder_money() {
                 return order_money;
         }
 
-        public void setOrder_money(String order_money) {
+        public void setOrder_money(Double order_money) {
                 this.order_money = order_money;
         }
 
@@ -148,11 +148,11 @@ public class OrderList {
                 this.order_create_time = order_create_time;
         }
 
-        public String getOrder_status() {
+        public Integer getOrder_status() {
                 return order_status;
         }
 
-        public void setOrder_status(String order_status) {
+        public void setOrder_status(Integer order_status) {
                 this.order_status = order_status;
         }
 
