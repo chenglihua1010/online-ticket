@@ -5,6 +5,7 @@ package com.ticket.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class RedisService {
 
         @Autowired
         private StringRedisTemplate redisTemplate;
+
+        @Autowired
+        private RedisTemplate redisTemplateALL;
 
 
         /**
@@ -81,6 +85,19 @@ public class RedisService {
         public long setList(String key, List<String> value) {
                 log.info("=========================redis List type insert ======================================");
                 return redisTemplate.opsForList().rightPushAll(key, value);
+        }
+
+
+
+        /**
+         * @Description 插入多条数据
+         * @param key
+         * @param value
+         * @return
+         */
+        public long setObjectList(String key, List<Object> value) {
+                log.info("=========================redis List type insert ======================================");
+                return redisTemplateALL.opsForList().rightPushAll(key,value);
         }
 
         /**
