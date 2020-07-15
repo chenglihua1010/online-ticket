@@ -29,4 +29,10 @@
         #{orderList.seat_no},#{orderList.order_money},#{orderList.order_create_time},#{orderList.order_status},#{orderList.train_start_date})
         ]]>
     </insert>
+
+    <select id="selectOrderByUser_phone_num" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM order_list WHERE user_phone_num=#{user_phone_num}
+        ]]>
+    </select>
 </mapper>
