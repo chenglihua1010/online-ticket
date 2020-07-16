@@ -1,0 +1,63 @@
+package com.ticket.entity;
+
+import org.springframework.data.annotation.AccessType;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
+import java.io.Serializable;
+@Entity
+@AccessType(AccessType.Type.PROPERTY)
+@Table(name = "seat")
+public class Seat implements Serializable{
+        private static final long serialVersionUID = 2332047275497753721L;
+        //主键 id
+        private Integer id;
+        //列车编号
+        private String train_no;
+        //车厢编号
+        private String carriage_no;
+        //座位类型 1-硬座 2-软卧 3-硬卧 4-一等座 5-二等座 6-商务座
+        private Integer seat_type;
+        //座位数量
+        private Integer seat_count;
+
+        public Integer getId() {
+                return id;
+        }
+
+        public void setId(Integer id) {
+                this.id = id;
+        }
+
+        public String getCarriage_no() {
+                return carriage_no;
+        }
+
+        public void setCarriage_no(String carriage_no) {
+                this.carriage_no = carriage_no;
+        }
+
+        public Integer getSeat_type() {
+                return seat_type;
+        }
+
+        public void setSeat_type(Integer seat_type) {
+                this.seat_type = seat_type;
+        }
+
+        public Integer getSeat_count() {
+                return seat_count;
+        }
+
+        public void setSeat_count(Integer seat_count) {
+                this.seat_count = seat_count;
+        }
+
+        public String getTrian_no() {
+                return train_no;
+        }
+
+        public void setTrian_no(String train_no) {
+                this.train_no = train_no;
+        }
+}

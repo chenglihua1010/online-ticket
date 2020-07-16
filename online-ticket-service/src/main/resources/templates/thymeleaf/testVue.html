@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title></title>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>-->
+</head>
+<body>
+
+<!--v-model 用法-->
+<h1>helle Vue</h1>
+<div id="app">
+    {{ message }}
+    <input v-model="message"/>
+</div>
+
+<div id="app-2">
+  <span v-bind:title="message">
+      {{message}}
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span>
+</div>
+
+ <!--v-if  和 template 模板判断用法-->
+<div id="app-3" v-bind:style="styleObject">
+    <p v-if="seen">Now you see me</p>
+    <p v-else>NO NO you </p>
+
+    <template v-if="ifOk">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+    </template>
+</div>
+
+
+<!--v-for 循环用法-->
+<div id="app-4">
+    <ol>
+        <li v-for="obj in todos">
+            {{ obj.text }}
+        </li>
+    </ol>
+</div>
+
+
+
+
+<!--v-for 循环用法2-->
+<!--<div id="app-44">-->
+    <!--<ul>-->
+        <!--<li v-for="(value,key) in object">-->
+            <!--{{ value }} : {{ key }}-->
+        <!--</li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
+<!--v-on:click 点击事件-->
+<div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+
+
+<!--todo-item为Vue创建的一个component组件，可自定义命名，v-bind为将todo1的值传递给每一个item-->
+<div id="app-7">
+    <ol>
+        <todo-item11 v-for="item in groceryList" v-bind:todo1="item"></todo-item11>
+    </ol>
+</div>
+
+
+    <!--computed来计算reversedMessage11的值,它的值会跟着message的值而变化-->
+<div id="example">
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage11 }}"</p>
+</div>
+
+ <!--对象属性style改变-->
+<div id="bind-test">
+    <div  v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">sfsfsf</div>
+    <div v-bind:style="styleObject">vvvbbbb</div>
+</div>
+
+
+ <!--todi-list例子-->
+<div id="todo-list-example">
+    <input
+            v-model="newTodoText"
+            v-on:keyup.enter="addNewTodo"
+            placeholder="Add a todo"
+    >
+    <ul>
+        <li
+                is="todo-item"
+                v-for="(todo, index) in todos"
+                v-bind:title="todo"
+                v-on:remove="todos.splice(index, 1)"
+        ></li>
+    </ul>
+</div>
+
+ <!--点击监听事件-->
+<div id="example-1">
+    <button v-on:click="counter += 1">增加 1</button>
+    <p>这个按钮被点击了 {{ counter }} 次。</p>
+</div>
+
+<!--点击监听事件-->
+<div id="example-2">
+    <button v-on:click="greet('helloEvery')">Greet</button>
+</div>
+
+<div id="example-3">
+<select v-model="selected">
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+</select>
+<span>Selected: {{ selected }}</span>
+</div>
+
+<div id="demo">{{ fullName }}</div>
+
+<script src="vue.js"></script>
+<script src="1.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>博客详情</title>
+   <style>
+       #container {
+           background: #2aabd2;
+           height: 1000px;
+           width: 100%;
+           text-align: center;
+       }
+       #nav ul li{
+         float: left;
+       }
+
+   </style>
+</head>
+<body>
+
+<div th:if="${drugPostRecordBean}" id="container">
+<h1 th:text="${drugPostRecordBean.title}"></h1>
+    <div id="nav">
+        <ul>
+            <li>作者：<h3 th:text="${drugPostRecordBean.userName}"></h3></li>
+            <li>点赞数：<h3 th:text="${drugPostRecordBean.getStarNumber}"></h3></li>
+            <li>浏览数：<h3 th:text="${drugPostRecordBean.getBrowseNumber}"></h3></li>
+            <li><h3 th:text="${#dates.format(drugPostRecordBean.createTime,'yyyy-MM-dd')}"></h3></li>
+        </ul>
+    </div>
+<h3 th:text="${drugPostRecordBean.describe}"></h3>
+
+
+    <img th:src="${drugPostRecordBean.imageUrl}" class="img-fluid" alt="">
+</div>
+</body>
+</html>

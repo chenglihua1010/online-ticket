@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ticket.mapper.UserInforMapper">
+    <!---->
+    <!--mapper,Entity对应数据库字段（colum）-->
+    <resultMap id="BaseResultMap" type="com.ticket.entity.UserInfor">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <!--关联数据库，对应字段-->
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="user_phone_num" jdbcType="VARCHAR" property="user_phone_num" />
+        <!--<result column="manage_password" jdbcType="VARCHAR" property="manage_password" />-->
+        <result column="user_password" jdbcType="VARCHAR" property="user_password" />
+        <result column="user_email" jdbcType="VARCHAR" property="user_email" />
+        <result column="user_type" jdbcType="VARCHAR" property="user_type" />
+        <result column="user_real_name" jdbcType="VARCHAR" property="user_real_name" />
+        <result column="user_id_number" jdbcType="VARCHAR" property="user_id_number" />
+        <result column="user_address" jdbcType="VARCHAR" property="user_address" />
+        <result column="user_gender" jdbcType="VARCHAR" property="user_gender" />
+        <!--<result column="userIdNumber" jdbcType="VARCHAR" property="user_id_number" />-->
+    </resultMap>
+
+    <!--方法：sql语句，id：方法名（关联mapper中的方法） 返回类型：resultMap,resultType ???;参数类型：param???-->
+    <!--<select id="findAllManageTicket" resultType="com.ticket.entity.ManageInfor">&#45;&#45; -->
+
+    <select id="findByUser_phone_numAndUser_password" resultMap="BaseResultMap">--
+        <![CDATA[
+SELECT * FROM user_infor WHERE user_phone_num=#{user_phone_num} AND user_password=#{user_password}
+ ]]>
+    </select>
+
+    <insert id="addUser" parameterType="com.ticket.entity.UserInfor">--
+        <![CDATA[
+INSERT INTO user_infor(user_phone_num,user_password,user_email,user_type,user_real_name,user_id_number,user_address,user_gender)
+    VALUES (#{userInfor.user_phone_num},#{userInfor.user_password},#{userInfor.user_email},
+    #{userInfor.user_type},#{userInfor.user_real_name},#{userInfor.user_id_number},#{userInfor.user_address},#{userInfor.user_gender})
+ ]]>
+    </insert>
+
+
+
+
+
+</mapper>
