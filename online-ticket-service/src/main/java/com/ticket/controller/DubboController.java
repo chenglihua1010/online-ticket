@@ -4,11 +4,16 @@ package com.ticket.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.ticket.api.vo.ManageInforVo;
+import com.ticket.api.vo.UserInforVo;
 import com.ticket.entity.UserInfor;
 import com.ticket.service.impl.RedisService;
 import com.ticket.service.impl.RedisUtils;
 import com.ticket.utils.RedisClient;
 import com.ticketManage.api.service.DubboService;
+import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +24,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import java.util.*;
+
+import static com.ticket.utils.BaseService.transferObjectIgnoreCase;
 
 
 @Controller
@@ -90,9 +97,46 @@ DubboService dubboService;
         userInfor1.setUser_real_name("jflsjfks");
         userInfor1.setUser_id_number("22222");
 
+        //??
         List<UserInfor>  list= Lists.newArrayList();
         list.add(userInfor);
         list.add(userInfor1);
+
+        UserInforVo u;
+        for(int i=0;i<list.size();i++){
+
+            u=transferObjectIgnoreCase(list.get(i),UserInforVo.class);
+            System.out.println(u);
+                }
+
+        for(UserInfor p:list){
+            transfer(p);
+            System.out.println(p);
+        }
+
+
+//        List<UserInfor> list1=new ArrayList<>();
+//
+//        List<UserInfor> list2=Lists.newArrayList();
+//
+//
+//        Map<String,String> map=new HashedMap();
+//        Map<String,String> map1= Maps.newHashMap();
+//
+//
+//        Set<UserInfor> set =new TreeSet<>();
+////        Set<UserInfor> set1= Sets.newTreeSet();
+//        Set<UserInfor> set2= Sets.newHashSet();
+
+
+
+
+
+
+
+        System.out.println(userInfor);
+        System.out.println(JSONObject.toJSONString(userInfor));
+        System.out.println(userInfor.toString());
 
 //        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
 //
@@ -105,14 +149,22 @@ DubboService dubboService;
 //        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 //        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
+//
+//        redisUtils.set("ceshi11","1233");
+//        redisClient.set("ceshi","123");
+//
+//        redisUtils.set("list",list);
+//        System.out.println(redisUtils.get("list"));
+//        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
+        return list;
+    }
 
-        redisUtils.set("ceshi11","1233");
-        redisClient.set("ceshi","123");
-
-        redisUtils.set("list",list);
-        System.out.println(redisUtils.get("list"));
-        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
-        return userInforList;
+    /**
+     * Vo和Entity转换
+     * @param userInfor
+         */
+    public void transfer(UserInfor userInfor){
+        UserInforVo userInforVo=transferObjectIgnoreCase(userInfor,UserInforVo.class);
     }
 
 }

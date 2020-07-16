@@ -1,8 +1,10 @@
 package com.ticket.api.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class OrderListVo {
+
         //主键 id
         private Integer id;
         //订单号

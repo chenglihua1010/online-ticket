@@ -1,8 +1,10 @@
 package com.ticket.controller;
 
+import com.google.common.collect.Lists;
 import com.ticket.api.vo.OrderListVo;
 import com.ticket.entity.OrderList;
 import com.ticket.service.impl.OrderListImpl;
+import com.ticket.service.impl.RedisUtils;
 import com.ticket.utils.RandomUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,13 @@ import java.util.List;
 @Controller
 @RequestMapping("/orderList")
 public class OrderListController {
+
         @Autowired
         OrderListImpl orderListImpl;
+
+        @Autowired
+        RedisUtils redisUtils;
+
         @RequestMapping("/addOrder")
         @ResponseBody
         public OrderListVo addOrder(HttpServletRequest request){
@@ -39,7 +46,14 @@ public class OrderListController {
         @ResponseBody
         public List<OrderListVo> selectOrderByuser_phone_num(HttpServletRequest request){
                 String user_phone_num=request.getParameter("user_phone_num");
+
                 List<OrderListVo> listVos=orderListImpl.selectOrderByUser_phone_num(user_phone_num);
+//                listVos=Lists.newArrayList();
+//                List<OrderListVo> listVos=Lists.newArrayList();
+//                listVos=orderListImpl.selectOrderByUser_phone_num(user_phone_num);
+
+
+                redisUtils.set("ceshi",listVos);
                 return listVos;
         }
 
