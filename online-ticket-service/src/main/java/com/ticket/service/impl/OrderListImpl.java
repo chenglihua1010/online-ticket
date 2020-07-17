@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Service
-public class OrderListImpl extends BaseService implements OrderListInerface {
+public class OrderListImpl extends BaseService  implements OrderListInerface {
         @Autowired
         OrderListMapper orderListMapper;
 
@@ -34,7 +34,7 @@ public class OrderListImpl extends BaseService implements OrderListInerface {
         @Override
         public List<OrderListVo> selectOrderByUser_phone_num(String user_phone_num) {
                 List<OrderList> orderLists=orderListMapper.selectOrderByUser_phone_num(user_phone_num);
-                List<OrderListVo> orderListVos=transferObjectIgnoreCaseList(orderLists,OrderListVo.class);
+                List<OrderListVo> orderListVos=getList(orderLists,OrderListVo.class);
                 return orderListVos;
         }
 
