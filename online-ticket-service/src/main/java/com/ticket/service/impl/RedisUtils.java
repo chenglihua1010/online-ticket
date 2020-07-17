@@ -4,6 +4,8 @@ package com.ticket.service.impl;
  * Created by wangwu on 2020/7/15.
  */
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,15 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class RedisUtils {
 
+        private static final Logger log = LoggerFactory.getLogger(RedisService.class);
+
         @Autowired
         public  RedisTemplate redisTemplate;
+
+
+        public void setRedisTemplate(RedisTemplate redisTemplate) {
+                this.redisTemplate = redisTemplate;
+        }
 
         private RedisUtils() {
         }
@@ -239,5 +248,32 @@ public class RedisUtils {
          */
         public  List<Object> lGet(final String key, final int start, final int end) {
                 return redisTemplate.opsForList().range(key, start, end);
+        }
+
+        /**
+         *  获取key
+         * @param name
+         * @return
+         */
+        public String findName(String name) {
+                if (name==null){
+                        log.error("===============key为null======================================================");
+                }
+                return (String) redisTemplate.opsForValue().get(name);
+        }
+
+        private static final String KEY_SPLIT_CHAR = ":";
+
+        /**
+         *  key 键规则定义
+         * @param args 参数
+         * @return key
+                */
+        public static String keyBuilder(String ... args){
+                StringBuilder key=new StringBuilder();
+                for(String arg:args){
+                        key.append(arg);
+                }
+                return key.toString();
         }
 }

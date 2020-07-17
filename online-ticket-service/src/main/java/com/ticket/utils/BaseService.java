@@ -1,5 +1,6 @@
 package com.ticket.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BaseService<T> {
 
@@ -19,9 +17,6 @@ public class BaseService<T> {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseService.class);
 
-    public T get(Object id) {
-        return null;
-    }
 
     /**
      * 复制对象
@@ -29,7 +24,7 @@ public class BaseService<T> {
      * @param dest
      * @param origin
      */
-    public void copyProperties(Object dest, Object origin) {
+    public static void copyProperties(Object dest, Object origin) {
         if (null == origin) {
             dest = null;
             return;
@@ -49,7 +44,7 @@ public class BaseService<T> {
      * @param <T>
      * @return
      */
-    public <T> T getBean(Object origin, Class<T> clazz) {
+    public static <T> T getBean(Object origin, Class<T> clazz) {
         Object dest = null;
         if (null != origin) {
             try {
@@ -67,23 +62,35 @@ public class BaseService<T> {
         return (null != dest) ? (T) dest : null;
     }
 
+
     /**
-     * 获取业务对象列表
-     *
-     * @param originList
-     * @param clazz
+     * list转list
+     * @param srcList
+     * @param targetClazz
+     * @param <T>
+     * @param <S>
      * @return
      */
-    public List<T> getList(List<?> originList, Class<T> clazz) {
-        List<T> list = new ArrayList<>(originList.size());
-        if (CollectionUtils.isNotEmpty(originList)) {
-            for (Object obj : originList) {
-                list.add(getBean(obj, clazz));
-            }
+    public static <T, S> List<T> getList(Collection<S> srcList, Class<T> targetClazz) {
+        if (CollectionUtils.isEmpty(srcList)) {
+            return Collections.emptyList();
         }
-
-        return list;
+        T target = null;
+        try {
+            List<T> dist = new ArrayList<T>();
+            for (S src : srcList) {
+                //目标类注意必须实现空构造函数
+                target = targetClazz.newInstance();
+                copyProperties(target, src);
+                dist.add(target);
+            }
+            return dist;
+        } catch (Exception e) {
+            LOGGER.error("对象{}复制属性出错:{}", targetClazz.getSimpleName(), JSONObject.toJSONString(srcList));
+            throw new IllegalArgumentException("对象" + targetClazz.getSimpleName() + "复制属性出错", e);
+        }
     }
+
 
 
     /**

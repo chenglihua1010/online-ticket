@@ -66,6 +66,7 @@
         <constructor-arg ref="redisTemplate" />
         <property name="defaultExpiration" value="60"></property>
     </bean>
+
     <bean class="com.ticket.utils.RedisClient" id="redisClient">
         <property name="keySerializer">
             <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
@@ -73,6 +74,10 @@
         <property name="valueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
         </property>
+    </bean>
+
+    <bean class="com.ticket.service.impl.RedisUtils" id="redisUtils">
+        <property name="redisTemplate" ref="redisTemplate"></property>
     </bean>
 
 </beans>
