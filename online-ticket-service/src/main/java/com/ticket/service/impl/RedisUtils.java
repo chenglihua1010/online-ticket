@@ -29,6 +29,11 @@ public class RedisUtils {
         @Autowired
         public  RedisTemplate redisTemplate;
 
+
+        public void setRedisTemplate(RedisTemplate redisTemplate) {
+                this.redisTemplate = redisTemplate;
+        }
+
         private RedisUtils() {
         }
 

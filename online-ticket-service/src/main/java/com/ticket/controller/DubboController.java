@@ -148,7 +148,7 @@ DubboService dubboService;
 
 
         redisUtils.set("ceshi11","1233");
-        redisClient.set("ceshi","123");
+//        redisClient.set("ceshi","123");
 
         redisUtils.get("ceshi11");
 
