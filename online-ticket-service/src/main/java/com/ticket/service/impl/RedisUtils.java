@@ -97,7 +97,8 @@ public class RedisUtils {
          */
         public  void set(final String key, final Object value) {
 
-                redisTemplate.opsForValue().set(key, value, 1, TimeUnit.MINUTES);
+//                redisTemplate.opsForValue().set(key, value, 1, TimeUnit.MINUTES);
+                redisTemplate.opsForValue().set(key, value);
         }
 
         // 存储普通对象操作
