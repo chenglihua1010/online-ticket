@@ -23,9 +23,6 @@ public class RedisService {
         @Autowired
         private StringRedisTemplate redisTemplate;
 
-//        @Autowired
-//        private RedisTemplate redisTemplateALL;
-
 
         /**
          * @Description 获取String类型的value
