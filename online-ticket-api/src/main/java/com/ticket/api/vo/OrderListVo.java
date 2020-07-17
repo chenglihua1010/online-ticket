@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class OrderListVo implements Serializable{
-        private static final long serialVersionUID = -7240580734601451247L;
+//        private static final long serialVersionUID = -7240580734601451247L;
 
 
         //主键 id

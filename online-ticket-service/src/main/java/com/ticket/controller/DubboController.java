@@ -115,6 +115,7 @@ DubboService dubboService;
         }
 
 
+        //import com.google.common.collect的用法（lists、sets、maps）
 //        List<UserInfor> list1=new ArrayList<>();
 //
 //        List<UserInfor> list2=Lists.newArrayList();
@@ -125,7 +126,7 @@ DubboService dubboService;
 //
 //
 //        Set<UserInfor> set =new TreeSet<>();
-////        Set<UserInfor> set1= Sets.newTreeSet();
+//       Set<UserInfor> set1= Sets.newTreeSet();
 //        Set<UserInfor> set2= Sets.newHashSet();
 
 
@@ -139,24 +140,22 @@ DubboService dubboService;
         System.out.println(userInfor.toString());
 
 //        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
-//
 //        String userString=redisService.findName(userInfor.getUser_id_number().toString());
-//
 //        UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
-//
 //        LOGGER.info("DubboController testRedis value={}",JSONObject.toJSONString(userInfor1));
-//
 //        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 //        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
-//
-//        redisUtils.set("ceshi11","1233");
-//        redisClient.set("ceshi","123");
-//
+
+        redisUtils.set("ceshi11","1233");
+        redisClient.set("ceshi","123");
+
+        redisUtils.get("ceshi11");
+
 //        redisUtils.set("list",list);
-//        System.out.println(redisUtils.get("list"));
-//        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
-        return list;
+        System.out.println(redisUtils.get("list"));
+        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
+        return userInforList;
     }
 
     /**

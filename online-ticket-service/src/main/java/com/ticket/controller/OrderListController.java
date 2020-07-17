@@ -62,9 +62,6 @@ public class OrderListController {
         public List<OrderListVo> selectPartOrderByUser_phone_num(HttpServletRequest request){
                 String user_phone_num=request.getParameter("user_phone_num");
                 String order_status=request.getParameter("order_status");
-//                if(StringUtils.isNotEmpty(order_status)) {
-//                        Integer order_statusInt = Integer.parseInt(order_status);
-//                }
                 Integer order_statusInt = Integer.parseInt(order_status);
                 List<OrderListVo> orderListVo=orderListImpl.selectPartOrderByUser_phone_num(user_phone_num,order_statusInt);
                 return orderListVo;
