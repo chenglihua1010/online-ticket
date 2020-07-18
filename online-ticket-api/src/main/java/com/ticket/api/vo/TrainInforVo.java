@@ -27,7 +27,7 @@ public class TrainInforVo implements Serializable{
         //当日到达/次日到达
         private String train_arrive_day;
         //列车运行时间
-        private Date train_running_time;
+        private String train_running_time;
         //列车运行状态 正常/晚点
         private Integer train_running_type;
 
@@ -111,11 +111,11 @@ public class TrainInforVo implements Serializable{
                 this.train_arrive_day = train_arrive_day;
         }
 
-        public Date getTrain_running_time() {
+        public String getTrain_running_time() {
                 return train_running_time;
         }
 
-        public void setTrain_running_time(Date train_running_time) {
+        public void setTrain_running_time(String train_running_time) {
                 this.train_running_time = train_running_time;
         }
 

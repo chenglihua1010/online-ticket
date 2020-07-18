@@ -273,7 +273,7 @@ public class RedisUtils {
         public static String keyBuilder(String ... args){
                 StringBuilder key=new StringBuilder();
                 for(String arg:args){
-                        key.append(arg);
+                        key.append(KEY_SPLIT_CHAR).append(arg);
                 }
                 return key.toString();
         }

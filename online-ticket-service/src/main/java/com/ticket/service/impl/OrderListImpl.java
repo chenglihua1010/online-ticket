@@ -58,15 +58,17 @@ public class OrderListImpl extends BaseService  implements OrderListInerface {
 //                String newkey=redisUtils.keyBuilder(user_phone_num,order_statusString);
 //                String key=redisUtils.findName(newkey.toString());
                 //避免空转换，事先进行null判断
-
-                Object userString=redisUtils.get(user_phone_num.toString());
+                Object userString=redisUtils.get(user_phone_num);
+//                Object order=redisUtils.hGet(user_phone_num,order_statusString);
                 if(!ObjectUtils.isEmpty(userString)){
                         //redis得到的为Object,注意需要强转
                         orderLists= (List<OrderList>) userString;
+//                        redisUtils.hPut("hash",order_statusString,orderLists.get(1));
+//                        redisUtils.hPut("hash1",order_statusString,orderLists.get(0));
                 }else {
                         orderLists = orderListMapper.selectPartOrderByUser_phone_num(user_phone_num, order_status);
                         if (!ObjectUtils.isEmpty(orderLists)) {
-                                redisUtils.set(user_phone_num.toString(), JSONObject.toJSONString(orderLists));
+                                redisUtils.set(user_phone_num.toString(), orderLists);
                         }
                 }
 //                List<OrderList> orderLists1=(List<OrderList>) redisUtils.get(user_phone_num.toString());

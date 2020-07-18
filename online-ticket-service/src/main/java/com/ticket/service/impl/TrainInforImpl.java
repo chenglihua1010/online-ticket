@@ -10,6 +10,7 @@ import com.ticket.entity.TrainInfor;
 import com.ticket.mapper.TrainInforMapper;
 import com.ticket.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,8 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
 
         @Autowired
         TrainInforMapper trainInforMapper;
+        @Autowired
+        RedisUtils redisUtils;
 
         /**
          * 查询列车信息
@@ -27,7 +30,17 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
           */
         @Override
         public List<TrainInforVo> findAllTrainInfor() {
-                List<TrainInfor> userInforList=trainInforMapper.findAllTrainInfor();
+                String method="findAllTrainInfor";
+                String key = redisUtils.keyBuilder(method);
+                Object trainInforFromRedis=redisUtils.get(key);
+                List<TrainInfor> userInforList;
+                if(!ObjectUtils.isEmpty(trainInforFromRedis)){
+                        userInforList=(List<TrainInfor>) trainInforFromRedis;
+                }else{
+                        userInforList=trainInforMapper.findAllTrainInfor();
+                        if(!ObjectUtils.isEmpty(userInforList))
+                                redisUtils.set(key,userInforList);
+                }
                 List<TrainInforVo> trainInforVoList = transferObjectIgnoreCaseList(userInforList,TrainInforVo.class);
                 return trainInforVoList;
         }
@@ -39,6 +52,7 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
          */
         @Override
         public List<TrainInforVo> findByTrain_num(String train_num) {
+
                 List<TrainInfor> trainInforList=trainInforMapper.findByTrain_num(train_num);
                 List<TrainInforVo> trainInforVoList=transferObjectIgnoreCaseList(trainInforList,TrainInforVo.class);
                 return trainInforVoList;

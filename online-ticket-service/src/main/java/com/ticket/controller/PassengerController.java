@@ -1,8 +1,12 @@
 package com.ticket.controller;
 
+
+import com.alibaba.fastjson.JSONObject;
 import com.ticket.api.vo.PassengerVo;
 import com.ticket.entity.Passenger;
 import com.ticket.service.impl.PassengerImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,11 +16,15 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/passenger")
 public class PassengerController {
         @Autowired
         PassengerImpl passengerImpl;
+
+        private static final Logger LOGGER= LoggerFactory.getLogger(PassengerController.class);
+
 
         @RequestMapping("/addPassenger")
         @ResponseBody
@@ -35,7 +43,10 @@ public class PassengerController {
         @ResponseBody
         public List<PassengerVo> selectPassengerByuser_phone_num(HttpServletRequest request){
                 String user_phone_num=request.getParameter("user_phone_num");
+
                 List<PassengerVo> passengerVoList=passengerImpl.selectPassengerByuser_phone_num(user_phone_num);
+                LOGGER.info("PassengerController selectPassengerByuser_phone_num bean={}", JSONObject.toJSON(passengerVoList));
+                LOGGER.info("PassengerController selectPassengerByuser_phone_num bean={}", JSONObject.toJSON("参数user_phone_num:"+user_phone_num));
                 return passengerVoList;
         }
 
