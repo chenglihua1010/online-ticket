@@ -37,7 +37,7 @@ public class DubboController {
 
 //    @Resource
     @Reference
-DubboService dubboService;
+    DubboService dubboService;
 
     @Autowired
     RedisService redisService;
@@ -97,7 +97,6 @@ DubboService dubboService;
         userInfor1.setUser_real_name("jflsjfks");
         userInfor1.setUser_id_number("22222");
 
-        //??
         List<UserInfor>  list= Lists.newArrayList();
         list.add(userInfor);
         list.add(userInfor1);
@@ -115,7 +114,7 @@ DubboService dubboService;
         }
 
 
-        //import com.google.common.collect的用法（lists、sets、maps）
+        //TODO import com.google.common.collect的用法（lists、sets、maps）
 //        List<UserInfor> list1=new ArrayList<>();
 //
 //        List<UserInfor> list2=Lists.newArrayList();
@@ -128,17 +127,11 @@ DubboService dubboService;
 //        Set<UserInfor> set =new TreeSet<>();
 //       Set<UserInfor> set1= Sets.newTreeSet();
 //        Set<UserInfor> set2= Sets.newHashSet();
+//        System.out.println(userInfor);
+//        System.out.println(JSONObject.toJSONString(userInfor));
+//        System.out.println(userInfor.toString());
 
-
-
-
-
-
-
-        System.out.println(userInfor);
-        System.out.println(JSONObject.toJSONString(userInfor));
-        System.out.println(userInfor.toString());
-
+         // redisService的用法
 //        redisService.setNameValue(userInfor.getUser_id_number().toString(),JSONObject.toJSONString(userInfor));
 //        String userString=redisService.findName(userInfor.getUser_id_number().toString());
 //        UserInfor userInfor1=JSONObject.parseObject(userString,UserInfor.class);
@@ -149,9 +142,7 @@ DubboService dubboService;
 
         redisUtils.set("ceshi11","1233");
 //        redisClient.set("ceshi","123");
-
         redisUtils.get("ceshi11");
-
 //        redisUtils.set("list",list);
         System.out.println(redisUtils.get("list"));
         List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
@@ -164,6 +155,36 @@ DubboService dubboService;
          */
     public void transfer(UserInfor userInfor){
         UserInforVo userInforVo=transferObjectIgnoreCase(userInfor,UserInforVo.class);
+    }
+
+    @RequestMapping("/testRedisForList")
+    @ResponseBody
+    public List testRedisForList(){
+        UserInfor userInfor=new UserInfor();
+        userInfor.setUser_address("xxxxx");
+        userInfor.setUser_real_name("wangwuclr");
+        userInfor.setUser_id_number("11");
+
+        UserInfor userInfor1=new UserInfor();
+        userInfor1.setUser_address("yyyy");
+        userInfor1.setUser_real_name("jflsjfks");
+        userInfor1.setUser_id_number("22222");
+
+        UserInfor userInfor2=new UserInfor();
+        userInfor2.setUser_id_number("111");
+
+
+        List<UserInfor>  list= Lists.newArrayList();
+        list.add(userInfor);
+        list.add(userInfor1);
+
+        redisUtils.lPushAll("listAll",list);
+        System.out.println("ListALL"+redisUtils.lGet("listAll",0,-1));
+        redisUtils.lPush("listAll",userInfor2);
+        System.out.println("ListALL"+redisUtils.lGet("listAll",0,-1));
+        List userInfors= redisUtils.lGet("listAll",0,1);
+
+        return userInfors;
     }
 
 }

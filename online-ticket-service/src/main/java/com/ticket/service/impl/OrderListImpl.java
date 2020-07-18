@@ -1,6 +1,7 @@
 package com.ticket.service.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSONObject;
 import com.ticket.api.service.OrderListInerface;
 import com.ticket.api.vo.OrderListVo;
 import com.ticket.entity.OrderList;
@@ -56,16 +57,22 @@ public class OrderListImpl extends BaseService  implements OrderListInerface {
                 //建一个新的key（统一命名方式），通过和redis的已存的key比较，来判断orderList从那里获取值（redis\sql(mapper)）
 //                String newkey=redisUtils.keyBuilder(user_phone_num,order_statusString);
 //                String key=redisUtils.findName(newkey.toString());
-                String userString=redisUtils.findName(user_phone_num.toString());
-                if(StringUtils.isNotEmpty(userString)){
+                //避免空转换，事先进行null判断
+                Object userString=redisUtils.get(user_phone_num);
+//                Object order=redisUtils.hGet(user_phone_num,order_statusString);
+                if(!ObjectUtils.isEmpty(userString)){
                         //redis得到的为Object,注意需要强转
-                        orderLists=(List<OrderList>) redisUtils.get(userString);
+                        orderLists= (List<OrderList>) userString;
+//                        redisUtils.hPut("hash",order_statusString,orderLists.get(1));
+//                        redisUtils.hPut("hash1",order_statusString,orderLists.get(0));
                 }else {
                         orderLists = orderListMapper.selectPartOrderByUser_phone_num(user_phone_num, order_status);
                         if (!ObjectUtils.isEmpty(orderLists)) {
                                 redisUtils.set(user_phone_num.toString(), orderLists);
                         }
                 }
+//                List<OrderList> orderLists1=(List<OrderList>) redisUtils.get(user_phone_num.toString());
+
                 //当Vo类存在serialVersionUID时，需用下面方法进行类型转换 newInstace()--弱引用，仅调用无参构造函数，故目标类种需无参构造函数
 //                List<OrderListVo> listVos=getList(orderLists,OrderListVo.class);
                 List<OrderListVo> listVos=transferObjectIgnoreCaseList(orderLists,OrderListVo.class);

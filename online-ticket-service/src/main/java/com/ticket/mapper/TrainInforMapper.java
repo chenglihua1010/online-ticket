@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface TrainInforMapper extends MyMapper<TrainInfor> {
+
         public List<TrainInfor> findAllTrainInfor();
 
         public List<TrainInfor> findByTrain_num(@Param("train_num")String train_num);

@@ -7,6 +7,7 @@ import com.ticket.entity.Passenger;
 import com.ticket.mapper.PassengerMapper;
 import com.ticket.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -17,6 +18,8 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
         @Autowired
         PassengerMapper passengerMapper;
 
+        @Autowired
+        RedisUtils redisUtils;
         /**
          * 添加乘客
          * @param passengerVo 乘客信息
@@ -34,7 +37,20 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
          */
         @Override
         public List<PassengerVo> selectPassengerByuser_phone_num(String user_phone_num) {
-                List<Passenger> passengers=passengerMapper.selectPassengerByuser_phone_num(user_phone_num);
+                List<Passenger> passengers;
+                //手动获得方法名
+                String method="selectPassengerByuser_phone_num";
+                //获取规范的key（未完善）
+                String key=redisUtils.keyBuilder(method,user_phone_num);
+                Object passengerFromRedis=redisUtils.get(key);
+                if(!ObjectUtils.isEmpty(passengerFromRedis)){
+                        passengers=(List<Passenger>) passengerFromRedis;
+                }else{
+                        passengers=passengerMapper.selectPassengerByuser_phone_num(user_phone_num);
+                        if(!ObjectUtils.isEmpty(passengers)){
+                                redisUtils.set(key,passengers);
+                        }
+                }
                 List<PassengerVo> passengerVos=transferObjectIgnoreCaseList(passengers,PassengerVo.class);
                 return passengerVos;
         }

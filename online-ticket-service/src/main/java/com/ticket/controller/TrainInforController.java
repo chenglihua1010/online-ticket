@@ -2,6 +2,8 @@ package com.ticket.controller;
 
 import com.ticket.api.vo.TrainInforVo;
 import com.ticket.service.impl.TrainInforImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +21,15 @@ public class TrainInforController {
         @Autowired
         TrainInforImpl trainInforImpl;
 
+        private static final Logger LOGGER= LoggerFactory.getLogger(TrainInforController.class);
 
 
         @RequestMapping("/findAllTrainInfor")
         @ResponseBody
         public List<TrainInforVo> findAllTrainInfor(){
+
                 List<TrainInforVo> trainInforVoList=trainInforImpl.findAllTrainInfor();
-                System.out.println(trainInforVoList.size());
+
                 return trainInforVoList;
         }
 
@@ -33,6 +37,7 @@ public class TrainInforController {
         @ResponseBody
         public List<TrainInforVo> findByTrain_num(HttpServletRequest request){
                 String train_num=request.getParameter("train_num");
+
                 List<TrainInforVo> trainInforVoList=trainInforImpl.findByTrain_num(train_num);
                 return trainInforVoList;
         }

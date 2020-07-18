@@ -97,7 +97,8 @@ public class RedisUtils {
          */
         public  void set(final String key, final Object value) {
 
-                redisTemplate.opsForValue().set(key, value, 1, TimeUnit.MINUTES);
+//                redisTemplate.opsForValue().set(key, value, 1, TimeUnit.MINUTES);
+                redisTemplate.opsForValue().set(key, value);
         }
 
         // 存储普通对象操作
@@ -272,7 +273,7 @@ public class RedisUtils {
         public static String keyBuilder(String ... args){
                 StringBuilder key=new StringBuilder();
                 for(String arg:args){
-                        key.append(arg);
+                        key.append(KEY_SPLIT_CHAR).append(arg);
                 }
                 return key.toString();
         }
