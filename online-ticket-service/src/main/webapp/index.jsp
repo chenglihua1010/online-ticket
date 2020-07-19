@@ -270,7 +270,8 @@
 				<div id="parentVerticalTab">
 					<div class="agileits-tab_nav">
 					<ul class="resp-tabs-list hor_1">
-						<li><i class="icon fa fa-mobile" aria-hidden="true"></i>Mobile</li>
+                        <%--项目 目录--%>
+						<li><i class="icon fa fa-mobile" aria-hidden="true"></i>（首页）根据起始终点搜索</li>
 						<li><i class="icon fa fa-television" aria-hidden="true"></i>DTH</li>
 						<li><i class="icon fa fa-credit-card" aria-hidden="true"></i>Data Card</li>
 						<li><i class="icon fa fa-lightbulb-o" aria-hidden="true"></i>Electricity</li>
@@ -288,14 +289,15 @@
                                 
                     <img src="images/mobile.png" class="w3ls-mobile" alt="" data-pin-nopin="true">
                 <ul class="tabs-menu">
-                    <li><a href="#tab1"><label class="radio"><input type="radio" name="radio" checked=""><i></i>Prepaid</label></a></li>
-                    <li><a href="#tab2"><label class="radio"><input type="radio" name="radio"><i></i>Postpaid</label></a></li>
+                    <%--交通方式选择--%>
+                    <li><a href="#tab1"><label class="radio"><input type="radio" name="radio" checked=""><i></i>西杭铁路</label></a></li>
+                    <li><a href="#tab2"><label class="radio"><input type="radio" name="radio"><i></i>西杭航空</label></a></li>
                 </ul>
 			     <div class="clearfix"> </div>
 			     <div class="tab-grids">
                     <div id="tab1" class="tab-grid">  
 		                      <div class="login-form">	
-						<form action="pay.jsp" method="post" id="signup">
+						<form action="trainInfor.jsp" method="post" id="signup">
 						<ol>							
 							<li>
                                 <h4>Enter your mobile number</h4>
@@ -307,10 +309,10 @@
 							</li>
                             <li>
                                 <div class="agileits-select">
-                                <select class="selectpicker show-tick" data-live-search="true" required="required" >
-                                  <option data-tokens="Select Operator">Select Operator</option>
-                                  <option data-tokens="Airtel">Airtel</option>
-                                  <option data-tokens="Aircel">Aircel</option>
+                                <select class="selectpicker show-tick" data-live-search="true" required="required" name="train_start_station">
+                                  <option name="train_start_station">出发地</option>
+                                  <option name="train_start_station" value="西安">西安</option>
+                                  <option name="train_start_station" value="杭州">杭州</option>
                                   <option data-tokens="BSNL">BSNL</option>
                                   <option data-tokens="Tata Docomo">Tata Docomo</option>
                                   <option data-tokens="Reliance GSM">Reliance GSM</option>
@@ -325,10 +327,10 @@
                             </li>
                             <li>
                                 <div class="agileits-select">
-                                <select class="selectpicker show-tick" data-live-search="true" required="required" >
-                                  <option data-tokens="Select Circle">Select Circle</option>
-                                  <option data-tokens="Chennai">Chennai</option>
-                                  <option data-tokens="Delhi NCR">Delhi NCR</option>
+                                <select class="selectpicker show-tick" data-live-search="true" required="required" name="train_end_station">
+                                  <option name="train_end_station">目的地</option>
+                                  <option name="train_end_station" value="西安">西安</option>
+                                  <option name="train_end_station" value="杭州">杭州</option>
                                   <option data-tokens="Kolkata">Kolkata</option>
                                   <option data-tokens="Mumbai">Mumbai</option>
                                   <option data-tokens="Maharashtra & Goa">Maharashtra & Goa</option>
@@ -355,9 +357,9 @@
                             </li>
                             <li>
                                 <div class="mobile-right ">
-                                    <h4>How Much To Recharge?</h4>
+                                    <h4>出发日期</h4>
                                     <div class="mobile-rchge">
-                                        <input type="text" placeholder="Enter amount" name="amount" required="required"  />	
+                                        <input type="text" placeholder="出发日期（默认当前日期）" name="train_start_time" required="required"  />
                                     </div>
                                     <div class="mobile-rchge">
                                         <a href="plans.jsp">VIEW ALL PLANS</a>
@@ -366,7 +368,7 @@
                                 </div>
                             </li>
                             <li>
-                                <input type="submit" class="submit" value="Recharge Now" />
+                                <input type="submit" class="submit" value="查询" />
                             </li>
 				        </ol>
 						</form>	

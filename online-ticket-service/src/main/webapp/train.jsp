@@ -185,7 +185,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Trains</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>西杭铁路</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
@@ -196,31 +196,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<i class="train-icon fa fa-train"></i>
 	</div>
 	<div class="col-md-5 bann-info">
-		<h3>Search for Trains</h3>
+		<h3>列车查询</h3>
         <div class="book-a-ticket">
 							<div class=" bann-info">
 								<form action="trains-list.jsp" method="post">
 									<div class="ban-top">
 										<div class="bnr-left">
-											<label class="inputLabel">From:</label>
-											<input class="city" type="text" placeholder="Enter a city or local area" required="required" />
+											<label class="inputLabel">起点：</label>
+											<%--<input class="city" type="text" placeholder="出发地" required="required" name="train_start_station"/>--%>
+											<select  required="required" name="train_start_station">
+												<option name="train_start_station">出发地</option>
+												<option name="train_start_station" value="西安">西安</option>
+												<option name="train_start_station" value="杭州">杭州</option>
+												<option data-tokens="BSNL">BSNL</option>
+
+											</select>
 										</div>
 										
 										<div class="bnr-left">
-											<label class="inputLabel">To:</label>
-											<input class="city" type="text" placeholder="Enter a city or local area" required="required" />
+											<label class="inputLabel">终点：</label>
+											<%--<input class="city" type="text" placeholder="目的地" required="required" train_end_station/>--%>
+											<select class="selectpicker show-tick" data-live-search="true" required="required" name="train_end_station">
+												<option name="train_end_station">目的地</option>
+												<option name="train_end_station" value="西安">西安</option>
+												<option name="train_end_station" value="杭州">杭州</option>
+
+											</select>
 										</div>
 											<div class="clearfix"></div>
 									</div>
 									 <div class="ban-bottom">
 											<div class="bnr-right">
-												<label class="inputLabel">Date of Journey:</label>
-				<input class="date" id="datepicker" type="text" placeholder="dd-mm-yyyy"  required="required" />
+												<label class="inputLabel">出发日期：</label>
+				<input class="date" id="datepicker" type="text" placeholder="出发日期"  required="required" name="train_start_time" value="如何获取"/>
 											</div>
-											<div class="bnr-right">
-												<label class="inputLabel">Date of Return<span class="opt">&nbsp;(Optional):</span></label>
-				<input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" />
-											</div>
+										 <%--返程--%>
+											<%--<div class="bnr-right">--%>
+												<%--<label class="inputLabel">返回日期：<span class="opt">&nbsp;(Optional):</span></label>--%>
+				<%--<input class="date" id="datepicker1" type="text" placeholder="dd-mm-yyyy" />--%>
+											<%--</div>--%>
 												<div class="clearfix"></div>
 												<!-- start-date-piker -->
 												<link rel="stylesheet" href="css/jquery-ui.css">
