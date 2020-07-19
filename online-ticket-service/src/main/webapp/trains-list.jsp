@@ -9,7 +9,7 @@
 <html>
 <!-- head -->
 <head>
-<title>Train List</title>
+<title>列车信息</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -209,22 +209,26 @@
 	           <thead>
  			       <tr> 
 					   <th>Train no.</th>  
-					   <th>Train Name</th> 
-					   <th>Depart. time</th> 
-					   <th>Arrive time</th> 
-					   <th>Days of Run</th> 
-					   <th>Fare</th>
+					   <th>车次</th>
+					   <th>出发时间</th>
+					   <th>到达时间</th>
+					   <th>历时</th>
+					   <%--<th>座位</th>--%>
+					   <%--座位信息--%>
+					   <th>备注</th>
 				   </tr> 
 			  </thead>
 		   <tbody>
+		   <%--循环展示列车信息--%>
 		     <tr>
 			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> 车次 </td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_start_time}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_end_time}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_running_time}</td>
+				<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
-						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
+						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two"> 预订 </a>
 				</td> 
 				
 			 </tr>
