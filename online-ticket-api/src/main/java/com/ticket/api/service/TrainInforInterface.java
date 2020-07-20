@@ -29,8 +29,9 @@ public interface TrainInforInterface {
 
         /**
          *  查询目的列车
-         * @param trainInforVo 列车信息（起点、终点、时间）
-         * @return 目的列车信息
+         * @param train_start_station 起始站
+         * @param train_end_station 终点站
+         * @return 列车信息
          */
-        public List<TrainInforVo> findAimTrainInfor(TrainInforVo trainInforVo);
+        public List<TrainInforVo> findAimTrainInfor(String train_start_station, String train_end_station);
 }

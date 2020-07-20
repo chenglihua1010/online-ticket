@@ -9,11 +9,13 @@ import com.ticket.api.vo.TrainInforVo;
 import com.ticket.entity.TrainInfor;
 import com.ticket.mapper.TrainInforMapper;
 import com.ticket.utils.BaseService;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Map;
+
 
 
 @Service
@@ -78,18 +80,26 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
         }
 
         /**
-         *  目的列车信息
-         * @param trainInforVo 列车信息（起点、终点、时间）
-         * @return 目的列车信息
+         *  查询目的列车 方法需更新 缓存 日志
+         * @param train_start_station 起始站
+         * @param train_end_station 终点站
+         * @return 列车信息
          */
         @Override
-        public List<TrainInforVo> findAimTrainInfor(TrainInforVo trainInforVo) {
-                //转参数
-                TrainInfor trainInfor=transferObjectIgnoreCase(trainInforVo,TrainInfor.class);
-
-                List<TrainInfor> trainInfors=trainInforMapper.findAimTrainInfor(trainInfor);
-
-                //转结果
+        public List<TrainInforVo> findAimTrainInfor(String train_start_station ,String train_end_station) {
+                String method="findAimTrainInfor";
+                String param1=train_start_station;
+                String param2=train_end_station;
+                String key=redisUtils.keyBuilder(method,param1,param2);
+                List<TrainInfor> trainInfors;
+                Object trainInforVosFromRedis=redisUtils.get(key);
+                if(!ObjectUtils.isEmpty(trainInforVosFromRedis)){
+                        trainInfors=(List<TrainInfor>) trainInforVosFromRedis;
+                }else {trainInfors=trainInforMapper.findAimTrainInfor(train_start_station,train_end_station);
+                        if(!ObjectUtils.isEmpty(trainInfors)){
+                                redisUtils.set(key,trainInfors);
+                        }
+                }
                 List<TrainInforVo> trainInforVoList=transferObjectIgnoreCaseList(trainInfors,TrainInforVo.class);
                 return trainInforVoList;
         }

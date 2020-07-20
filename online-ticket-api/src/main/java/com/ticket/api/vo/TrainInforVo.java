@@ -32,16 +32,6 @@ public class TrainInforVo implements Serializable{
         private Integer train_running_type;
 
 
-        public TrainInforVo(){}
-
-        public TrainInforVo(String train_start_station,String train_end_station,Date train_start_time){
-                train_start_station=this.train_start_station;
-                train_end_station=this.train_end_station;
-                train_start_time=this.train_start_time;
-        } public TrainInforVo(String train_start_station,String train_end_station){
-                train_start_station=this.train_start_station;
-                train_end_station=this.train_end_station;
-        }
 
         public Integer getId() {
                 return id;

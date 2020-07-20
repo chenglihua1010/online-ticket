@@ -1,11 +1,13 @@
 package com.ticket.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ticket.api.vo.TrainInforVo;
 import com.ticket.service.impl.TrainInforImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,15 +67,23 @@ public class TrainInforController {
                 String train_start_station=request.getParameter("train_start_station");
                 String train_end_station=request.getParameter("train_end_station");
                 String train_start_time=request.getParameter("train_start_time");
+                //时间的获取方式
 //                Date train_start_timeDate=Dateu
+                try{
+                        List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainInfor(train_start_station,train_end_station);
+                        if(!ObjectUtils.isEmpty(trainInforVoList)){
+                                modelAndView.addObject("trainInfor",trainInforVoList.get(1));
+                                modelAndView.setViewName("trains-list");
+                                LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON(modelAndView));
+                                LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON("参数train_start_station："+train_start_station+
+                                                "参数train_end_station"+train_end_station));
+                        }
+                }catch (Exception e){
+                        e.printStackTrace();
+                        LOGGER.error("trainInforVoList为从Mysql、redis中获取到值");
+                }
 
-                TrainInforVo trainInforVo=new TrainInforVo(train_start_station,train_end_station);
-                List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainInfor(trainInforVo);
-
-                modelAndView.addObject("trainInfor",trainInforVoList.get(0));
-
-                modelAndView.setViewName("trains-list");
-
+//                modelAndView.addObject("trainInfor",trainInforVoList);
                 return modelAndView;
 
         }
