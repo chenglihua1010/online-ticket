@@ -1,4 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 
 <%
 	String path = request.getContextPath();
@@ -199,7 +201,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h3>列车查询</h3>
         <div class="book-a-ticket">
 							<div class=" bann-info">
-								<form action="trains-list.jsp" method="post">
+								<%--<form>要提交的参数</form> action：submit跳转的方法（路径）或页面  get/pos？t--%>
+								<%--<form action="trains-list.jsp" method="post">--%>
+								<form action="/trianInfor/findAimTrainInfor" method="post">
 									<div class="ban-top">
 										<div class="bnr-left">
 											<label class="inputLabel">起点：</label>
@@ -247,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<!-- /End-date-piker -->
 										</div>
 									<div class="search">
-									     <input type="submit" class="submit" value="Search">
+									     <input type="submit" class="submit" value="查询">
 									
 									</div>
 								</form>

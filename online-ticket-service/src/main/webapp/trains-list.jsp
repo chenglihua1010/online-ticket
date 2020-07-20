@@ -1,5 +1,9 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%--中文转码--%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
+<%--引入c标签——>foreach循环--%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -184,20 +188,20 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Trains List</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>列车信息</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
 	<!-- Trains-list -->
 	<div class="agile-trains-list w3layouts-content">
-     <div class="container">
+     <div class="container
 	<!--bus-single --> 
             <div class="w3agile single-bus">
-			         <h3 class="w3-head">Trains list</h3>
+			         <h3 class="w3-head">列车信息</h3>
 			 <!-- train-routes -->
 					<div class="bus-tp">
 						<div class="bus-tp-inner">
-							<h3>Trains from City1 to City2</h3>
+							<h3>${trainInfor.train_start_station}至${trainInfor.train_end_station}</h3>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -220,171 +224,176 @@
 			  </thead>
 		   <tbody>
 		   <%--循环展示列车信息--%>
+		   <%--问题：加上座位信息--%>
+				<%--<c:forEach items="${trainInforVoList}" var="trainInfor">--%>
 		     <tr>
-			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> 车次 </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_start_time}</td>
-				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_end_time}</td>
-				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_running_time}</td>
-				<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
+			    <td class="t-one">${trainInfor.train_no}</td>
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i>${trainInfor.train_num}</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_running_time}</td>
+				<%--<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>--%>
+				 <%--${TrainInfor.train_price}--%>
+				 <td class="price us"> 价格
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two"> 预订 </a>
-				</td> 
-				
+				</td>
+
 			 </tr>
+				<%--</c:forEach>--%>
+
 			 <tr>
-			    <td class="t-one">45212</td> 
+			    <td class="t-one">45212</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			 <tr>
-			    <td class="t-one">358314</td> 
+			    <td class="t-one">358314</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
+
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td>
 				<td class="seat"> <span title="not available"></span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">58974</td> 
+			    <td class="t-one">58974</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">86547</td> 
+			    <td class="t-one">86547</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
+				</td>
 			  </tr>
                <tr>
-			    <td class="t-one">15798</td> 
+			    <td class="t-one">15798</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td>
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			 <tr>
-			    <td class="t-one">45212</td> 
+			    <td class="t-one">45212</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td>
 				<td class="seat"> <span title="not available"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			 <tr>
-			    <td class="t-one">358314</td> 
+			    <td class="t-one">358314</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
+
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">58974</td> 
+			    <td class="t-one">58974</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">86547</td> 
+			    <td class="t-one">86547</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
+				</td>
 			  </tr>
                <tr>
-			    <td class="t-one">15798</td> 
+			    <td class="t-one">15798</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td> 
-				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>08:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>13:10 </td>
+				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			 <tr>
-			    <td class="t-one">45212</td> 
+			    <td class="t-one">45212</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name </td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>06:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>12:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="not available"></span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			 <tr>
-			    <td class="t-one">358314</td> 
+			    <td class="t-one">358314</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
-				
-				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
+
+				<td class="wthree"><i class="fa fa-clock-o"></i>22:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="not available"></span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">58974</td> 
+			    <td class="t-one">58974</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>07:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>15:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
-				
+				</td>
+
 			 </tr>
 			  <tr>
-			    <td class="t-one">86547</td> 
+			    <td class="t-one">86547</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> Train name</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td> 
-				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td> 
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>05:10 </td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>14:10 </td>
 				<td class="seat"> <span title="Sunday">S</span> <span title="Monday">M</span> <span title="not available"></span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
 				<td class="price us">Price here
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two">Book Now</a>
-				</td> 
+				</td>
 			  </tr>
 			 </tbody> 
 		</table>

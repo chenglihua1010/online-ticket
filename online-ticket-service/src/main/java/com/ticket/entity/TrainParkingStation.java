@@ -1,7 +1,9 @@
 package com.ticket.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.AccessType;
 import org.springframework.data.annotation.Id;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,6 +22,9 @@ public class TrainParkingStation implements Serializable{
         //当日到达/次日到达
         private String train_arrive_day;
         //出发时间
+//        时间格式
+        @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+        @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
         private Date train_start_time;
         //到达时间
         private Date train_end_time;

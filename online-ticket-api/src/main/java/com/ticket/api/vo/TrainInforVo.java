@@ -31,6 +31,8 @@ public class TrainInforVo implements Serializable{
         //列车运行状态 正常/晚点
         private Integer train_running_type;
 
+
+
         public Integer getId() {
                 return id;
         }

@@ -83,11 +83,11 @@ public class OrderListController {
                                 modelAndView.addObject("orderList",orderListVo);
                                 //尝试记录日志：结果？ 参数
                                 LOGGER.info("OrderListController selectPartOrderByUser_phone_num bean={}", JSONObject.toJSON(modelAndView));
-                                LOGGER.info("OrderListController selectPartOrderByUser_phone_num 的bean={}",
+                                LOGGER.info("OrderListController selectPartOrderByUser_phone_num bean={}",
                                                 JSONObject.toJSON("参数user_phone_num:"+user_phone_num+"参数order_statusInt:"+order_statusInt));
                         }else{
                                 modelAndView.setViewName("error");
-                                LOGGER.info("orderListVo未从MySQL、redus中获取到值");
+                                LOGGER.error("orderListVo未从MySQL、redus中获取到值");
                         }
                 }catch (Exception e){
                         e.printStackTrace();

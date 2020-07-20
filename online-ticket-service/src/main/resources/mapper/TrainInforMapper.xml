@@ -40,5 +40,14 @@ SELECT * FROM train_infor WHERE train_num=#{train_num}
 
     </select>
 
+    <select id="findAimTrainInfor" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM train_infor WHERE train_start_station=#{train_start_station} AND train_end_station=#{train_end_station}
+]]>
+        <!--<if test="train_start_time!=null">-->
+            <!--AND train_start_time=#{trainInfor.train_start_time}-->
+        <!--</if>-->
+    </select>
+
 
 </mapper>

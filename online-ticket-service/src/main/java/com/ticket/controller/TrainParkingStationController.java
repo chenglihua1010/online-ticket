@@ -28,7 +28,7 @@ public class TrainParkingStationController {
                 List<TrainParkingStationVo> voList=trainParkingStationImpl.selectStationByTrain_no(train_no);
 //                redisService.setList(train_no,voList);
 //                redisService.setList(train_no.toString(),JSONObject.to)
-
+                System.out.println(voList.get(2).getTrain_end_time());
                 return voList;
         }
 

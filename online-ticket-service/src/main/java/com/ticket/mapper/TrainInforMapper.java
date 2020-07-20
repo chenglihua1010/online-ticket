@@ -15,4 +15,6 @@ public interface TrainInforMapper extends MyMapper<TrainInfor> {
 
 //        public List<Map<String,Object>> findAllTrain_num();
         public List<String> findAllTrain_num();
+
+        public List<TrainInfor> findAimTrainInfor(@Param("train_start_station") String train_start_station ,@Param("train_end_station") String train_end_station);
 }
