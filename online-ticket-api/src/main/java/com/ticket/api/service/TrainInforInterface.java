@@ -26,4 +26,11 @@ public interface TrainInforInterface {
          */
 //        public List<Map<String,Object>> findAllTrain_num();
         public List<String> findAllTrain_num();
+
+        /**
+         *  查询目的列车
+         * @param trainInforVo 列车信息（起点、终点、时间）
+         * @return 目的列车信息
+         */
+        public List<TrainInforVo> findAimTrainInfor(TrainInforVo trainInforVo);
 }

@@ -1,4 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 
 <%
 	String path = request.getContextPath();
@@ -184,20 +186,20 @@
 <!-- breadcrumbs -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>Trains List</span></span>
+			<span class="agile-breadcrumbs"><a href="index.html"><i class="fa fa-home home_1"></i></a> / <span>列车信息</span></span>
 		</div>
 	</div>
 	<!-- //breadcrumbs -->
 	<!-- Trains-list -->
 	<div class="agile-trains-list w3layouts-content">
-     <div class="container">
+     <div class="container
 	<!--bus-single --> 
             <div class="w3agile single-bus">
-			         <h3 class="w3-head">Trains list</h3>
+			         <h3 class="w3-head">列车信息</h3>
 			 <!-- train-routes -->
 					<div class="bus-tp">
 						<div class="bus-tp-inner">
-							<h3>Trains from City1 to City2</h3>
+							<h3>${TrainInfor.train_start_station}至${TrainInfor.train_end_station}</h3>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -220,14 +222,16 @@
 			  </thead>
 		   <tbody>
 		   <%--循环展示列车信息--%>
+		   <%--问题：加上座位信息--%>
 		     <tr>
-			    <td class="t-one">15798</td> 
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i> 车次 </td>
+			    <td class="t-one">${TrainInfor.train_no}</td>
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i>${TrainInfor.train_num}</td>
  				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_start_time}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_end_time}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${TrainInfor.train_running_time}</td>
-				<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>
-				<td class="price us">Price here
+				<%--<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>--%>
+				 <%--${TrainInfor.train_price}--%>
+				 <td class="price us"> 价格
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two"> 预订 </a>
 				</td> 
 				

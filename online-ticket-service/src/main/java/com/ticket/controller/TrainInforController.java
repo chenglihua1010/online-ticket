@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -54,5 +56,25 @@ public class TrainInforController {
         public List<String> findAllTrain_num(){
                 List<String> list =trainInforImpl.findAllTrain_num();
                 return list;
+        }
+
+//        trian.jsp->trainList.jsp 获取出发地、目的地、出发时间 查询到 合适的列车 并将列车信息传给trainList.jsp
+        @RequestMapping("/findAimTrainInfor")
+        public ModelAndView findAimTrainInfor(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String train_start_station=request.getParameter("train_start_station");
+                String train_end_station=request.getParameter("train_end_station");
+                String train_start_time=request.getParameter("train_start_time");
+//                Date train_start_timeDate=Dateu
+
+                TrainInforVo trainInforVo=new TrainInforVo(train_start_station,train_end_station);
+                List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainInfor(trainInforVo);
+
+                modelAndView.addObject("trainInfor",trainInforVoList.get(0));
+
+                modelAndView.setViewName("trains-list");
+
+                return modelAndView;
+
         }
 }

@@ -77,4 +77,21 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
                 return list;
         }
 
+        /**
+         *  目的列车信息
+         * @param trainInforVo 列车信息（起点、终点、时间）
+         * @return 目的列车信息
+         */
+        @Override
+        public List<TrainInforVo> findAimTrainInfor(TrainInforVo trainInforVo) {
+                //转参数
+                TrainInfor trainInfor=transferObjectIgnoreCase(trainInforVo,TrainInfor.class);
+
+                List<TrainInfor> trainInfors=trainInforMapper.findAimTrainInfor(trainInfor);
+
+                //转结果
+                List<TrainInforVo> trainInforVoList=transferObjectIgnoreCaseList(trainInfors,TrainInforVo.class);
+                return trainInforVoList;
+        }
+
 }
