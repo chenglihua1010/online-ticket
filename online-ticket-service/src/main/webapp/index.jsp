@@ -43,9 +43,23 @@
 				<h1><a href="index.html">西杭</a></h1>
 			</div>
 		<!--//logo-->
-		  <div class="w3layouts-login">
-				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
-			</div>    
+
+
+
+        <c:if test="${userInforVo==null}">
+            <div class="w3layouts-login">
+                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
+            </div>
+        </c:if>
+
+
+        <c:if test="${userInforVo!=null}">
+            <div class="w3layouts-login">
+                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>欢迎你，${userInforVo.user_real_name}  |  退出</a>
+            </div>
+        </c:if>
+
+
 				<div class="clearfix"></div>
     <!--Login modal-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
