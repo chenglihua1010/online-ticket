@@ -46,14 +46,14 @@
 
 
 
-        <c:if test="${userInforVo==null}">
+        <c:if test="${empty userInforVo}">
             <div class="w3layouts-login">
                 <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
             </div>
         </c:if>
 
 
-        <c:if test="${userInforVo!=null}">
+        <c:if test="${not empty userInforVo}">
             <div class="w3layouts-login">
                 <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>欢迎你，${userInforVo.user_real_name}  |  退出</a>
             </div>
