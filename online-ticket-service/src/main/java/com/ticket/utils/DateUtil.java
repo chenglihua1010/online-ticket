@@ -588,6 +588,19 @@ public class DateUtil {
                 return  format(calendar.getTime(), DATEFORMATMINUTE);
         }
 
+          /**
+         * 获取当前时间分钟之后 精确到分钟
+         */
+        public static String getafterMinutesSysDate(int minute) throws ParseException{
+                Calendar calendar = Calendar.getInstance();
+                calendar.add(Calendar.MINUTE, +minute);
+                return  format(calendar.getTime(), DATEFORMATMINUTE);
+        }
+
+//        public static void main(String[] args) throws Exception{
+//                System.out.println(getafterMinutesSysDate(20));
+//        }
+
         /**
          *  获取当前时间分钟之前 精确到分钟
          */

@@ -225,12 +225,12 @@
 		   <tbody>
 		   <%--循环展示列车信息--%>
 		   <%--问题：加上座位信息--%>
-				<%--<c:forEach items="${trainInforVoList}" var="trainInfor">--%>
+				<c:forEach items="${trainInforList}" var="trainInfor">
 		     <tr>
 			    <td class="t-one">${trainInfor.train_no}</td>
 			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i>${trainInfor.train_num}</td>
- 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time}</td>
-				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time}</td>
+ 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time_String}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_running_time}</td>
 				<%--<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>--%>
 				 <%--${TrainInfor.train_price}--%>
@@ -239,7 +239,7 @@
 				</td>
 
 			 </tr>
-				<%--</c:forEach>--%>
+				</c:forEach>
 
 			 <tr>
 			    <td class="t-one">45212</td>
@@ -416,20 +416,56 @@
 		   <table class="table table-bordered agileinfo"> 
 	           <thead>
  			       <tr> 
-					   <th>S.No.</th>  
-					   <th>Name in Block Letters(not more than 15 chars)</th> 
-					   <th>Sex M/F</th> 
-					   <th>Age</th> 
-					   <th>Berth(choice if any)</th> 
+					   <%--<th>S.No.</th>  --%>
+					   <%--<th>Name in Block Letters(not more than 15 chars)</th> --%>
+					   <%--<th>Sex M/F</th> --%>
+					   <%--<th>Age</th> --%>
+					   <%--<th>Berth(choice if any)</th> --%>
+						   <th>序号</th>
+						   <th>票种</th>
+						   <th>席别</th>
+						   <th>姓名</th>
+						   <th>证件号码</th>
 				   </tr> 
 			  </thead>
 		   <tbody>
 		     <tr>
-			    <td class="t-one">1</td> 
-			    <td class="wthree"><input type="text" placeholder="" required="required" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" required="required" /></td> 
-				<td class="wthree"><input type="text" placeholder="" required="required" /> </td> 
-				<td class="wthree"><input type="text" placeholder="" required="required" /></td> 
+			    <%--<td class="t-one">1</td> --%>
+			    <%--<td class="wthree"><input type="text" placeholder="" required="required" /></td>--%>
+ 				<%--<td class="wthree"> <input type="text" placeholder="" required="required" /></td> --%>
+				<%--<td class="wthree"><input type="text" placeholder="" required="required" /> </td> --%>
+
+					<td class="t-one">1</td>
+					<!--<td class="wthree"><input type="text" placeholder="" required="required" /></td>-->
+					<td class="wthree">
+						<!--<input type="text" placeholder="" required="required" />-->
+						<select name="票种">
+							<option name="" value="">成人票</option>
+						</select>
+					</td>
+					<td class="wthree">
+						<!--<input type="text" placeholder="" required="required" />-->
+						<select name="seat.seat_type">
+							<option name="seat_type" value="4">一等座（价格：票种*seat_type*ticket.price）</option>
+							<option name="seat_type" value="5">二等座（价格）</option>
+							<option name="seat_type" value="6">商务座（价格）</option>
+						</select>
+					</td>
+
+					<%--再选择姓名后，自动获取身份信息--%>
+					<td class="wthree">
+						<!--<input type="text" placeholder="" required="required" /> -->
+						<select name="passenger_real_name">
+							<option name="passenger_real_name" value="passenger_real_name">${passenger.passenger_real_name}</option>
+
+						</select>
+					</td>
+				<td class="wthree">
+					<%--<input type="text" placeholder="" required="required" />--%>
+					<select name="passenger_id_num">
+						<option name="passenger_id_num" value="passenger_id_num">${passenger.passenger_id_num}</option>
+					</select>
+				</td>
 
 				
 			 </tr>

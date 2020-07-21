@@ -5,6 +5,7 @@ import com.sun.org.apache.regexp.internal.RE;
 import com.ticket.api.vo.UserInforVo;
 import com.ticket.entity.UserInfor;
 import com.ticket.service.impl.RedisService;
+import com.ticket.service.impl.RedisUtils;
 import com.ticket.service.impl.UserInforImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class UserInforController {
         UserInforImpl userInforImpl;
         @Autowired
         RedisService redisService;
+        @Autowired
+        RedisUtils redisUtils;
 
         /**
          * 插入用户信息
@@ -86,9 +89,25 @@ public class UserInforController {
                         }
                 }
                 if(!ObjectUtils.isEmpty(userInforVo)){
-                        modelAndView.addObject("userInforVo",userInforVo);
+                        modelAndView.addObject("userInfor",userInforVo);
                         modelAndView.setViewName("index");
                 }else {modelAndView.setViewName("error");}
+                return modelAndView;
+        }
+
+        /**
+         *  页面跳转：index->train 目的:隔页传参 好蠢
+         * @param request user_phone_num,user_phone_num->userInfor
+         * @return train.jsp
+         */
+        @RequestMapping("/indexTotrain")
+        public ModelAndView indexTotrain(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String user_phone_num=request.getParameter("user_phone_num");
+                String user_password=request.getParameter("user_password");
+                UserInforVo userInforVo=userInforImpl.findByUser_phone_numAndUser_password(user_phone_num,user_password);
+                modelAndView.addObject("userInfor",userInforVo);
+                modelAndView.setViewName("train");
                 return modelAndView;
         }
 }

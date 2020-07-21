@@ -21,8 +21,27 @@ public class TrainInforVo implements Serializable{
         //终点站
         private String train_end_station;
         //出发时间
+        private String train_start_time_String;
         private Date train_start_time;
         //到达时间
+        private String train_end_time_String;
+
+        public String getTrain_start_time_String() {
+                return train_start_time_String;
+        }
+
+        public void setTrain_start_time_String(String train_start_time_String) {
+                this.train_start_time_String = train_start_time_String;
+        }
+
+        public String getTrain_end_time_String() {
+                return train_end_time_String;
+        }
+
+        public void setTrain_end_time_String(String train_end_time_String) {
+                this.train_end_time_String = train_end_time_String;
+        }
+
         private Date train_end_time;
         //当日到达/次日到达
         private String train_arrive_day;

@@ -43,9 +43,23 @@
 				<h1><a href="index.html">西杭</a></h1>
 			</div>
 		<!--//logo-->
-		  <div class="w3layouts-login">
-				<a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
-			</div>    
+
+
+
+        <c:if test="${empty userInforVo}">
+            <div class="w3layouts-login">
+                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>登录  |  注册</a>
+            </div>
+        </c:if>
+
+
+        <c:if test="${not empty userInforVo}">
+            <div class="w3layouts-login">
+                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>欢迎你，${userInforVo.user_real_name}  |  退出</a>
+            </div>
+        </c:if>
+
+
 				<div class="clearfix"></div>
     <!--Login modal-->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
@@ -232,13 +246,22 @@
 			          		</div>
 			          	</div>
 			         </li>
-					 <li>
+                      <li>
 			          	 <div class="banner2">
 			           		<div class="caption">
 					          	<h3><span>50% off</span> on train Tickets</h3>
-                                <p><a href="train.jsp">Book now</a></p>
-			          		</div>
-			          	</div>
+                                <p>
+                                    <a href="/userInfor/indexTotrain?user_phone_num=${userInfor.user_phone_num}&user_password=${userInfor.user_password}">
+                                        Book now
+                                    </a>
+                                        <%--<from method="post" action="/userInfor/indexTotrain">--%>
+                                        <%--<input name="user_phone_num" type="hidden" value="${userInfor.user_phone_num}">--%>
+                                        <%--<input name="user_password" type="hidden" value="${userInfor.user_password}">--%>
+                                        <%--<input name="Submits" type="submit" value=" Book now"/>--%>
+                                        <%--</from>--%>
+                                </p>
+                    </div>
+                </div>
 			         </li>
 			         <li>
 			          	 <div class="banner3">

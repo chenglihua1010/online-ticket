@@ -20,6 +20,16 @@ public class Seat implements Serializable{
         private Integer seat_type;
         //座位数量
         private Integer seat_count;
+        //票价
+        private Double seat_price;
+
+        public Double getSeat_price() {
+                return seat_price;
+        }
+
+        public void setSeat_price(Double seat_price) {
+                this.seat_price = seat_price;
+        }
 
         public Integer getId() {
                 return id;
