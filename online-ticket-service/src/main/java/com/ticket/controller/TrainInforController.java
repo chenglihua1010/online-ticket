@@ -102,13 +102,15 @@ public class TrainInforController {
                                 modelAndView.addObject("seat",seatVoList.get(0));
                                 modelAndView.addObject("passenger",passengerVoList.get(0));
                                 modelAndView.setViewName("trains-list");
-                                LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON(modelAndView));
+                                LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON(trainInforVoList));
                                 LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON("参数train_start_station："+train_start_station+
                                                 "参数train_end_station"+train_end_station));
+
+                                LOGGER.info("TrainInforController findAimTrainInfor 参数train_start_station={}，参数train_end_station={},passengerVoList={}", JSONObject.toJSONString(train_start_station),JSONObject.toJSONString(train_end_station),JSONObject.toJSONString(passengerVoList));
                         }
                 }catch (Exception e){
                         e.printStackTrace();
-                        LOGGER.error("trainInforVoList为从Mysql、redis中获取到值");
+                        LOGGER.error(e.getMessage());
                 }
 
                 return modelAndView;
