@@ -227,6 +227,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											</select>
 										</div>
+
+
+										<div class="bnr-left">
+											<label class="inputLabel">类型：</label>
+
+											<ul>
+												<li>
+													<label class="inputLabel">一等座：</label>
+													<input type="checkbox" name="checkbox1" value="1"  checked>
+												</li>
+
+												<li>
+													<label class="inputLabel">二等座：</label>
+													<input type="checkbox" name="checkbox1" value="2">
+												</li>
+
+												<li>
+													<label class="inputLabel">硬座：</label>
+													<input type="checkbox" name="checkbox1" value="3">
+												</li>
+
+												<li>
+													<label class="inputLabel">硬卧：</label>
+													<input type="checkbox" name="checkbox1" value="4">
+												</li>
+											</ul>
+
+										</div>
+
+
 											<div class="clearfix"></div>
 									</div>
 									 <div class="ban-bottom">
