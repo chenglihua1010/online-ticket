@@ -246,13 +246,22 @@
 			          		</div>
 			          	</div>
 			         </li>
-					 <li>
+                      <li>
 			          	 <div class="banner2">
 			           		<div class="caption">
 					          	<h3><span>50% off</span> on train Tickets</h3>
-                                <p><a href="train.jsp">Book now</a></p>
-			          		</div>
-			          	</div>
+                                <p>
+                                    <a href="/userInfor/indexTotrain?user_phone_num=${userInfor.user_phone_num}&user_password=${userInfor.user_password}">
+                                        Book now
+                                    </a>
+                                        <%--<from method="post" action="/userInfor/indexTotrain">--%>
+                                        <%--<input name="user_phone_num" type="hidden" value="${userInfor.user_phone_num}">--%>
+                                        <%--<input name="user_password" type="hidden" value="${userInfor.user_password}">--%>
+                                        <%--<input name="Submits" type="submit" value=" Book now"/>--%>
+                                        <%--</from>--%>
+                                </p>
+                    </div>
+                </div>
 			         </li>
 			         <li>
 			          	 <div class="banner3">

@@ -7,6 +7,7 @@
     <result column="carriage_no" jdbcType="VARCHAR" property="carriage_no"/>
     <result column="seat_type" jdbcType="INTEGER" property="seat_type"/>
     <result column="seat_count" jdbcType="INTEGER" property="seat_count"/>
+    <result column="seat_price" jdbcType="DOUBLE" property="seat_price"/>
 </resultMap>
 <select id="selectSeatByTrain_no" resultMap="BaseResultMap">
     <![CDATA[

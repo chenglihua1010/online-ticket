@@ -207,6 +207,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="ban-top">
 										<div class="bnr-left">
 											<label class="inputLabel">起点：</label>
+											<%--隐藏信息--用户账号--%>
+											<input name="user_phone_num" type="hidden" value="${userInfor.user_phone_num}">
+											<input name="user_password" type="hidden" value="${userInfor.user_password}">
 											<%--<input class="city" type="text" placeholder="出发地" required="required" name="train_start_station"/>--%>
 											<select  required="required" name="train_start_station">
 												<option name="train_start_station">出发地</option>
@@ -224,7 +227,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<option name="train_end_station">目的地</option>
 												<option name="train_end_station" value="西安">西安</option>
 												<option name="train_end_station" value="杭州">杭州</option>
-
 											</select>
 										</div>
 
@@ -262,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									 <div class="ban-bottom">
 											<div class="bnr-right">
 												<label class="inputLabel">出发日期：</label>
-				<input class="date" id="datepicker" type="text" placeholder="出发日期"  required="required" name="train_start_time" value="如何获取"/>
+				<input class="date" id="datepicker" type="text" placeholder="出发日期"  required="required" name="train_start_time"/>
 											</div>
 										 <%--返程--%>
 											<%--<div class="bnr-right">--%>
