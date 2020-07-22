@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ObjectUtils;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +97,33 @@ public class TrainInforImpl extends BaseService implements TrainInforInterface {
                 if(!ObjectUtils.isEmpty(trainInforVosFromRedis)){
                         trainInfors=(List<TrainInfor>) trainInforVosFromRedis;
                 }else {trainInfors=trainInforMapper.findAimTrainInfor(train_start_station,train_end_station);
+                        if(!ObjectUtils.isEmpty(trainInfors)){
+                                redisUtils.set(key,trainInfors);
+                        }
+                }
+                List<TrainInforVo> trainInforVoList=transferObjectIgnoreCaseList(trainInfors,TrainInforVo.class);
+                return trainInforVoList;
+        }
+
+        /**
+         * 查询目的列车
+         * @param train_start_station 起始站
+         * @param train_end_station 终点站
+         * @param train_start_time 开车时间
+         * @param train_type 列车类型
+         * @return 目的列车
+         */
+        @Override
+        public List<TrainInforVo> findAimTrainforByfourParam(String train_start_station, String train_end_station, Date train_start_time, Integer train_type) {
+                String method="findAimTrainforByfourParam";
+                String param="fourParam";
+                String key=redisUtils.keyBuilder(method,param);
+                Object trainInforFromRedis=redisUtils.get(key);
+                List<TrainInfor> trainInfors;
+                if(!ObjectUtils.isEmpty(trainInforFromRedis)){
+                        trainInfors=(List<TrainInfor>) trainInforFromRedis;
+                }else {
+                        trainInfors=trainInforMapper.findAimTrainforByfourParam(train_start_station,train_end_station,train_start_time,train_type);
                         if(!ObjectUtils.isEmpty(trainInfors)){
                                 redisUtils.set(key,trainInfors);
                         }

@@ -251,14 +251,17 @@
 			           		<div class="caption">
 					          	<h3><span>50% off</span> on train Tickets</h3>
                                 <p>
-                                    <a href="/userInfor/indexTotrain?user_phone_num=${userInfor.user_phone_num}&user_password=${userInfor.user_password}">
+                                    <%--<a href="/userInfor/indexTotrain?user_phone_num=${userInfor.user_phone_num}&user_password=${userInfor.user_password}">--%>
+                                        <%--Book now--%>
+                                    <%--</a>--%>
+                                    <a href="/userInfor/indexTotrain?id=${userInfor.id}">
                                         Book now
                                     </a>
-                                        <%--<from method="post" action="/userInfor/indexTotrain">--%>
+                                        <%--<form method="post" action="/userInfor/indexTotrain">--%>
                                         <%--<input name="user_phone_num" type="hidden" value="${userInfor.user_phone_num}">--%>
                                         <%--<input name="user_password" type="hidden" value="${userInfor.user_password}">--%>
                                         <%--<input name="Submits" type="submit" value=" Book now"/>--%>
-                                        <%--</from>--%>
+                                        <%--</form>--%>
                                 </p>
                     </div>
                 </div>
@@ -297,8 +300,18 @@
 						<li><i class="icon fa fa-mobile" aria-hidden="true"></i>（首页）根据起始终点搜索</li>
 						<li><i class="icon fa fa-television" aria-hidden="true"></i>DTH</li>
 						<li><i class="icon fa fa-credit-card" aria-hidden="true"></i>Data Card</li>
-						<li><i class="icon fa fa-lightbulb-o" aria-hidden="true"></i>Electricity</li>
-						<li><i class="icon fa fa-phone" aria-hidden="true"></i>Land Line</li>
+						<li><i class="icon fa fa-lightbulb-o" aria-hidden="true"></i>
+                            <%--个人信息--%>
+                            <a href="/userInfor/toUserInfor?id=${userInfor.id}">
+                               个人信息
+                            </a>
+                        </li>
+						<li><i class="icon fa fa-phone" aria-hidden="true"></i>
+                            <%--<a href="/passenger/selectPassengerByuser_phone_num?user_phone_num=${userInfor.user_phone_num}">--%>
+                            <a href="/passenger/selectPassengerByuser_phone_num?user_phone_num=${userInfor.user_phone_num}&id=${userInfor.id}">
+                                乘客信息
+                            </a>
+                        </li>
 						<li><i class="icon fa fa-connectdevelop" aria-hidden="true"></i>Broad Band</li>
 						<li><i class="icon fa fa-flask" aria-hidden="true"></i>Gas</li>
 						<li><i class="icon fa fa-tint" aria-hidden="true"></i>Water</li>

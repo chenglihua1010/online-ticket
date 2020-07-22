@@ -446,6 +446,7 @@
 					<td class="wthree">
 						<!--<input type="text" placeholder="" required="required" />-->
 						<select name="seat.seat_type">
+							<>
 							<option name="seat_type" value="4">一等座（价格：票种*seat_type*ticket.price）</option>
 							<option name="seat_type" value="5">二等座（价格）</option>
 							<option name="seat_type" value="6">商务座（价格）</option>

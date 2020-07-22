@@ -38,6 +38,12 @@ INSERT INTO user_infor(user_phone_num,user_password,user_email,user_type,user_re
  ]]>
     </insert>
 
+    <select id="findById" resultMap="BaseResultMap">
+        <![CDATA[
+        select * from user_infor WHERE id=#{id};
+        ]]>
+    </select>
+
 
 
 

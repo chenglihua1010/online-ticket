@@ -17,7 +17,7 @@ public class TrainInfor implements Serializable{
         private String train_no;
         //列车车次
         private String train_num;
-        //列车类型 1-普快，2-特快 ，3-动车，4-高铁
+        //列车类型 1-绿皮车，2-动车、高铁
         private Integer train_type;
         //车厢
         private Integer train_carriages;
