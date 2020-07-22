@@ -1,5 +1,6 @@
 package com.ticket.controller;
 
+
 import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.regexp.internal.RE;
 import com.ticket.api.vo.UserInforVo;
@@ -8,6 +9,8 @@ import com.ticket.service.impl.RedisService;
 import com.ticket.service.impl.RedisUtils;
 import com.ticket.service.impl.UserInforImpl;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
@@ -32,6 +35,9 @@ public class UserInforController {
         RedisService redisService;
         @Autowired
         RedisUtils redisUtils;
+
+
+        private static final Logger LOGGER= LoggerFactory.getLogger("UserInforController");
 
         /**
          * 插入用户信息
@@ -103,11 +109,41 @@ public class UserInforController {
         @RequestMapping("/indexTotrain")
         public ModelAndView indexTotrain(HttpServletRequest request){
                 ModelAndView modelAndView=new ModelAndView();
-                String user_phone_num=request.getParameter("user_phone_num");
-                String user_password=request.getParameter("user_password");
-                UserInforVo userInforVo=userInforImpl.findByUser_phone_numAndUser_password(user_phone_num,user_password);
+//                String user_phone_num=request.getParameter("user_phone_num");
+//                String user_password=request.getParameter("user_password");
+//                UserInforVo userInforVo=userInforImpl.findByUser_phone_numAndUser_password(user_phone_num,user_password);
+                String id=request.getParameter("id");
+                Integer idInteger=Integer.parseInt(id);
+                UserInforVo userInforVo=userInforImpl.findById(idInteger);
                 modelAndView.addObject("userInfor",userInforVo);
                 modelAndView.setViewName("train");
+                return modelAndView;
+        }
+
+        /**
+         *  查询用户信息
+         * @param request 用户id
+         * @return 用户对象
+         */
+        @RequestMapping("/toUserInfor")
+        public ModelAndView toUserInfor(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String idString=request.getParameter("id");
+                Integer id=Integer.parseInt(idString);
+                try{
+                        UserInforVo userInforVo=userInforImpl.findById(id);
+                        if(!ObjectUtils.isEmpty(userInforVo)){
+                                modelAndView.addObject("userInforVo",userInforVo);
+                                modelAndView.setViewName("userInfor");
+                                LOGGER.info("UserInforController toUserInfor bean={}",JSONObject.toJSONString(userInforVo));
+                                LOGGER.info("UserInforController toUserInfor 参数id={}",JSONObject.toJSONString(id));
+                        }else {
+                                modelAndView.setViewName("error");
+                        }
+                }catch (Exception e){
+                        e.printStackTrace();
+                        LOGGER.error(e.getMessage());
+                }
                 return modelAndView;
         }
 }

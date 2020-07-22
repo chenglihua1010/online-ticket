@@ -15,6 +15,16 @@ public class PassengerVo {  //主键 id
         //乘客地址
         private String passenger_address;
 
+        public PassengerVo(){}
+
+        public PassengerVo(String user_phone_num,String passenger_real_name,String passenger_id_num,Integer passenger_type,String passenger_address){
+                user_phone_num=this.user_phone_num;
+                passenger_real_name=this.passenger_real_name;
+                passenger_id_num=this.passenger_id_num;
+                passenger_type=this.passenger_type;
+                passenger_address=this.passenger_address;
+        }
+
         public Integer getId() {
                 return id;
         }

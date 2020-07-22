@@ -207,9 +207,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="ban-top">
 										<div class="bnr-left">
 											<label class="inputLabel">起点：</label>
-											<%--隐藏信息--用户账号--%>
+											<%--隐藏信息--用户账号 仅需id--%>
 											<input name="user_phone_num" type="hidden" value="${userInfor.user_phone_num}">
 											<input name="user_password" type="hidden" value="${userInfor.user_password}">
+											<input name="id" type="hidden" value="${userInfor.id}">
 											<%--<input class="city" type="text" placeholder="出发地" required="required" name="train_start_station"/>--%>
 											<select  required="required" name="train_start_station">
 												<option name="train_start_station">出发地</option>
@@ -236,29 +237,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 											<ul>
 												<li>
-													<label class="inputLabel">一等座：</label>
-													<input type="checkbox" name="checkbox1" value="1"  checked>
+													<label class="inputLabel">高铁/动车</label>
+													<input type="checkbox" name="train_type" value="2" checked>
+												</li>
+												<li>
+													<label class="inputLabel">均可</label>
+													<input type="checkbox" name="train_type" value="0">
 												</li>
 
-												<li>
-													<label class="inputLabel">二等座：</label>
-													<input type="checkbox" name="checkbox1" value="2">
-												</li>
+												<%--<li>--%>
+													<%--<label class="inputLabel">硬座：</label>--%>
+													<%--<input type="checkbox" name="checkbox1" value="3">--%>
+												<%--</li>--%>
 
-												<li>
-													<label class="inputLabel">硬座：</label>
-													<input type="checkbox" name="checkbox1" value="3">
-												</li>
-
-												<li>
-													<label class="inputLabel">硬卧：</label>
-													<input type="checkbox" name="checkbox1" value="4">
-												</li>
+												<%--<li>--%>
+													<%--<label class="inputLabel">硬卧：</label>--%>
+													<%--<input type="checkbox" name="checkbox1" value="4">--%>
+												<%--</li>--%>
 											</ul>
 
 										</div>
-
-
 											<div class="clearfix"></div>
 									</div>
 									 <div class="ban-bottom">

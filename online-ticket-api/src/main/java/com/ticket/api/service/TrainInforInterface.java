@@ -3,6 +3,7 @@ package com.ticket.api.service;
 import com.ticket.api.vo.TrainInforVo;
 
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,4 +35,7 @@ public interface TrainInforInterface {
          * @return 列车信息
          */
         public List<TrainInforVo> findAimTrainInfor(String train_start_station, String train_end_station);
+
+
+        public List<TrainInforVo> findAimTrainforByfourParam(String train_start_station, String train_end_station,Date train_start_time,Integer train_type);
 }
