@@ -1,13 +1,18 @@
 package com.ticket.controller;
 
 import com.alibaba.dubbo.common.json.JSONObject;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ticket.api.vo.TrainParkingStationVo;
 import com.ticket.service.impl.RedisService;
 import com.ticket.service.impl.TrainParkingStationImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -17,19 +22,24 @@ import java.util.List;
 @RequestMapping("/trainParkingStation")
 public class TrainParkingStationController {
         @Autowired
-        RedisService redisService;
-        @Autowired
         TrainParkingStationImpl trainParkingStationImpl;
-        @RequestMapping("/selectStation")
-        @ResponseBody
-        public List<TrainParkingStationVo> selectStationByTrain_no(HttpServletRequest request){
-                String train_no=request.getParameter("train_no");
 
-                List<TrainParkingStationVo> voList=trainParkingStationImpl.selectStationByTrain_no(train_no);
-//                redisService.setList(train_no,voList);
-//                redisService.setList(train_no.toString(),JSONObject.to)
-                System.out.println(voList.get(2).getTrain_end_time());
-                return voList;
+        private static final Logger LOGGER= LoggerFactory.getLogger("TrainParkingStationController");
+
+        @RequestMapping("/selectStation")
+        public ModelAndView selectStationByTrain_no(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String train_no=request.getParameter("train_no");
+                try{
+                        List<TrainParkingStationVo> trainParkingStationVoList=trainParkingStationImpl.selectStationByTrain_no(train_no);
+                        if(!ObjectUtils.isEmpty(trainParkingStationVoList)){
+                                modelAndView.addObject("trainParkingStationVoList",trainParkingStationVoList);
+                                modelAndView.setViewName("aim-train");
+                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}",JSONObject);
+                        }
+                }
+
+                return modelAndView;
         }
 
 }

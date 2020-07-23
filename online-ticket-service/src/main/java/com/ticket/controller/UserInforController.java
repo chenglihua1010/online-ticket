@@ -95,7 +95,7 @@ public class UserInforController {
                         }
                 }
                 if(!ObjectUtils.isEmpty(userInforVo)){
-                        modelAndView.addObject("userInfor",userInforVo);
+                        modelAndView.addObject("userInforVo",userInforVo);
                         modelAndView.setViewName("index");
                 }else {modelAndView.setViewName("error");}
                 return modelAndView;
@@ -142,6 +142,28 @@ public class UserInforController {
                         }
                 }catch (Exception e){
                         e.printStackTrace();
+                        LOGGER.error(e.getMessage());
+                }
+                return modelAndView;
+        }
+
+        @RequestMapping("/userInforToIndex")
+        public ModelAndView userInforToIndex(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String idString=request.getParameter("id");
+                try{
+                        Integer id=Integer.parseInt(idString);
+                        UserInforVo userInforVo=userInforImpl.findById(id);
+                        if(!ObjectUtils.isEmpty(userInforVo)){
+                                modelAndView.addObject("userInforVo",userInforVo);
+                                modelAndView.setViewName("index");
+                                LOGGER.info("UserInforController userInforToIndex bean={}",JSONObject.toJSONString(userInforVo));
+                                LOGGER.info("UserInforController userInforToIndex 参数id={}",JSONObject.toJSONString(id));
+                }else{
+                                modelAndView.setViewName("error");
+                        }
+        }catch (Exception e){
+                e.printStackTrace();
                         LOGGER.error(e.getMessage());
                 }
                 return modelAndView;

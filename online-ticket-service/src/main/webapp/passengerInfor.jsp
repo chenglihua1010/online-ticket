@@ -19,6 +19,7 @@
     </tr>
     </thead>
     <tbody>
+    <a>
     <tr>
         <td>${passenger.passenger_real_name}</td>
         <td>${passenger.passenger_id_num}</td>
@@ -34,6 +35,7 @@
         <td>${passenger.passenger_address}</td>
     </tr>
 </c:forEach>
+    </a>
 </tbody>
 
 <form method="post" action="/passenger/addPassenger">
@@ -46,6 +48,7 @@
     <option name="passenger_type" value="2">-学生-</option>
 </select>
     乘客地址：<input  type="text" name="passenger_address" value="${passenger_address}"><br/>
+    <input name="id" type="hidden" value="${userInforVo.id}">
     <input type="submit" value="提交并返回">
 </form>
 
