@@ -35,8 +35,10 @@ public class TrainParkingStationController {
                         if(!ObjectUtils.isEmpty(trainParkingStationVoList)){
                                 modelAndView.addObject("trainParkingStationVoList",trainParkingStationVoList);
                                 modelAndView.setViewName("aim-train");
-                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}",JSONObject);
+//                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}", JSONObject.toJSONString(userInforVo));
                         }
+                }catch(Exception e){
+                        e.printStackTrace();
                 }
 
                 return modelAndView;
