@@ -7,6 +7,7 @@ import com.ticket.entity.TrainParkingStation;
 import com.ticket.mapper.TrainParkingStationMapper;
 import com.ticket.utils.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
@@ -17,9 +18,23 @@ public class TrainParkingStationImpl extends BaseService implements TrainParking
 
         @Autowired
         TrainParkingStationMapper trainParkingStationMapper;
+        @Autowired
+        RedisUtils redisUtils;
         @Override
         public List<TrainParkingStationVo> selectStationByTrain_no(String train_no) {
-                List<TrainParkingStation> trainParkingStationList=trainParkingStationMapper.selectStationByTrain_no(train_no);
+                String method="selectStationByTrain_no";
+                String param=train_no;
+                String key=redisUtils.keyBuilder(method,param);
+                List<TrainParkingStation> trainParkingStationList;
+                Object trainInforFromRedis=redisUtils.get(key);
+                if(!ObjectUtils.isEmpty(trainInforFromRedis)){
+                        trainParkingStationList=(List<TrainParkingStation>) trainInforFromRedis;
+                }else{
+                        trainParkingStationList=trainParkingStationMapper.selectStationByTrain_no(train_no);
+                        if(!ObjectUtils.isEmpty(trainParkingStationList)){
+                                redisUtils.set(key,trainParkingStationList);
+                        }
+                }
                 List<TrainParkingStationVo> trainParkingStationVoList=transferObjectIgnoreCaseList(trainParkingStationList,TrainParkingStationVo.class);
                 return trainParkingStationVoList;
 

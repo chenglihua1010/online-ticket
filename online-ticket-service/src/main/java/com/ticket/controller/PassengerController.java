@@ -43,8 +43,10 @@ public class PassengerController {
                 String passenger_id_num=request.getParameter("passenger_id_num");
                 String passenger_type=request.getParameter("passenger_type");
                 String passenger_address=request.getParameter("passenger_address");
+                String idString=request.getParameter("id");
                 try{
                         Integer passenger_typeInt=Integer.parseInt(passenger_type);
+                        Integer id=Integer.parseInt(idString);
 //                        PassengerVo passengerVo=new PassengerVo(user_phone_num,passenger_real_name,passenger_id_num,
 //                                        passenger_typeInt,passenger_address);
                         PassengerVo passengerVo=new PassengerVo();
@@ -53,16 +55,16 @@ public class PassengerController {
                         passengerVo.setPassenger_id_num(passenger_id_num);
                         passengerVo.setPassenger_type(passenger_typeInt);
                         passengerVo.setPassenger_address(passenger_address);
+                        UserInforVo userInforVo=userInforImpl.findById(id);
                         passengerImpl.addPassenger(passengerVo);
                         LOGGER.info("PassengerController addPassenger bean={}",JSONObject.toJSONString(passengerVo));
+                        modelAndView.addObject("userInforVo",userInforVo);
                         modelAndView.setViewName("index");
                 }catch (Exception e){
                         e.printStackTrace();
                         LOGGER.error(e.getMessage());
                 }
-
 //                passengerVo.setPassenger_phone_num(passenger_phone_num);
-
                 return modelAndView;
         }
 

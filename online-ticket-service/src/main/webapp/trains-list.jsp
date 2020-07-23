@@ -201,7 +201,7 @@
 			 <!-- train-routes -->
 					<div class="bus-tp">
 						<div class="bus-tp-inner">
-							<h3>${trainInfor.train_start_station}至${trainInfor.train_end_station}</h3>
+							<h3>${trainInforList.get(0).train_start_station}至${trainInfor.get(0).train_end_station}</h3>
 							<div class="clearfix"></div>
 						</div>
 					</div>

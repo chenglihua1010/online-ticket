@@ -254,7 +254,7 @@
                                     <%--<a href="/userInfor/indexTotrain?user_phone_num=${userInfor.user_phone_num}&user_password=${userInfor.user_password}">--%>
                                         <%--Book now--%>
                                     <%--</a>--%>
-                                    <a href="/userInfor/indexTotrain?id=${userInfor.id}">
+                                    <a href="/userInfor/indexTotrain?id=${userInforVo.id}">
                                         Book now
                                     </a>
                                         <%--<form method="post" action="/userInfor/indexTotrain">--%>
@@ -302,13 +302,13 @@
 						<li><i class="icon fa fa-credit-card" aria-hidden="true"></i>Data Card</li>
 						<li><i class="icon fa fa-lightbulb-o" aria-hidden="true"></i>
                             <%--个人信息--%>
-                            <a href="/userInfor/toUserInfor?id=${userInfor.id}">
+                            <a href="/userInfor/toUserInfor?id=${userInforVo.id}">
                                个人信息
                             </a>
                         </li>
 						<li><i class="icon fa fa-phone" aria-hidden="true"></i>
                             <%--<a href="/passenger/selectPassengerByuser_phone_num?user_phone_num=${userInfor.user_phone_num}">--%>
-                            <a href="/passenger/selectPassengerByuser_phone_num?user_phone_num=${userInfor.user_phone_num}&id=${userInfor.id}">
+                            <a href="/passenger/selectPassengerByuser_phone_num?user_phone_num=${userInforVo.user_phone_num}&id=${userInforVo.id}">
                                 乘客信息
                             </a>
                         </li>
