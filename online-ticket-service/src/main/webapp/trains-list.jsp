@@ -201,7 +201,8 @@
 			 <!-- train-routes -->
 					<div class="bus-tp">
 						<div class="bus-tp-inner">
-							<h3>${trainInforList.get(0).train_start_station}至${trainInfor.get(0).train_end_station}</h3>
+							<%--<h3>${trainInforList.get(0).train_start_station}至${trainInforList.get(0).train_end_station}</h3>--%>
+							<h3>${trainInforList[0].train_start_station}至${trainInforList[0].train_end_station}</h3>
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -217,7 +218,7 @@
 					   <th>出发时间</th>
 					   <th>到达时间</th>
 					   <th>历时</th>
-					   <%--<th>座位</th>--%>
+					   <th>座位信息</th>
 					   <%--座位信息--%>
 					   <th>备注</th>
 				   </tr> 
@@ -228,13 +229,20 @@
 				<c:forEach items="${trainInforList}" var="trainInfor">
 		     <tr>
 			    <td class="t-one">${trainInfor.train_no}</td>
-			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i>${trainInfor.train_num}</td>
+			    <td class="wthree"><i class="fa fa-train" aria-hidden="true"></i>
+					<%--经停信息查询--%>
+					<a href="/trainParkingStation/selectStationByTrain_no?train_no=${trainInfor.train_no}">
+							${trainInfor.train_num}
+					</a>
+
+				</td>
  				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_running_time}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>一等座-${seatVoList[0].seat_count}二等座-${seatVoList[1].seat_count}商务座-${seatVoList[2].seat_count}</td>
 				<%--<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>--%>
 				 <%--${TrainInfor.train_price}--%>
-				 <td class="price us"> 价格
+				 <td class="price us">
 						<a href="#" data-toggle="modal" data-target="#myModalbook" class="seat-button two"> 预订 </a>
 				</td>
 
@@ -410,18 +418,12 @@
 					</div>
 					<div class="modal-body">
 					<h4 class="modal-title">
-                    Railway Reservation Form</h4>
+                    行程确认单</h4>
                         <form class="w3layouts-train-form" action="pay.jsp" method="post">
 					<div class="table-responsive">
-		   <table class="table table-bordered agileinfo"> 
+		   <table class="table table-bordered agileinfo">
 	           <thead>
  			       <tr> 
-					   <%--<th>S.No.</th>  --%>
-					   <%--<th>Name in Block Letters(not more than 15 chars)</th> --%>
-					   <%--<th>Sex M/F</th> --%>
-					   <%--<th>Age</th> --%>
-					   <%--<th>Berth(choice if any)</th> --%>
-						   <th>序号</th>
 						   <th>票种</th>
 						   <th>席别</th>
 						   <th>姓名</th>
@@ -430,63 +432,77 @@
 			  </thead>
 		   <tbody>
 		     <tr>
-			    <%--<td class="t-one">1</td> --%>
-			    <%--<td class="wthree"><input type="text" placeholder="" required="required" /></td>--%>
- 				<%--<td class="wthree"> <input type="text" placeholder="" required="required" /></td> --%>
-				<%--<td class="wthree"><input type="text" placeholder="" required="required" /> </td> --%>
-
 					<td class="t-one">1</td>
-					<!--<td class="wthree"><input type="text" placeholder="" required="required" /></td>-->
 					<td class="wthree">
-						<!--<input type="text" placeholder="" required="required" />-->
 						<select name="票种">
 							<option name="" value="">成人票</option>
 						</select>
 					</td>
 					<td class="wthree">
-						<!--<input type="text" placeholder="" required="required" />-->
-						<select name="seat.seat_type">
-							<>
-							<option name="seat_type" value="4">一等座（价格：票种*seat_type*ticket.price）</option>
-							<option name="seat_type" value="5">二等座（价格）</option>
-							<option name="seat_type" value="6">商务座（价格）</option>
+						<select name="seat_type">
+							<option name="seat_type" value="4">一等座（价格：200元）</option>
+							<option name="seat_type" value="5">二等座（价格：100元）</option>
+							<option name="seat_type" value="6">商务座（价格：300元）</option>
 						</select>
 					</td>
-
 					<%--再选择姓名后，自动获取身份信息--%>
 					<td class="wthree">
-						<!--<input type="text" placeholder="" required="required" /> -->
 						<select name="passenger_real_name">
-							<option name="passenger_real_name" value="passenger_real_name">${passenger.passenger_real_name}</option>
-
+								<c:forEach items="${passengerVoList}" var="passenger" >
+									<option value="${passenger_real_name}">${passenger.passenger_real_name} </option>
+								</c:forEach>
 						</select>
 					</td>
 				<td class="wthree">
-					<%--<input type="text" placeholder="" required="required" />--%>
 					<select name="passenger_id_num">
-						<option name="passenger_id_num" value="passenger_id_num">${passenger.passenger_id_num}</option>
+						<c:forEach items="${passengerVoList}" var="passenger" >
+							<option name="passenger_id_num" value="passenger_id_num">${passenger.passenger_id_num}</option>
+						</c:forEach>
+
 					</select>
 				</td>
-
-				
 			 </tr>
-			 <tr>
-			    <td class="t-one">2</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td> 
 
-				
+			 <tr>
+				 <td class="t-one">2</td>
+				 <td class="wthree">
+					 <select name="票种">
+						 <option name="" value="">成人票</option>
+					 </select>
+				 </td>
+				 <td class="wthree">
+					 <select name="seat_type">
+						 <option name="seat_type" value="4">一等座（价格：200元）</option>
+						 <option name="seat_type" value="5">二等座（价格：100元）</option>
+						 <option name="seat_type" value="6">商务座（价格：300元）</option>
+					 </select>
+				 </td>
+				 <%--再选择姓名后，自动获取身份信息--%>
+				 <td class="wthree">
+					 <select name="passenger_real_name">
+						 <c:forEach items="${passengerVoList}" var="passenger" >
+							 <option value="${passenger_real_name}">${passenger.passenger_real_name} </option>
+						 </c:forEach>
+					 </select>
+				 </td>
+				 <td class="wthree">
+					 <select name="passenger_id_num">
+						 <c:forEach items="${passengerVoList}" var="passenger" >
+							 <option name="passenger_id_num" value="passenger_id_num">${passenger.passenger_id_num}</option>
+						 </c:forEach>
+					 </select>
+				 </td>
 			 </tr>
-			 <tr>
-			    <td class="t-one">3</td> 
-			    <td class="wthree"><input type="text" placeholder="" /></td>
- 				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"> <input type="text" placeholder="" /></td> 
-				<td class="wthree"><input type="text" placeholder="" /></td>  
 
-				
+
+			 <tr>
+				 <td class="t-one">3</td>
+				 <td class="wthree"><input type="text" placeholder="" /></td>
+				 <td class="wthree"> <input type="text" placeholder="" /></td>
+				 <td class="wthree"> <input type="text" placeholder="" /></td>
+				 <td class="wthree"><input type="text" placeholder="" /></td>
+
+
 			 </tr>
 			  <tr>
 			    <td class="t-one">4</td> 

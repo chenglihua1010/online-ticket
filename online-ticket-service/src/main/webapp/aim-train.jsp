@@ -30,8 +30,8 @@
     <tr>
         <td>${trainInforVo.station_no}</td>
         <td>${trainInforVo.station_name}</td>
-        <td>${trainInforVo.train_start_time}</td>
-        <td>${trainInforVo.train_end_time}</td>
+        <td>${trainInforVo.train_start_timeString}</td>
+        <td>${trainInforVo.train_end_timeString}</td>
         <td>${trainInforVo.train_running_time}</td>
     </tr>
     </c:forEach>
