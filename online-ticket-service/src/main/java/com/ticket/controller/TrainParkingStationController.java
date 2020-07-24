@@ -1,10 +1,13 @@
 package com.ticket.controller;
 
-import com.alibaba.dubbo.common.json.JSONObject;
+
+import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import com.ticket.api.vo.TrainInforVo;
 import com.ticket.api.vo.TrainParkingStationVo;
 import com.ticket.service.impl.RedisService;
 import com.ticket.service.impl.TrainParkingStationImpl;
+import com.ticket.utils.DateUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +29,23 @@ public class TrainParkingStationController {
 
         private static final Logger LOGGER= LoggerFactory.getLogger("TrainParkingStationController");
 
-        @RequestMapping("/selectStation")
+        @RequestMapping("/selectStationByTrain_no")
         public ModelAndView selectStationByTrain_no(HttpServletRequest request){
                 ModelAndView modelAndView=new ModelAndView();
                 String train_no=request.getParameter("train_no");
                 try{
                         List<TrainParkingStationVo> trainParkingStationVoList=trainParkingStationImpl.selectStationByTrain_no(train_no);
+                        for (TrainParkingStationVo vo:trainParkingStationVoList) {
+                                String train_start_timeString= DateUtil.format(vo.getTrain_start_time(),DateUtil.DATEFORMATSECOND);
+                                vo.setTrain_start_timeString(train_start_timeString);
+                                String train_end_timeString=DateUtil.format(vo.getTrain_end_time(),DateUtil.DATEFORMATSECOND);
+                                vo.setTrain_end_timeString(train_end_timeString);
+                        }
                         if(!ObjectUtils.isEmpty(trainParkingStationVoList)){
                                 modelAndView.addObject("trainParkingStationVoList",trainParkingStationVoList);
                                 modelAndView.setViewName("aim-train");
-//                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}", JSONObject.toJSONString(userInforVo));
+                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}", JSONObject.toJSONString(trainParkingStationVoList));
+                                LOGGER.info("TrainParkingStationController selectStationByTrain_no param={}", JSONObject.toJSONString(train_no));
                         }
                 }catch(Exception e){
                         e.printStackTrace();

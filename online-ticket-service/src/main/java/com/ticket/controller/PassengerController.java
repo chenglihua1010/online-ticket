@@ -95,11 +95,30 @@ public class PassengerController {
         }
 
         @RequestMapping("/deletPassenger")
-        @ResponseBody
-        public String deletPassenger(HttpServletRequest request){
+//        @ResponseBody
+        public ModelAndView deletPassenger(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String idString=request.getParameter("id");
                 String user_phone_num=request.getParameter("user_phone_num");
-                String passenger_phone_num=request.getParameter("passenger_phone_num");
-                passengerImpl.deletPassenger(user_phone_num,passenger_phone_num);
-                return "删除成功";
+                String passenger_real_name=request.getParameter("passenger_real_name");
+                try{
+                        passengerImpl.deletPassenger(user_phone_num,passenger_real_name);
+                        List<PassengerVo> passengerVoList=passengerImpl.selectPassengerByuser_phone_num(user_phone_num);
+                        Integer id=Integer.parseInt(idString);
+                        UserInforVo userInforVo=userInforImpl.findById(id);
+                        if(!ObjectUtils.isEmpty(passengerVoList)){
+                                modelAndView.addObject("passengerVoList",passengerVoList);
+                                modelAndView.addObject("userInforVo",userInforVo);
+                                modelAndView.setViewName("passengerInfor");
+                                LOGGER.info("PassengerController selectPassengerByuser_phone_num bean={}", JSONObject.toJSONString(passengerVoList));
+                                LOGGER.info("PassengerController selectPassengerByuser_phone_num 参数={}", JSONObject.toJSONString(user_phone_num));
+                        }else {
+                                modelAndView.setViewName("error");
+                        }
+                }catch(Exception e){
+                        e.printStackTrace();
+                        LOGGER.error(e.getMessage());
+                }
+                return modelAndView;
         }
 }

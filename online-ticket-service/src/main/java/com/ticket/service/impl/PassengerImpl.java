@@ -58,11 +58,11 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
         /**
          * 删除用户乘客信息
          * @param user_phone_num 用户账号
-         * @param passenger_phone_num 乘客账号
+         * @param passenger_real_name 乘客姓名
          */
         @Override
-        public void deletPassenger(String user_phone_num, String passenger_phone_num) {
-                passengerMapper.deletPassenger(user_phone_num,passenger_phone_num);
+        public void deletPassenger(String user_phone_num, String passenger_real_name) {
+                passengerMapper.deletPassenger(user_phone_num,passenger_real_name);
         }
 
 

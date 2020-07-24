@@ -104,8 +104,11 @@ public class TrainInforController {
                                 }
                                 modelAndView.addObject("trainInforList",trainInforVoList);
 
-                                modelAndView.addObject("seat",seatVoList.get(0));
-                                modelAndView.addObject("passenger",passengerVoList.get(0));
+//                                modelAndView.addObject("seat",seatVoList.get(0));
+                                //可以排序
+                                modelAndView.addObject("seat",seatVoList);
+//                                modelAndView.addObject("passenger",passengerVoList.get(0));
+                                modelAndView.addObject("passengerVoList",passengerVoList);
                                 modelAndView.setViewName("trains-list");
                                 LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON(trainInforVoList));
                                 LOGGER.info("TrainInforController findAimTrainInfor bean={}", JSONObject.toJSON("参数train_start_station："+train_start_station+

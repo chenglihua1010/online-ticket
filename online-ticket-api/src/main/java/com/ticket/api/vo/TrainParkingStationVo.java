@@ -13,8 +13,27 @@ public class TrainParkingStationVo {
         private String train_arrive_day;
         //出发时间
         private Date train_start_time;
+        private String train_start_timeString;
         //到达时间
         private Date train_end_time;
+        private String train_end_timeString;
+
+        public String getTrain_end_timeString() {
+                return train_end_timeString;
+        }
+
+        public void setTrain_end_timeString(String train_end_timeString) {
+                this.train_end_timeString = train_end_timeString;
+        }
+
+        public String getTrain_start_timeString() {
+                return train_start_timeString;
+        }
+
+        public void setTrain_start_timeString(String train_start_timeString) {
+                this.train_start_timeString = train_start_timeString;
+        }
+
         //列车运行时间
         private String train_running_time;
         //站点编号

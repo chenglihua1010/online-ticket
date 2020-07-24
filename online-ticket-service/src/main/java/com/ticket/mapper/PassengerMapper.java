@@ -21,5 +21,5 @@ public interface PassengerMapper extends MyMapper<Passenger>{
          */
         public List<Passenger> selectPassengerByuser_phone_num(String user_phone_num);
 
-        public void deletPassenger(@Param("user_phone_num") String user_phone_num,@Param("passenger_phone_num") String passenger_phone_num);
+        public void deletPassenger(@Param("user_phone_num") String user_phone_num,@Param("passenger_real_name") String passenger_real_name);
 }
