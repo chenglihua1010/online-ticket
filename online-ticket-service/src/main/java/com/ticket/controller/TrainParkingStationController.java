@@ -1,6 +1,7 @@
 package com.ticket.controller;
 
-import com.alibaba.dubbo.common.json.JSONObject;
+
+import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ticket.api.vo.TrainParkingStationVo;
 import com.ticket.service.impl.RedisService;
@@ -26,7 +27,7 @@ public class TrainParkingStationController {
 
         private static final Logger LOGGER= LoggerFactory.getLogger("TrainParkingStationController");
 
-        @RequestMapping("/selectStation")
+        @RequestMapping("/selectStationByTrain_no")
         public ModelAndView selectStationByTrain_no(HttpServletRequest request){
                 ModelAndView modelAndView=new ModelAndView();
                 String train_no=request.getParameter("train_no");
@@ -35,7 +36,8 @@ public class TrainParkingStationController {
                         if(!ObjectUtils.isEmpty(trainParkingStationVoList)){
                                 modelAndView.addObject("trainParkingStationVoList",trainParkingStationVoList);
                                 modelAndView.setViewName("aim-train");
-//                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}", JSONObject.toJSONString(userInforVo));
+                                LOGGER.info("TrainParkingStationController selectStationByTrain_no bean={}", JSONObject.toJSONString(trainParkingStationVoList));
+                                LOGGER.info("TrainParkingStationController selectStationByTrain_no param={}", JSONObject.toJSONString(train_no));
                         }
                 }catch(Exception e){
                         e.printStackTrace();

@@ -9,7 +9,10 @@
 <base href="<%=basePath%>"><!DOCTYPE html>
 <html>
 <body>
-<c:forEach items="${passengerVoList}" var="passenger">
+<table>
+    <title>
+        乘客信息
+    </title>
     <thead>
     <tr>
         <th>乘客姓名</th>
@@ -18,8 +21,8 @@
         <th>乘客地址</th>
     </tr>
     </thead>
-    <tbody>
-    <a>
+    <c:forEach items="${passengerVoList}" var="passenger">
+
     <tr>
         <td>${passenger.passenger_real_name}</td>
         <td>${passenger.passenger_id_num}</td>
@@ -33,10 +36,17 @@
             <td>学生</td>
         </c:if>
         <td>${passenger.passenger_address}</td>
+        <td>
+            <%--<Submit type="submit" >删除</Submit>--%>
+                <a href="/passenger/deletPassenger?id=${userInforVo.id}&user_phone_num=${userInforVo.user_phone_num}
+                &passenger_real_name=${passenger_real_name}">
+                删除
+                    </a>
+        </td>
     </tr>
-</c:forEach>
-    </a>
-</tbody>
+    </c:forEach>
+
+</table>
 
 <form method="post" action="/passenger/addPassenger">
     用户账号：<input name="user_phone_num" type="text" value="${userInforVo.user_phone_num}">

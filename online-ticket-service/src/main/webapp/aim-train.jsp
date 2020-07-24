@@ -26,15 +26,13 @@
 </tr>
 </thead>
 
-
-    <c:forEach items="${trainInforVoList}" var="trainInforVo">
+    <c:forEach items="${trainParkingStationVoList}" var="trainInforVo">
     <tr>
         <td>${trainInforVo.station_no}</td>
         <td>${trainInforVo.station_name}</td>
         <td>${trainInforVo.train_start_time}</td>
         <td>${trainInforVo.train_end_time}</td>
         <td>${trainInforVo.train_running_time}</td>
-
     </tr>
     </c:forEach>
 
