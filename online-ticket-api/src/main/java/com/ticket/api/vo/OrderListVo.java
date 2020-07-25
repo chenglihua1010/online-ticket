@@ -15,10 +15,14 @@ public class OrderListVo implements Serializable{
         private String user_phone_num;
         //乘客手机号
         private String passenger_phone_num;
+        //乘客姓名
+        private String passenger_real_name;
         //乘客身份证号
         private String passenger_id_num;
         //车号（列车编号)
         private String train_no;
+        //列车车次
+        private String train_num;
         //初始站站编号
         private String start_station_no;
         //初始站名字

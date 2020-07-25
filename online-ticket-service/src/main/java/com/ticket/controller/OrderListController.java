@@ -38,9 +38,17 @@ public class OrderListController {
         private static final Logger LOGGER = LoggerFactory.getLogger(OrderListController.class);
 
         @RequestMapping("/addOrder")
-        @ResponseBody
-        public OrderListVo addOrder(HttpServletRequest request){
+//        @ResponseBody
+        public ModelAndView addOrder(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                //userInfor
                 String user_phone_num=request.getParameter("user_phone_num");
+                //passengerInfor
+                String passenger_real_name=request.getParameter("passenger_real_name");
+                //trainInfor
+                String start_station_name=request.getParameter("start_station_name");
+                String end_station_name=request.getParameter("end_station_name");
+                String train_start_dateString=request.getParameter("");
                 String order_money=request.getParameter("order_money");
                 Double order_moneyDouble=Double.parseDouble(order_money);
                 String order_id=RandomUtil.getRandomNickname(10);
@@ -50,7 +58,7 @@ public class OrderListController {
                 orderListVo.setOrder_money(order_moneyDouble);
                 orderListVo.setUser_phone_num(user_phone_num);
                 orderListImpl.addOrder(orderListVo);
-                return orderListVo;
+                return modelAndView;
 
         }
 

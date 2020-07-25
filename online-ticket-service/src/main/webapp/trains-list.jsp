@@ -234,7 +234,6 @@
 					<a href="/trainParkingStation/selectStationByTrain_no?train_no=${trainInfor.train_no}">
 							${trainInfor.train_num}
 					</a>
-
 				</td>
  				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time_String}</td>
