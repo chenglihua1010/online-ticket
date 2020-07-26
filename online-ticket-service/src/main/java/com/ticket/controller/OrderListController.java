@@ -8,6 +8,7 @@ import com.ticket.entity.OrderList;
 import com.ticket.entity.Passenger;
 import com.ticket.service.impl.OrderListImpl;
 import com.ticket.service.impl.RedisUtils;
+import com.ticket.utils.ExecutorRegister;
 import com.ticket.utils.RandomUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -22,11 +23,14 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 @Controller
 @RequestMapping("/orderList")
 public class OrderListController {
+        private static ExecutorService executor = ExecutorRegister.register(Executors.newCachedThreadPool());
 
         @Autowired
         OrderListImpl orderListImpl;
@@ -53,11 +57,17 @@ public class OrderListController {
                 Double order_moneyDouble=Double.parseDouble(order_money);
                 String order_id=RandomUtil.getRandomNickname(10);
 
-                OrderListVo orderListVo=new OrderListVo();
-                orderListVo.setOrder_id(order_id);
-                orderListVo.setOrder_money(order_moneyDouble);
-                orderListVo.setUser_phone_num(user_phone_num);
-                orderListImpl.addOrder(orderListVo);
+                executor.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                                OrderListVo orderListVo=new OrderListVo();
+                                orderListVo.setOrder_id(order_id);
+                                orderListVo.setOrder_money(order_moneyDouble);
+                                orderListVo.setUser_phone_num(user_phone_num);
+                                orderListImpl.addOrder(orderListVo);
+                        }
+                });
+
                 return modelAndView;
 
         }
