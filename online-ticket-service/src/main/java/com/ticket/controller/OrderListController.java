@@ -10,6 +10,7 @@ import com.ticket.service.impl.OrderListImpl;
 import com.ticket.service.impl.RedisUtils;
 import com.ticket.utils.ExecutorRegister;
 import com.ticket.utils.RandomUtil;
+import net.sf.json.util.JSONUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,12 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 @Controller
 @RequestMapping("/orderList")
-public class OrderListController {
-        private static ExecutorService executor = ExecutorRegister.register(Executors.newCachedThreadPool());
+public class OrderListController{
+        private static ExecutorService executor = ExecutorRegister.register(Executors.newFixedThreadPool(2));
+
+        private Object object=new Object();
+
+        private char[] chars = new char[]{};
+
+        private  Lock lock=new ReentrantLock();
 
         @Autowired
         OrderListImpl orderListImpl;
@@ -43,7 +52,7 @@ public class OrderListController {
 
         @RequestMapping("/addOrder")
 //        @ResponseBody
-        public ModelAndView addOrder(HttpServletRequest request){
+        public  ModelAndView  addOrder(HttpServletRequest request){
                 ModelAndView modelAndView=new ModelAndView();
                 //userInfor
                 String user_phone_num=request.getParameter("user_phone_num");
@@ -57,17 +66,41 @@ public class OrderListController {
                 Double order_moneyDouble=Double.parseDouble(order_money);
                 String order_id=RandomUtil.getRandomNickname(10);
 
-                executor.execute(new Runnable() {
-                        @Override
-                        public void run() {
-                                OrderListVo orderListVo=new OrderListVo();
-                                orderListVo.setOrder_id(order_id);
-                                orderListVo.setOrder_money(order_moneyDouble);
-                                orderListVo.setUser_phone_num(user_phone_num);
-                                orderListImpl.addOrder(orderListVo);
-                        }
-                });
+//                new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                                OrderListVo orderListVo=new OrderListVo();
+//                                orderListVo.setOrder_id(order_id);
+//                                orderListVo.setOrder_money(order_moneyDouble);
+//                                orderListVo.setUser_phone_num(user_phone_num);
+//                                orderListImpl.addOrder(orderListVo);
+//                        }
+//                }).start();
 
+//                synchronized(chars){
+//                        executor.execute(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                        OrderListVo orderListVo=new OrderListVo();
+//                                        orderListVo.setOrder_id(order_id);
+//                                        orderListVo.setOrder_money(order_moneyDouble);
+//                                        orderListVo.setUser_phone_num(user_phone_num);
+//                                        orderListImpl.addOrder(orderListVo);
+//                                }
+//                        });
+//                };
+
+                lock.lock();
+                try {
+                                        OrderListVo orderListVo=new OrderListVo();
+                                        orderListVo.setOrder_id(order_id);
+                                        orderListVo.setOrder_money(order_moneyDouble);
+                                        orderListVo.setUser_phone_num(user_phone_num);
+                                        orderListImpl.addOrder(orderListVo);
+                }catch (Exception e){
+                        lock.unlock();
+                     LOGGER.info("error exception", JSONObject.toJSONString(e.getMessage()));
+                }
                 return modelAndView;
 
         }
