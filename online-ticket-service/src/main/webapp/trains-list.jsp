@@ -238,7 +238,7 @@
  				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_start_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_end_time_String}</td>
 				<td class="wthree"><i class="fa fa-clock-o"></i>${trainInfor.train_running_time}</td>
-				<td class="wthree"><i class="fa fa-clock-o"></i>一等座-${seatVoList[0].seat_count}二等座-${seatVoList[1].seat_count}商务座-${seatVoList[2].seat_count}</td>
+				<td class="wthree"><i class="fa fa-clock-o"></i>一等座-${trainInforList[0].seat_count}二等座-${seatVoList[1].seat_count}商务座-${seatVoList[2].seat_count}</td>
 				<%--<td class="seat"> <span title="Sunday"></span> <span title="not available"></span> <span title="Tuesday">T</span> <span title="Wednesday">W</span> <span title="Thursday">T</span> <span title="Friday">F</span> <span title="Saturday">S</span></td>--%>
 				 <%--${TrainInfor.train_price}--%>
 				 <td class="price us">

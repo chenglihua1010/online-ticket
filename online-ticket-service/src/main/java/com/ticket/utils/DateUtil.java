@@ -597,6 +597,36 @@ public class DateUtil {
                 return  format(calendar.getTime(), DATEFORMATMINUTE);
         }
 
+
+        /**
+         * 获取当前时间分钟之后 精确到分钟
+         */
+        public static String getafterMinutesAnyDate(Date date,int minute) throws ParseException{
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                calendar.add(Calendar.MINUTE, +minute);
+                return  format(calendar.getTime(), DATEFORMATSECOND);
+        }
+
+
+        public static void main(String[] args) throws Exception{
+
+//                String dateString="2020-07-25";
+//                dateString+=" 00:00:00";
+
+                StringBuilder ss=new StringBuilder("2020-07-28");
+                ss.append(" 00:00:00");
+//                dateString=dateString+" 00:00:00";
+//                System.out.println(parase(ss.toString(),DateUtil.DATEFORMATSECOND));
+
+
+                System.out.println(getafterMinutesAnyDate(parase(ss.toString(),DateUtil.DATEFORMATSECOND),30));
+
+
+        }
+
+
+
 //        public static void main(String[] args) throws Exception{
 //                System.out.println(getafterMinutesSysDate(20));
 //        }

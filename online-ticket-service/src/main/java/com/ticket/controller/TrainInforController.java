@@ -5,6 +5,7 @@ import com.ticket.api.vo.PassengerVo;
 import com.ticket.api.vo.SeatVo;
 import com.ticket.api.vo.TrainInforVo;
 import com.ticket.entity.Passenger;
+import com.ticket.entity.TrainInfor;
 import com.ticket.service.impl.PassengerImpl;
 import com.ticket.service.impl.SeatImpl;
 import com.ticket.service.impl.TrainInforImpl;
@@ -106,7 +107,7 @@ public class TrainInforController {
 
 //                                modelAndView.addObject("seat",seatVoList.get(0));
                                 //可以排序
-                                modelAndView.addObject("seat",seatVoList);
+                                modelAndView.addObject("seatVoList",seatVoList);
 //                                modelAndView.addObject("passenger",passengerVoList.get(0));
                                 modelAndView.addObject("passengerVoList",passengerVoList);
                                 modelAndView.setViewName("trains-list");
