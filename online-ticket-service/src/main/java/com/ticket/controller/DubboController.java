@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+import redis.clients.jedis.Jedis;
 
 import java.util.*;
 
@@ -101,17 +102,17 @@ public class DubboController {
         list.add(userInfor);
         list.add(userInfor1);
 
-        UserInforVo u;
-        for(int i=0;i<list.size();i++){
-
-            u=transferObjectIgnoreCase(list.get(i),UserInforVo.class);
-            System.out.println(u);
-                }
-
-        for(UserInfor p:list){
-            transfer(p);
-            System.out.println(p);
-        }
+//        UserInforVo u;
+//        for(int i=0;i<list.size();i++){
+//
+//            u=transferObjectIgnoreCase(list.get(i),UserInforVo.class);
+//            System.out.println(u);
+//                }
+//
+//        for(UserInfor p:list){
+//            transfer(p);
+//            System.out.println(p);
+//        }
 
 
         //TODO import com.google.common.collect的用法（lists、sets、maps）
@@ -140,13 +141,16 @@ public class DubboController {
 //        System.out.println("www "+JSONObject.toJSONString(userInfor1));
 
 
-        redisUtils.set("ceshi11","1233");
-//        redisClient.set("ceshi","123");
-        redisUtils.get("ceshi11");
-//        redisUtils.set("list",list);
-        System.out.println(redisUtils.get("list"));
-        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
-        return userInforList;
+//        redisUtils.set("ceshi11","1233");
+////        redisClient.set("ceshi","123");
+//        redisUtils.get("ceshi11");
+////        redisUtils.set("list",list);
+//        System.out.println(redisUtils.get("list"));
+//        List<UserInfor> userInforList=(List<UserInfor>)redisUtils.get("list");
+
+        redisUtils.tryGetDistributedLock("mykey","myclient",20*(1000));
+
+        return null;
     }
 
     /**
