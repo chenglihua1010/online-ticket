@@ -79,21 +79,24 @@ public class TrainInforController {
                 String train_start_station=request.getParameter("train_start_station");
                 String train_end_station=request.getParameter("train_end_station");
                 String train_start_timeString=request.getParameter("train_start_time");
+                train_start_timeString+=" 00:20:00";//2020/07/15
+//                String train_start_timeString1="2020-07-11 00:20:00";
                 String train_typeString=request.getParameter("train_type");
                 Integer train_type=Integer.parseInt(train_typeString);
                 String user_phone_num=request.getParameter("user_phone_num");
                 //时间的获取方式
 //                Date train_start_timeDate=Dateu
                 try{
-                        List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainInfor(train_start_station,train_end_station);
+//                        List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainInfor(train_start_station,train_end_station);
                         //将接收的时间转成标准的时间格式（String->Date 年 月 日 时 分 秒 ）
-//                        Date train_start_time=DateUtil.parase(train_start_timeString,DateUtil.DATEFORMATSECOND);
+                        Date train_start_time=DateUtil.parase(train_start_timeString,DateUtil.DATEMDYHMS);
 //                        Date train_start_time=DateUtil.getafterMinutesSysDate(20);
-//                        List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainforByfourParam(train_start_station,train_end_station,train_start_time,train_type);
+                        List<TrainInforVo> trainInforVoList=trainInforImpl.findAimTrainforByfourParam(train_start_station,train_end_station,train_start_time,train_type);
                         List<PassengerVo> passengerVoList=passengerImpl.selectPassengerByuser_phone_num(user_phone_num);
-                        String train_no=trainInforVoList.get(1).getTrain_no();//
-                        List<SeatVo> seatVoList=seatImpl.selectSeatByTrain_no(train_no);
 
+                        //仅单程
+                        String train_no=trainInforVoList.get(0).getTrain_no();//
+                        List<SeatVo> seatVoList=seatImpl.selectSeatByTrain_no(train_no);
                         if(!ObjectUtils.isEmpty(trainInforVoList)){
 //                                modelAndView.addObject("trainInfor",trainInforVoList.get(1));
                                 //将DateL类型转换为String类型 效果：英文->时间字符串

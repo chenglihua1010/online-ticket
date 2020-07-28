@@ -28,6 +28,7 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
         public void addPassenger(PassengerVo passengerVo) {
                 Passenger passenger=transferObjectIgnoreCase(passengerVo,Passenger.class);
                 passengerMapper.addPassenger(passenger);
+
         }
 
         /**

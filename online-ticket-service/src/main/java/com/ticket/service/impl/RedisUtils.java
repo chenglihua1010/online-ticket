@@ -338,4 +338,47 @@ public class RedisUtils {
                 }
                 return key.toString();
         }
+
+        public boolean lock(String key, String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                return false;
+        }
+
+        public void unlock(String key,String value){
+
+                if(this.get(key).equals(value)){
+                redisTemplate.opsForValue().getOperations().delete(key);
+                }
+        }
+
+
+        public boolean lock1(String key, String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                String current_value=(String)this.get(key);
+                if(!current_value.equals("")
+                                && Long.parseLong(current_value)<System.currentTimeMillis()){
+                        return true;
+                }
+                return false;
+        }
+
+        public boolean lock2(String key,String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                String current_value=(String)this.get(key);
+                if(!current_value.equals("")&& Long.parseLong(current_value)<System.currentTimeMillis()){
+                        String old_value=(String)redisTemplate.opsForValue().getAndSet(key,value);
+                        if(!old_value.equals("")&&old_value.equals(current_value)){
+                                return true;
+                        }
+                }
+                return false;
+        }
+
+
 }

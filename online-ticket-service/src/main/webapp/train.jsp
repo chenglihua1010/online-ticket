@@ -1,7 +1,10 @@
+<%@ page import="java.util.Date" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
-
+<%--日期格式--%>
+<%--<%@ taglib uri="/struts-tags" prefix="s"%>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>--%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -263,6 +266,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="bnr-right">
 												<label class="inputLabel">出发日期：</label>
 				<input class="date" id="datepicker" type="text" placeholder="出发日期"  required="required" name="train_start_time"/>
+												<%--<s:date name="train_start_time" format="yyyy-MM-dd"/>--%>
+												<%--<fmt:formatDate value="<%=new Date() %>" pattern="yyyy-MM-dd" />--%>
 											</div>
 										 <%--返程--%>
 											<%--<div class="bnr-right">--%>

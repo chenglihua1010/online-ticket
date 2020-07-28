@@ -5,11 +5,16 @@ import com.google.common.collect.Maps;
 import javax.annotation.PreDestroy;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ExecutorRegister {
+
+
     private static Map<Integer, ExecutorService> registered = Maps.newConcurrentMap();
+//    private static Map<Integer,ExecutorService> map=new ConcurrentHashMap<>(16);
+
     private static AtomicInteger numb = new AtomicInteger(0);
 
     public static ExecutorService register(ExecutorService executorService){

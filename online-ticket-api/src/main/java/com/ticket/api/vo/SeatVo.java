@@ -13,6 +13,16 @@ public class SeatVo {
         private Integer seat_count;
         //票价
         private Double seat_price;
+        //站点
+        private Integer station_no;
+
+        public Integer getStation_no() {
+                return station_no;
+        }
+
+        public void setStation_no(Integer station_no) {
+                this.station_no = station_no;
+        }
 
         public Double getSeat_price() {
                 return seat_price;
