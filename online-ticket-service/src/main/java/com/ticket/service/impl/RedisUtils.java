@@ -9,8 +9,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.ShardedJedisPool;
 
+import javax.annotation.Resource;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -29,6 +34,16 @@ public class RedisUtils {
         @Autowired
         public  RedisTemplate redisTemplate;
 
+//        @Resource(name = "JedisPool")
+//        private JedisPool jedisPool;
+
+        @Resource(name = "shardedJedisPool")
+        private ShardedJedisPool shardedJedisPool;
+
+        private static final String LOCK_SUCCESS = "OK";
+        private static final String SET_IF_NOT_EXIST = "NX";
+        private static final String SET_WITH_EXPIRE_TIME = "PX";
+        private static final Long RELEASE_SUCCESS = 1L;
 
         public void setRedisTemplate(RedisTemplate redisTemplate) {
                 this.redisTemplate = redisTemplate;
@@ -52,6 +67,52 @@ public class RedisUtils {
 
                 return expire(key, timeout, TimeUnit.SECONDS);
         }
+
+
+
+
+        /**
+         * 尝试获取分布式锁
+         * @param jedis Redis客户端
+         * @param lockKey 锁
+         * @param requestId 请求标识
+         * @param expireTime 超期时间
+         * @return 是否获取成功
+         */
+        public  boolean tryGetDistributedLock(String lockKey, String requestId, int expireTime) {
+
+                String result =shardedJedisPool.getResource().set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
+//                Jedis jedis1=jedisPool.getResource();
+//                String result = jedis1.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
+
+                if (LOCK_SUCCESS.equals(result)) {
+                        return true;
+                }
+                return false;
+
+        }
+
+
+        /**
+         * 释放分布式锁
+         * @param jedis Redis客户端
+         * @param lockKey 锁
+         * @param requestId 请求标识
+         * @return 是否释放成功
+         */
+        public  boolean releaseDistributedLock(Jedis jedis,String lockKey, String requestId) {
+
+                String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+                Object result = jedis.eval(script, Collections.singletonList(lockKey), Collections.singletonList(requestId));
+
+                if (RELEASE_SUCCESS.equals(result)) {
+                        return true;
+                }
+                return false;
+
+        }
+
+
 
         /**
          * 设置有效时间
@@ -277,4 +338,47 @@ public class RedisUtils {
                 }
                 return key.toString();
         }
+
+        public boolean lock(String key, String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                return false;
+        }
+
+        public void unlock(String key,String value){
+
+                if(this.get(key).equals(value)){
+                redisTemplate.opsForValue().getOperations().delete(key);
+                }
+        }
+
+
+        public boolean lock1(String key, String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                String current_value=(String)this.get(key);
+                if(!current_value.equals("")
+                                && Long.parseLong(current_value)<System.currentTimeMillis()){
+                        return true;
+                }
+                return false;
+        }
+
+        public boolean lock2(String key,String value){
+                if(redisTemplate.opsForValue().setIfAbsent(key,value)){
+                        return true;
+                }
+                String current_value=(String)this.get(key);
+                if(!current_value.equals("")&& Long.parseLong(current_value)<System.currentTimeMillis()){
+                        String old_value=(String)redisTemplate.opsForValue().getAndSet(key,value);
+                        if(!old_value.equals("")&&old_value.equals(current_value)){
+                                return true;
+                        }
+                }
+                return false;
+        }
+
+
 }

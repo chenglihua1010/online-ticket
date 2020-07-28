@@ -5,13 +5,13 @@
         <result column="id" jdbcType="INTEGER" property="id"/>
         <result column="order_id" jdbcType="VARCHAR" property="order_id"/>
         <result column="user_phone_num" jdbcType="VARCHAR" property="user_phone_num"/>
-        <result column="passenger_phone_num" jdbcType="VARCHAR" property="passenger_phone_num"/>
+        <result column="passenger_real_name" jdbcType="VARCHAR" property="passenger_real_name"/>
         <result column="passenger_id_num" jdbcType="VARCHAR" property="passenger_id_num"/>
         <result column="train_no" jdbcType="VARCHAR" property="train_no"/>
         <result column="train_num" jdbcType="VARCHAR" property="train_num"/>
-        <result column="start_station_no" jdbcType="VARCHAR" property="start_station_no"/>
+        <!--<result column="start_station_no" jdbcType="VARCHAR" property="start_station_no"/>-->
         <result column="start_station_name" jdbcType="VARCHAR" property="start_station_name"/>
-        <result column="end_station_no" jdbcType="VARCHAR" property="end_station_no"/>
+        <!--<result column="end_station_no" jdbcType="VARCHAR" property="end_station_no"/>-->
         <result column="end_station_name" jdbcType="VARCHAR" property="end_station_name"/>
         <result column="carriage_no" jdbcType="VARCHAR" property="carriage_no"/>
         <result column="seat_no" jdbcType="VARCHAR" property="seat_no"/>
@@ -22,10 +22,10 @@
     </resultMap>
     <insert id="addOrder" parameterType="com.ticket.entity.OrderList">
         <![CDATA[
-        INSERT INTO order_list(order_id,user_phone_num,passenger_phone_num,passenger_id_num,train_no,train_num,start_station_no,start_station_name,
-        end_station_no,end_station_name,carriage_no,seat_no,order_money,order_create_time,order_status,train_start_date) values (#{orderList.order_id},
-        #{orderList.user_phone_num},#{orderList.passenger_phone_num},#{orderList.passenger_id_num},#{orderList.train_no},#{orderList.train_num},
-        #{orderList.start_station_no},#{orderList.start_station_name},#{orderList.end_station_no},#{orderList.end_station_name},#{orderList.carriage_no},
+        INSERT INTO order_list(order_id,user_phone_num,passenger_real_name,passenger_id_num,train_no,train_num,start_station_name,
+        end_station_name,carriage_no,seat_no,order_money,order_create_time,order_status,train_start_date) values (#{orderList.order_id},
+        #{orderList.user_phone_num},#{orderList.passenger_real_name},#{orderList.passenger_id_num},#{orderList.train_no},#{orderList.train_num},
+        #{orderList.start_station_name},#{orderList.end_station_name},#{orderList.carriage_no},
         #{orderList.seat_no},#{orderList.order_money},#{orderList.order_create_time},#{orderList.order_status},#{orderList.train_start_date})
         ]]>
     </insert>
@@ -39,7 +39,7 @@
         <![CDATA[
         SELECT * FROM order_list WHERE user_phone_num=#{user_phone_num}
         ]]>
-        <if test ="order_status !=null">
+        <if test ="order_status != null ">
             AND order_status=#{order_status}
         </if>
     </select>

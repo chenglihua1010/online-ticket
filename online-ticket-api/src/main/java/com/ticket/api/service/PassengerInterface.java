@@ -25,4 +25,12 @@ public interface PassengerInterface {
          */
         public void deletPassenger(String user_phone_num,String passenger_real_name);
 
+        /**
+         * 查询某个乘客信息
+         * @param user_phone_num 用户账号
+         * @param passenger_real_name 乘客姓名
+         * @return 目的乘客
+         */
+        public PassengerVo findAimPassenger(String user_phone_num,String passenger_real_name);
+
 }

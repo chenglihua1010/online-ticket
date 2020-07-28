@@ -28,6 +28,7 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
         public void addPassenger(PassengerVo passengerVo) {
                 Passenger passenger=transferObjectIgnoreCase(passengerVo,Passenger.class);
                 passengerMapper.addPassenger(passenger);
+
         }
 
         /**
@@ -49,6 +50,7 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
                         passengers=passengerMapper.selectPassengerByuser_phone_num(user_phone_num);
                         if(!ObjectUtils.isEmpty(passengers)){
                                 redisUtils.set(key,passengers);
+                                redisUtils.expire(key,30);
                         }
                 }
                 List<PassengerVo> passengerVos=transferObjectIgnoreCaseList(passengers,PassengerVo.class);
@@ -63,6 +65,14 @@ public class PassengerImpl extends BaseService implements PassengerInterface {
         @Override
         public void deletPassenger(String user_phone_num, String passenger_real_name) {
                 passengerMapper.deletPassenger(user_phone_num,passenger_real_name);
+//                PassengerVo passengerVo=this.findAimPassenger(user_phone_num,passenger_real_name);
+        }
+
+        @Override
+        public PassengerVo findAimPassenger(String user_phone_num, String passenger_real_name) {
+                Passenger passenger=passengerMapper.findAimPassenger(user_phone_num,passenger_real_name);
+                PassengerVo passengerVo=transferObjectIgnoreCase(passenger,PassengerVo.class);
+                return passengerVo;
         }
 
 

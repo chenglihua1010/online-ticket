@@ -39,7 +39,7 @@
         <td>
             <%--<Submit type="submit" >删除</Submit>--%>
                 <a href="/passenger/deletPassenger?id=${userInforVo.id}&user_phone_num=${userInforVo.user_phone_num}
-                &passenger_real_name=${passenger_real_name}">
+                &passenger_real_name=${passenger.passenger_real_name}">
                 删除
                     </a>
         </td>
@@ -60,6 +60,7 @@
     乘客地址：<input  type="text" name="passenger_address" value="${passenger_address}"><br/>
     <input name="id" type="hidden" value="${userInforVo.id}">
     <input type="submit" value="提交并返回">
+
 </form>
 
 </body>

@@ -26,8 +26,14 @@
     </select>
 <delete id="deletPassenger">
     <![CDATA[
-    DELETE FROM passenger WHERE user_phone_num=#{user_phone_num} and passenger_real_name=#{passenger_real_name}]]>
+    DELETE FROM passenger WHERE user_phone_num=#{user_phone_num} and passenger_real_name=#{passenger_real_name}
+    ]]>
 </delete>
 
+    <select id="findAimPassenger" resultMap="BaseResultMap">
+        <![CDATA[
+        SELECT * FROM passenger WHERE user_phone_num=#{user_phone_num} AND passenger_real_name=#{passenger_real_name}
+        ]]>
+    </select>
 
 </mapper>

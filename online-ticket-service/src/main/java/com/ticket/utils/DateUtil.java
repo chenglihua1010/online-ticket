@@ -45,6 +45,13 @@ public class DateUtil {
          * 日期格式年 月 日 时 分 秒 毫秒 如2009-02-26 15:40:00 110
          */
         public static final String DATEFORMATMILLISECOND = "yyyy-MM-dd HH:mm:ss SSS";
+//        07/14/2020
+
+        /**
+         * 日期格式月 日 年 时 分 秒 如 07/14/2020 00:00:00
+         */
+        public static final String DATEMDYHMS = "MM/dd/yyyy HH:mm:ss";
+
 
         /**
          * 返回日期 根据数据库类型 str_to_date to_date 精确到秒
@@ -123,6 +130,11 @@ public class DateUtil {
                 }
                 return dateTime;
         }
+
+        //        public static void main(String[] args) throws Exception{
+//                System.out.println(getafterMinutesSysDate(20));
+//        }
+
 
         /**
          * 获取当前系统时间
@@ -596,6 +608,57 @@ public class DateUtil {
                 calendar.add(Calendar.MINUTE, +minute);
                 return  format(calendar.getTime(), DATEFORMATMINUTE);
         }
+
+
+        /**
+         * 获取任意时间的后多少分钟
+         */
+        public static String getafterMinutesAnyDate(Date date,int minute) throws ParseException{
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                calendar.add(Calendar.MINUTE, +minute);
+                return  format(calendar.getTime(), DATEFORMATSECOND);
+        }
+
+        /**
+         * 获取任意时间的前都少分钟
+         * @param date
+         * @param minute
+         * @return
+         * @throws ParseException
+         */
+    public static String getbeforeMinutesAnyDate(Date date,int minute) throws ParseException{
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(date);
+                calendar.add(Calendar.MINUTE, -minute);
+                return  format(calendar.getTime(), DATEFORMATSECOND);
+        }
+
+
+        public static void main(String[] args) throws Exception{
+
+//                String dateString="2020-07-25";
+//                dateString+=" 00:00:00";
+
+                StringBuilder ss=new StringBuilder("2020-07-28");
+                ss.append(" 00:00:00");
+//                dateString=dateString+" 00:00:00";
+//                System.out.println(parase(ss.toString(),DateUtil.DATEFORMATSECOND));
+                System.out.println(getafterMinutesAnyDate(parase(ss.toString(),DateUtil.DATEFORMATSECOND),30));
+//                System.out.println(string2Date("07/14/2020"));
+                String date1="02/02/2020 00:00:00";
+                 date1 +="00:00:00";
+
+                Date date=parase(date1,DateUtil.DATEMDYHMS);
+                System.out.println(date);
+                String dateString=format(date,DateUtil.DATEFORMATSECOND);
+                System.out.println(dateString);
+                Date aimDate=parase(dateString,DateUtil.DATEFORMATSECOND);
+                System.out.println(aimDate);
+
+        }
+
+
 
 //        public static void main(String[] args) throws Exception{
 //                System.out.println(getafterMinutesSysDate(20));

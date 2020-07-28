@@ -12,7 +12,7 @@
 <table>
 <header>
     <title>
-        ${trainInforVoList.get(0).train_num}经停信息
+        ${trainInforVoList[0].train_num}经停信息
     </title>
 </header>
 

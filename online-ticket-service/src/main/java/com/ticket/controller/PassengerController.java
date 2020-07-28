@@ -57,6 +57,7 @@ public class PassengerController {
                         passengerVo.setPassenger_address(passenger_address);
                         UserInforVo userInforVo=userInforImpl.findById(id);
                         passengerImpl.addPassenger(passengerVo);
+                        //更新关于passenger的缓存
                         LOGGER.info("PassengerController addPassenger bean={}",JSONObject.toJSONString(passengerVo));
                         modelAndView.addObject("userInforVo",userInforVo);
                         modelAndView.setViewName("index");
