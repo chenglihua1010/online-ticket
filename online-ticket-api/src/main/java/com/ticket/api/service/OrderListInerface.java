@@ -25,4 +25,12 @@ public interface OrderListInerface {
          * @return 订单信息表
          */
         public List<OrderListVo> selectPartOrderByUser_phone_num(String user_phone_num,Integer order_status);
+
+        /**
+         * 更新订单状态
+         * @param order_status
+         * @param order_id
+         */
+        public void updateOrder_status(Integer order_status,String order_id);
+
 }

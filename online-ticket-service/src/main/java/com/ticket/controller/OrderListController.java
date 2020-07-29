@@ -5,8 +5,10 @@ import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ticket.api.vo.OrderListVo;
 import com.ticket.api.vo.TrainInforVo;
+import com.ticket.api.vo.UserInforVo;
 import com.ticket.service.impl.OrderListImpl;
 import com.ticket.service.impl.RedisUtils;
+import com.ticket.service.impl.UserInforImpl;
 import com.ticket.utils.DateUtil;
 import com.ticket.utils.ExecutorRegister;
 import com.ticket.utils.RandomUtil;
@@ -53,6 +55,8 @@ public class OrderListController {
 
         @Autowired
         OrderListImpl orderListImpl;
+        @Autowired
+        UserInforImpl userInforVoImpl;
 
         @Autowired
         RedisUtils redisUtils;
@@ -79,7 +83,7 @@ public class OrderListController {
 //                        Date train_start_dateRealy = new Date("train_start_time");
                         String train_start_dateString = DateUtil.getbeforeMinutesAnyDate(train_start_dateRealy, 30);
                         Date train_start_date = DateUtil.parase(train_start_dateString, DateUtil.DATEFORMATSECOND);
-
+                        String train_start_date_String=DateUtil.format(train_start_date,DateUtil.DATEFORMATSECOND);
                         //userInfor
                         String user_phone_num = request.getParameter("user_phone_num");
                         //passengerInfor
@@ -101,12 +105,14 @@ public class OrderListController {
                         orderListVo.setStart_station_name(start_station_name);
                         orderListVo.setEnd_station_name(end_station_name);
                         orderListVo.setTrain_start_date(train_start_date);
+                        orderListVo.setTrain_start_date_String(train_start_date_String);
                         orderListVo.setOrder_create_time(new Date());
                         orderListVo.setOrder_id(order_id);
                         orderListVo.setOrder_money(order_money);
                         orderListImpl.addOrder(orderListVo);
                         modelAndView.addObject("orderListVo",orderListVo);
                         modelAndView.setViewName("pay");
+
 
                         //====================锁==============================//
 //                new Thread(new Runnable() {
@@ -207,6 +213,21 @@ public class OrderListController {
 //                modelAndView.addObject("trainInforList[1]",trainInforVo);
 //                modelAndView.setViewName("preorder");
 //                return modelAndView;
+        }
+
+        @RequestMapping("/topayAndtoIndex")
+        public ModelAndView topayAndtoIndex(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String user_phone_num=request.getParameter("user_phone_num");
+                String order_id=request.getParameter("order_id");
+                Integer order_status=2;
+
+                orderListImpl.updateOrder_status(order_status,order_id);
+                UserInforVo userInforVo=userInforVoImpl.findById(2);
+                modelAndView.addObject("userInforVo",userInforVo);
+                modelAndView.setViewName("index");
+                return modelAndView;
+
         }
 
 
