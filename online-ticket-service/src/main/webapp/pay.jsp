@@ -1,4 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 
 <%
 	String path = request.getContextPath();
@@ -191,50 +193,59 @@
 	<!-- Pay -->
 	<div class="agile-pay w3layouts-content">
     <div class="container">
-			<h3 class="w3-head">Payment</h3>
+			<h3 class="w3-head">付款</h3>
 	<!--Horizontal Tab-->
         <div id="parentHorizontalTab">
             <ul class="resp-tabs-list hor_1">
-                <li>Credit/Debit</li>
+                <li>订单详情</li>
                 <li>Netbanking</li>
                 <li>Paypal Account</li>
             </ul>
             <div class="resp-tabs-container hor_1">
                 <div>
-                    <form action="#" method="post" class="creditly-card-form agileinfo_form">
+                    <form action="/orderList/topayAndtoIndex" method="post" class="creditly-card-form agileinfo_form">
+                    <%--<form action="/topayAndtoIndex" method="post">--%>
 									<section class="creditly-wrapper wthree, w3_agileits_wrapper">
 										<div class="credit-card-wrapper">
 											<div class="first-row form-group">
 												<div class="controls">
-													<label class="control-label">Name on Card</label>
-													<input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+													<label class="control-label">列车信息</label>
+													<%--<input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">--%>
+													<input class="billing-address-name form-control" type="text" name="name" value="车次：${orderListVo.train_num};起点站：${orderListVo.start_station_name} ;终点站：${orderListVo.end_station_name};发车时间：${orderListVo.train_start_date_String}">
 												</div>
 												<div class="w3_agileits_card_number_grids">
 													<div class="w3_agileits_card_number_grid_left">
 														<div class="controls">
-															<label class="control-label">Card Number</label>
-															<input class="number credit-card-number form-control" type="text" name="number"
-																		  inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"
-																		  placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+															<label class="control-label">乘客信息</label>
+															<input class="number credit-card-number form-control" type="text" name="number" value="乘客姓名：${orderListVo.passenger_id_num};乘客身份证号：${orderListVo.passenger_real_name}"
+																		  <%--inputmode="numeric" autocomplete="cc-number" autocompletetype="cc-number" x-autocompletetype="cc-number"--%>
+																		  <%--placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;"--%>
+															>
 														</div>
-													</div>
-													<div class="w3_agileits_card_number_grid_right">
+													<%--</div>--%>
+													<%--<div class="w3_agileits_card_number_grid_right">--%>
+														<%--<div class="controls">--%>
+															<%--<label class="control-label">CVV</label>--%>
+															<%--<input class="security-code form-control"Â·--%>
+																		  <%--inputmode="numeric"--%>
+																		  <%--type="text" name="security-code"--%>
+																		  <%--placeholder="&#149;&#149;&#149;">--%>
+														<%--</div>--%>
+													<%--</div>--%>
+													<%--<div class="clear"> </div>--%>
+												<%--</div>--%>
 														<div class="controls">
-															<label class="control-label">CVV</label>
-															<input class="security-code form-control"Â·
-																		  inputmode="numeric"
-																		  type="text" name="security-code"
-																		  placeholder="&#149;&#149;&#149;">
-														</div>
-													</div>
-													<div class="clear"> </div>
-												</div>
-												<div class="controls">
-													<label class="control-label">Expiration Date</label>
-													<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">
+													<label class="control-label">定时器</label>
+													<%--<input class="expiration-month-and-year form-control" type="text" name="expiration-month-and-year" placeholder="MM / YY">--%>
 												</div>
 											</div>
-											<button class="submit"><span>Make a payment <i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>
+													<input type="hidden" name="user_phone_num" value="${orderListVo.user_phone_num}">
+													<input type="hidden" name="order_id" value="${orderListVo.order_id}">
+													<%--<button class="submit"><span>确定订单并付款</span></button>--%>
+													<%--<button class="submit"><span>确定订单并付款<i class="fa fa-long-arrow-right" aria-hidden="true"></i></span></button>--%>
+											<input class="fa fa-long-arrow-right" value="确定订单并付款" type="submit">
+
+
 										</div>
 									</section>
 								</form>
@@ -267,12 +278,12 @@
                     <div class="vertical_post">
 									<form>
 										<h5>Select From Popular Banks</h5>
-										<div class="swit-radio">								
+										<div class="swit-radio">
 											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio" checked=""><i></i>Syndicate Bank</label> </div></div>
 											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Bank of Baroda</label> </div></div>
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Canara Bank</label> </div></div>	
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>ICICI Bank</label> </div></div>	
-											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>State Bank Of India</label> </div></div>		
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>Canara Bank</label> </div></div>
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>ICICI Bank</label> </div></div>
+											<div class="check_box_one"> <div class="radio_one"> <label><input type="radio" name="radio"><i></i>State Bank Of India</label> </div></div>
 											<div class="clearfix"></div>
 										</div>
 										<h5>Or SELECT OTHER BANK</h5>
@@ -288,7 +299,7 @@
 							<div class="row">
                         <div class="col-md-6">
                             <img class="pp-img" src="images/paypal.png" alt="Image Alternative text" title="Image Title">
-                            <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p><a class="btn btn-primary">Checkout via Paypal</a>	
+                            <p>Important: You will be redirected to PayPal's website to securely complete your payment.</p><a class="btn btn-primary">Checkout via Paypal</a>
                         </div>
                         <div class="col-md-6">
                             <form class="cc-form">
@@ -320,15 +331,15 @@
                             </form>
                         </div>
                     </div>
-                        
+
 						</div>
                 </div>
-                
+
             </div>
         </div>
     </div>
  </div>
-	
+
 	<!--Plug-in Initialisation-->
 	<script type="text/javascript">
     $(document).ready(function() {
@@ -351,30 +362,30 @@
 	<!-- // Pay -->
 
 <!-- subscribe -->
-	<div class="w3-subscribe agileits-w3layouts"> 
+	<div class="w3-subscribe agileits-w3layouts">
 		<div class="container">
 			<div class="col-md-6 social-icons w3-agile-icons">
-				<h4>Join Us</h4>  
+				<h4>Join Us</h4>
 				<ul>
 					<li><a href="#" class="fa fa-facebook sicon facebook"> </a></li>
 					<li><a href="#" class="fa fa-twitter sicon twitter"> </a></li>
 					<li><a href="#" class="fa fa-google-plus sicon googleplus"> </a></li>
 					<li><a href="#" class="fa fa-dribbble sicon dribbble"> </a></li>
-					<li><a href="#" class="fa fa-rss sicon rss"> </a></li> 
-				</ul> 
-			</div> 
+					<li><a href="#" class="fa fa-rss sicon rss"> </a></li>
+				</ul>
+			</div>
 			<div class="col-md-6 w3-agile-subscribe-right">
-				<h3 class="w3ls-title">Subscribe to Our <br><span>Newsletter</span></h3>  
-				<form action="#" method="post"> 
+				<h3 class="w3ls-title">Subscribe to Our <br><span>Newsletter</span></h3>
+				<form action="#" method="post">
 					<input type="email" name="email" placeholder="Enter your Email..." required="">
 					<input type="submit" value="Subscribe">
-					<div class="clearfix"> </div> 
-				</form>  
+					<div class="clearfix"> </div>
+				</form>
 			</div>
-			<div class="clearfix"> </div> 
+			<div class="clearfix"> </div>
 		</div>
 	</div>
-	<!-- //subscribe --> 
+	<!-- //subscribe -->
 
 <!--footer-->
 <footer>
@@ -388,14 +399,14 @@
 					<li><a href="sitemap.jsp">Sitemap</a></li>
 					<li><a href="terms.jsp">Terms & Conditions</a></li>
 					<li><a href="faq.jsp">Faq</a></li>
-					<li><a href="index.html#mobileappagileits">Mobile</a></li>	
+					<li><a href="index.html#mobileappagileits">Mobile</a></li>
 					<li><a href="feedback.jsp">Feedback</a></li>
 					<li><a href="contact.jsp">Contact</a></li>
 					<li><a href="shortcodes.html">Shortcodes</a></li>
 					<%--<li><a href="shortcodes.jsp">Shortcodes</a></li>--%>
 					<li><a href="icons.jsp">Icons Page</a></li>
-					
-				</ul>	
+
+				</ul>
 			</div>
 			<div class="col-md-3 agileits-amet-sed ">
 				<h4>Mobile Recharges</h4>
@@ -405,12 +416,12 @@
 						<li><a href="index.html#parentVerticalTab1">Vodafone</a></li>
 						<li><a href="index.html#parentVerticalTab1">BSNL</a></li>
 						<li><a href="index.html#parentVerticalTab1">Tata Docomo</a></li>
-						<li><a href="index.html#parentVerticalTab1">Reliance GSM</a></li>	
-						<li><a href="index.html#parentVerticalTab1">Reliance CDMA</a></li>	
-						<li><a href="index.html#parentVerticalTab1">Telenor</a></li>	
-						<li><a href="index.html#parentVerticalTab1">MTS</a></li>	
-						<li><a href="index.html#parentVerticalTab1">Jio</a></li>	
-					</ul>	
+						<li><a href="index.html#parentVerticalTab1">Reliance GSM</a></li>
+						<li><a href="index.html#parentVerticalTab1">Reliance CDMA</a></li>
+						<li><a href="index.html#parentVerticalTab1">Telenor</a></li>
+						<li><a href="index.html#parentVerticalTab1">MTS</a></li>
+						<li><a href="index.html#parentVerticalTab1">Jio</a></li>
+					</ul>
 			</div>
 			<div class="col-md-3 agileits-amet-sed ">
 				<h4>DATACARD RECHARGES</h4>
@@ -420,13 +431,13 @@
 						<li><a href="index.html#parentVerticalTab3">MTS MBrowse</a></li>
 						<li><a href="index.html#parentVerticalTab3">Airtel</a></li>
 						<li><a href="index.html#parentVerticalTab3">Aircel</a></li>
-						<li><a href="index.html#parentVerticalTab3">BSNL</a></li>	
-						<li><a href="index.html#parentVerticalTab3">MTNL Delhi</a></li>	
-						<li><a href="index.html#parentVerticalTab3">Vodafone</a></li>	
-						<li><a href="index.html#parentVerticalTab3">Idea</a></li>	
+						<li><a href="index.html#parentVerticalTab3">BSNL</a></li>
+						<li><a href="index.html#parentVerticalTab3">MTNL Delhi</a></li>
+						<li><a href="index.html#parentVerticalTab3">Vodafone</a></li>
+						<li><a href="index.html#parentVerticalTab3">Idea</a></li>
 						<li><a href="index.html#parentVerticalTab3">MTNL Mumbai</a></li>
-						<li><a href="index.html#parentVerticalTab3">Tata Photon Whiz</a></li>	
-					</ul>	
+						<li><a href="index.html#parentVerticalTab3">Tata Photon Whiz</a></li>
+					</ul>
 			</div>
 			<div class="col-md-2 agileits-amet-sed">
 				<h4>DTH Recharges</h4>
@@ -436,8 +447,8 @@
 						<li><a href="index.html#parentVerticalTab2">Tata Sky Recharges</a></li>
 						<li><a href="index.html#parentVerticalTab2">Reliance Digital TV Recharges</a></li>
 						<li><a href="index.html#parentVerticalTab2">Sun Direct Recharges</a></li>
-						<li><a href="index.html#parentVerticalTab2">Videocon D2H Recharges</a></li>	
-					</ul>	
+						<li><a href="index.html#parentVerticalTab2">Videocon D2H Recharges</a></li>
+					</ul>
 			</div>
             <div class="col-md-2 agileits-amet-sed ">
 				<h4>Payment Options</h4>
@@ -446,8 +457,8 @@
 						<li>Debit Cards</li>
 						<li>Any Visa Debit Card (VBV)</li>
 						<li>Direct Bank Debits</li>
-						<li>Cash Cards</li>	
-					</ul>	
+						<li>Cash Cards</li>
+					</ul>
 			</div>
 		<div class="clearfix"> </div>
 		</div>
@@ -468,10 +479,10 @@
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
-<!-- easy-responsive-tabs -->    
+<!-- easy-responsive-tabs -->
 <link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css " />
 <script src="js/easyResponsiveTabs.js"></script>
-<!-- //easy-responsive-tabs --> 
+<!-- //easy-responsive-tabs -->
 <!-- here stars scrolling icon -->
 			<script type="text/javascript">
 				$(document).ready(function() {
@@ -480,12 +491,12 @@
 						containerID: 'toTop', // fading element id
 						containerHoverID: 'toTopHover', // fading element hover id
 						scrollSpeed: 1200,
-						easingType: 'linear' 
+						easingType: 'linear'
 						};
 					*/
-										
+
 					$().UItoTop({ easingType: 'easeOutQuart' });
-										
+
 					});
 			</script>
 			<!-- start-smoth-scrolling -->
@@ -493,7 +504,7 @@
 			<script type="text/javascript" src="js/easing.js"></script>
 			<script type="text/javascript">
 				jQuery(document).ready(function($) {
-					$(".scroll").click(function(event){		
+					$(".scroll").click(function(event){
 						event.preventDefault();
 						$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 					});

@@ -79,4 +79,14 @@ public class OrderListImpl extends BaseService  implements OrderListInerface {
 
                 return listVos;
         }
+
+        /**
+         * 更新订单状态
+         * @param order_status
+         * @param order_id
+         */
+        @Override
+        public void updateOrder_status(Integer order_status, String order_id) {
+                orderListMapper.updateOrder_status(order_status,order_id);
+        }
 }
