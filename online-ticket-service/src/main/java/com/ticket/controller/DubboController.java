@@ -191,4 +191,14 @@ public class DubboController {
         return userInfors;
     }
 
+    /**
+     * jsp 的select中一个option多个值时（绑定关系），值得分别获取方法（String的split(",")方法）
+     * @param args
+         */
+    public static void main(String[] args) {
+        String string="1,2";
+        String[] one=string.split(",");
+        System.out.println(one[0]);
+    }
+
 }

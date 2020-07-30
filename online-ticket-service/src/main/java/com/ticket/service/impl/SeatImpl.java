@@ -42,4 +42,18 @@ public class SeatImpl extends BaseService implements SeatInterface {
                 List<SeatVo> seatVos=transferObjectIgnoreCaseList(seats,SeatVo.class);
                 return seatVos;
         }
+
+        /**
+         * 查询座位数量
+         * @param id
+         * @return
+         */
+        public Integer selectseat_countByid(Integer id){
+                Integer seat_count=seatMapper.selectseat_countByid(id);
+                return seat_count;
+        }
+
+        public void updateSeat_count(Integer id,Integer seat_count){
+                seatMapper.updateSeat_count(id,seat_count);
+        }
 }
