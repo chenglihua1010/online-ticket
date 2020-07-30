@@ -4,10 +4,12 @@ package com.ticket.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.ticket.api.vo.OrderListVo;
+import com.ticket.api.vo.SeatVo;
 import com.ticket.api.vo.TrainInforVo;
 import com.ticket.api.vo.UserInforVo;
 import com.ticket.service.impl.OrderListImpl;
 import com.ticket.service.impl.RedisUtils;
+import com.ticket.service.impl.SeatImpl;
 import com.ticket.service.impl.UserInforImpl;
 import com.ticket.utils.DateUtil;
 import com.ticket.utils.ExecutorRegister;
@@ -36,6 +38,7 @@ public class OrderListController {
 
         private static ExecutorService executor = ExecutorRegister.register(Executors.newFixedThreadPool(2));
 
+
         private Object object = new Object();
 
         private char[] chars = new char[]{};
@@ -57,7 +60,8 @@ public class OrderListController {
         OrderListImpl orderListImpl;
         @Autowired
         UserInforImpl userInforVoImpl;
-
+        @Autowired
+        SeatImpl seatImpl;
         @Autowired
         RedisUtils redisUtils;
 
@@ -89,12 +93,35 @@ public class OrderListController {
                         //passengerInfor
                         String passenger_real_name = request.getParameter("passenger_real_name");
                         String passenger_id_num = request.getParameter("passenger_id_num");
-                        String passenger_type = request.getParameter("passenger_type");
+                        String passenger_typeString = request.getParameter("passenger_type");
+                        Integer passenger_type=Integer.parseInt(passenger_typeString);
+//                        0-成人，1-学生，2-儿童  1-硬座 2-软卧 3-硬卧 4-一等座 5-二等座 6-商务座
                         //Seat
-                        String seat_type = request.getParameter("seat_type");
-                        Double order_money = 10.0;
-                        String order_id = RandomUtil.getRandomNickname(10);
+                        String seat_typeAndseat_priceString = request.getParameter("seat_type");
+                        String[] seat_priceAndseat_priceList=seat_typeAndseat_priceString.split(",");
+                        Integer seat_type=Integer.parseInt(seat_priceAndseat_priceList[0]);
+                        Double seat_price=Double.parseDouble(seat_priceAndseat_priceList[1]);
+                        Integer seat_count=Integer.parseInt(seat_priceAndseat_priceList[2]);
+                        Integer id=Integer.parseInt(seat_priceAndseat_priceList[3]);
+//                        String idString=request.getParameter("id");
+//                        Integer id=Integer.parseInt(idString);
+                        //更新座位数量
+//                        Integer seat_count=seatImpl.selectseat_countByid(id);
+                        seat_count-=1;
+                        seatImpl.updateSeat_count(id,seat_count);
+                        Double order_money;
+//                        票价判断
+                        if(passenger_type==2){
+                                order_money=seat_price*0.5;
+                        }else{
+                                if(passenger_type==1){
+                                        order_money=seat_price*0.75;
+                                }else{
+                                        order_money=seat_price;
+                                }
+                        }
 
+                        String order_id = RandomUtil.getRandomNickname(10);
                         OrderListVo orderListVo = new OrderListVo();
                         orderListVo.setOrder_status(1);
                         orderListVo.setUser_phone_num(user_phone_num);
@@ -186,19 +213,24 @@ public class OrderListController {
                 ModelAndView modelAndView = new ModelAndView();
                 try {
                         List<OrderListVo> orderListVo = orderListImpl.selectPartOrderByUser_phone_num(user_phone_num, order_statusInt);
+                        for(OrderListVo vo:orderListVo){
+                                String train_start_dateString=DateUtil.format(vo.getTrain_start_date(),DateUtil.DATEFORMATSECOND);
+                                vo.setTrain_start_date_String(train_start_dateString);
+                        }
                         if (!ObjectUtils.isEmpty(orderListVo)) {
-                                modelAndView.setViewName("");
-                                modelAndView.addObject("orderList", orderListVo);
+                                modelAndView.setViewName("aim-orderlist");
+                                modelAndView.addObject("orderListVo", orderListVo);
                                 //尝试记录日志：结果？ 参数
                                 LOGGER.info("OrderListController selectPartOrderByUser_phone_num bean={}", JSONObject.toJSON(modelAndView));
                                 LOGGER.info("OrderListController selectPartOrderByUser_phone_num bean={}",
                                                 JSONObject.toJSON("参数user_phone_num:" + user_phone_num + "参数order_statusInt:" + order_statusInt));
                         } else {
                                 modelAndView.setViewName("error");
-                                LOGGER.error("orderListVo未从MySQL、redus中获取到值");
                         }
                 } catch (Exception e) {
                         e.printStackTrace();
+                        LOGGER.error(e.getMessage());
+
                 }
                 return modelAndView;
 
@@ -230,5 +262,20 @@ public class OrderListController {
 
         }
 
+        /**
+         * 跳转到查询订单页面
+         * @param request
+         * @return
+         */
+        @RequestMapping("/toSelectOrder")
+        public ModelAndView toSelectOrder(HttpServletRequest request){
+                ModelAndView modelAndView=new ModelAndView();
+                String idString=request.getParameter("id");
+                Integer id=Integer.parseInt(idString);
+                UserInforVo userInforVo=userInforVoImpl.findById(id);
+                modelAndView.setViewName("selectorder");
+                modelAndView.addObject("userInforVo",userInforVo);
+                return modelAndView;
+        }
 
 }

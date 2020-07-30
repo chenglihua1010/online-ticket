@@ -435,6 +435,7 @@
 							<input name="start_station_name" value="${trainInforList[1].train_start_station}" type="hidden">
 							<input name="end_station_name" value="${trainInforList[1].train_end_station}" type="hidden">
 							<input name="train_start_time_String" value="${trainInforList[1].train_start_time_String}" type="hidden">
+							<%--<input name="seat_price" value="${}" type="hidden">--%>
 								<%--用户信息--账号--%>
 							<input name="user_phone_num" value="${passengerVoList[0].user_phone_num}" type="hidden">
 
@@ -462,9 +463,9 @@
 					<td class="wthree">
 						<select name="seat_type">
 							<option type="text" value="0">-请选择座位类型-</option>
-							<option name="seat_type" value="${seatVoList[0].seat_type},${seatVoList[0].seat_count}">一等座（价格：${seatVoList[0].seat_price}元）</option>
-							<option name="seat_type" value="${seatVoList[1].seat_type},${seatVoList[1].seat_count}">一等座（价格：${seatVoList[1].seat_price}元）</option>
-							<option name="seat_type" value="${seatVoList[2].seat_type},${seatVoList[2].seat_count}">一等座（价格：${seatVoList[2].seat_price}元）</option>
+							<option name="seat_type" value="${seatVoList[0].seat_type},${seatVoList[0].seat_price},${seatVoList[0].seat_count},${seatVoList[0].id}">一等座（价格：${seatVoList[0].seat_price}元）</option>
+							<option name="seat_type" value="${seatVoList[1].seat_type},${seatVoList[1].seat_price},${seatVoList[1].seat_count},${seatVoList[1].id}">一等座（价格：${seatVoList[1].seat_price}元）</option>
+							<option name="seat_type" value="${seatVoList[2].seat_type},${seatVoList[2].seat_price},${seatVoList[2].seat_count},${seatVoList[2].id}">一等座（价格：${seatVoList[2].seat_price}元）</option>
 							<%--<option name="seat_type" value="${seatVoList[1].seat_type}">二等座（价格：100元）</option>--%>
 							<%--<option name="seat_type" value="${seatVoList[2].seat_type}">商务座（价格：300元）</option>--%>
 						</select>

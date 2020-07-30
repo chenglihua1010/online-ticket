@@ -58,7 +58,10 @@ public class OrderListImpl extends BaseService  implements OrderListInerface {
 //                String newkey=redisUtils.keyBuilder(user_phone_num,order_statusString);
 //                String key=redisUtils.findName(newkey.toString());
                 //避免空转换，事先进行null判断
-                Object userString=redisUtils.get(user_phone_num);
+                String method="selectPartOrderByUser_phone_num";
+                String param=user_phone_num;
+                String key=redisUtils.keyBuilder(method,param);
+                Object userString=redisUtils.get(key);
 //                Object order=redisUtils.hGet(user_phone_num,order_statusString);
                 if(!ObjectUtils.isEmpty(userString)){
                         //redis得到的为Object,注意需要强转
@@ -68,7 +71,7 @@ public class OrderListImpl extends BaseService  implements OrderListInerface {
                 }else {
                         orderLists = orderListMapper.selectPartOrderByUser_phone_num(user_phone_num, order_status);
                         if (!ObjectUtils.isEmpty(orderLists)) {
-                                redisUtils.set(user_phone_num.toString(), orderLists);
+                                redisUtils.set(key, orderLists);
                         }
                 }
 //                List<OrderList> orderLists1=(List<OrderList>) redisUtils.get(user_phone_num.toString());

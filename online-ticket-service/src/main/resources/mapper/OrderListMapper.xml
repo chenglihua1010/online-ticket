@@ -46,6 +46,7 @@
 
     <update id="updateOrder_status">
         <![CDATA[
-        UPDATE order_list SET order_status=#{order_status} WHERE order_id=#{order_id}]]>
+        UPDATE order_list SET order_status=#{order_status} WHERE order_id=#{order_id}
+        ]]>
     </update>
 </mapper>

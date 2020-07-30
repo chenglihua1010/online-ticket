@@ -10,4 +10,11 @@ public interface SeatInterface {
          * @return
          */
         public List<SeatVo> selectSeatByTrain_no(String train_no);
+
+//        /**
+//         * 唯一座位
+//         * @param id
+//         * @return
+//         */
+//        public Integer selectSeatByid(Integer id);
 }

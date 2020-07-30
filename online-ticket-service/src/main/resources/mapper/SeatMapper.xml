@@ -14,4 +14,14 @@
         SELECT * FROM seat WHERE train_no=#{train_no}
         ]]>
 </select>
+
+    <select id="selectseat_countByid">
+        <![CDATA[
+        SELECT seat_count WHERE id=#{id}
+        ]]>
+    </select>
+    <update id="updateSeat_count">
+        UPDATE seat SET seat_count=#{seat_count} WHERE id=#{id}
+    </update>
+
 </mapper>

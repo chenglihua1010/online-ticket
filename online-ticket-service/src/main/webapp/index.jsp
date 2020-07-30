@@ -299,7 +299,11 @@
                         <%--项目 目录--%>
 						<li><i class="icon fa fa-mobile" aria-hidden="true"></i>（首页）根据起始终点搜索</li>
 						<li><i class="icon fa fa-television" aria-hidden="true"></i>DTH</li>
-						<li><i class="icon fa fa-credit-card" aria-hidden="true"></i>Data Card</li>
+						<li><i class="icon fa fa-credit-card" aria-hidden="true"></i>
+                            <a href="/orderList/toSelectOrder?id=${userInforVo.id}">
+                                订单查询
+                            </a>
+                        </li>
 						<li><i class="icon fa fa-lightbulb-o" aria-hidden="true"></i>
                             <%--个人信息--%>
                             <a href="/userInfor/toUserInfor?id=${userInforVo.id}">
