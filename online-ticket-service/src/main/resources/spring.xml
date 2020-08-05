@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-redis.xml"/>
+
+    <!-- 日志监控类 -->
+    <bean id="actionLog" class="com.ticket.utils.ActionLogAspect"></bean>
+    <!-- 监控所有controller -->
+    <!-- true=使用cglib代理,基于类, false=使用JDK动态代理,基于接口-->
+    <aop:config proxy-target-class="true">
+        <aop:pointcut expression="execution(* com.ticket.controller.*.*(..))" id="logAction"/>
+        <aop:aspect id="b" ref="actionLog">
+             <aop:before pointcut-ref="logAction" method="before"/>
+            <aop:after pointcut-ref="logAction" method="after"/>
+        </aop:aspect>
+    </aop:config>
+
+
+    </beans>
