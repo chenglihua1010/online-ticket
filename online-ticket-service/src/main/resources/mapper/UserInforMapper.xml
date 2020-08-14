@@ -26,7 +26,7 @@
 
     <select id="findByUser_phone_numAndUser_password" resultMap="BaseResultMap">--
         <![CDATA[
-SELECT * FROM user_infor WHERE user_phone_num=#{user_phone_num} AND user_password=#{user_password}
+SELECT * FROM user_infor WHERE user_phone_num=#{user_phone_num}  AND user_password=#{user_password}
  ]]>
     </select>
 

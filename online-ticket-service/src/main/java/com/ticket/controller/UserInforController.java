@@ -84,16 +84,16 @@ public class UserInforController {
                 String user_phone_num=request.getParameter("user_phone_num");
                 String user_password=request.getParameter("user_password");
 
-                String userString=redisService.findName(user_phone_num.toString());
-                UserInforVo userInforVo;
-                if(StringUtils.isNotEmpty(userString)) {
-                        userInforVo = JSONObject.parseObject(userString, UserInforVo.class);
-                }else{
-                       userInforVo =userInforImpl.findByUser_phone_numAndUser_password(user_phone_num,user_password);
+//                String userString=redisService.findName(user_phone_num.toString());
+//                UserInforVo userInforVo;
+//                if(StringUtils.isNotEmpty(userString)) {
+//                        userInforVo = JSONObject.parseObject(userString, UserInforVo.class);
+//                }else{
+                UserInforVo userInforVo =userInforImpl.findByUser_phone_numAndUser_password(user_phone_num,user_password);
                         if(!ObjectUtils.isEmpty(userInforVo)){
                                 redisService.setNameValue(userInforVo.getUser_phone_num().toString(),JSONObject.toJSONString(userInforVo));
                         }
-                }
+//                }
                 if(!ObjectUtils.isEmpty(userInforVo)){
                         modelAndView.addObject("userInforVo",userInforVo);
                         modelAndView.setViewName("index");
