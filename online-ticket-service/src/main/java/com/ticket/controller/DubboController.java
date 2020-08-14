@@ -4,26 +4,22 @@ package com.ticket.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import com.ticket.api.vo.ManageInforVo;
 import com.ticket.api.vo.UserInforVo;
 import com.ticket.entity.UserInfor;
 import com.ticket.service.impl.RedisService;
 import com.ticket.service.impl.RedisUtils;
+import com.ticket.strategy.BuyStrategy;
+import com.ticket.strategy.MainFactory;
+import com.ticket.strategy.MediumMain;
 import com.ticket.utils.RedisClient;
 import com.ticketManage.api.service.DubboService;
-import org.apache.commons.collections.map.HashedMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import redis.clients.jedis.Jedis;
 
 import java.util.*;
 
@@ -196,9 +192,10 @@ public class DubboController {
      * @param args
          */
     public static void main(String[] args) {
-        String string="1,2";
-        String[] one=string.split(",");
-        System.out.println(one[0]);
+        MediumMain mediumMain=new MediumMain();
+//        MainFactory.getInstance(mediumMain.getClass());
+        BuyStrategy buyStrategy=new BuyStrategy(MainFactory.getInstance(mediumMain.getClass()));
+        System.out.println(buyStrategy.sell());
     }
 
 }
