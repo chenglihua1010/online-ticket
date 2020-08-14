@@ -23,6 +23,11 @@
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
+		<property name="proxyFilters">
+			<list>
+				<bean class="com.ticket.utils.ExecuteSqlFilter"/>
+			</list>
+		</property>
 		<!--<property name="poolPreparedStatements" value="true" />-->
 		<!--<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />-->
 
